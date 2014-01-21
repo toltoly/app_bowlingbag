@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712D5047188EE4EE00EDD566 /* BBagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5046188EE4EE00EDD566 /* BBagTableViewController.m */; };
+		712D504A188EEAB600EDD566 /* BBowlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5049188EEAB600EDD566 /* BBowlDetailViewController.m */; };
+		712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D504C188EFD0300EDD566 /* BBowlEditViewController.m */; };
 		87FCE151188E179000947E78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE150188E179000947E78 /* Foundation.framework */; };
 		87FCE153188E179000947E78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE152188E179000947E78 /* CoreGraphics.framework */; };
 		87FCE155188E179000947E78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE154188E179000947E78 /* UIKit.framework */; };
@@ -37,6 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		712D5045188EE4EE00EDD566 /* BBagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBagTableViewController.h; sourceTree = "<group>"; };
+		712D5046188EE4EE00EDD566 /* BBagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBagTableViewController.m; sourceTree = "<group>"; };
+		712D5048188EEAB600EDD566 /* BBowlDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBowlDetailViewController.h; sourceTree = "<group>"; };
+		712D5049188EEAB600EDD566 /* BBowlDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBowlDetailViewController.m; sourceTree = "<group>"; };
+		712D504B188EFD0300EDD566 /* BBowlEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBowlEditViewController.h; sourceTree = "<group>"; };
+		712D504C188EFD0300EDD566 /* BBowlEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBowlEditViewController.m; sourceTree = "<group>"; };
 		87FCE14D188E179000947E78 /* BowlingBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FCE150188E179000947E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		87FCE152188E179000947E78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,6 +96,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		712D5043188EE48F00EDD566 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				87FCE189188E27DD00947E78 /* BBLoginViewController.h */,
+				87FCE18A188E27DD00947E78 /* BBLoginViewController.m */,
+				87FCE18C188E280400947E78 /* BBRegisterViewController.h */,
+				87FCE18D188E280400947E78 /* BBRegisterViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		712D5044188EE49C00EDD566 /* BowlingBag */ = {
+			isa = PBXGroup;
+			children = (
+				712D5045188EE4EE00EDD566 /* BBagTableViewController.h */,
+				712D5046188EE4EE00EDD566 /* BBagTableViewController.m */,
+				712D5048188EEAB600EDD566 /* BBowlDetailViewController.h */,
+				712D5049188EEAB600EDD566 /* BBowlDetailViewController.m */,
+				712D504B188EFD0300EDD566 /* BBowlEditViewController.h */,
+				712D504C188EFD0300EDD566 /* BBowlEditViewController.m */,
+			);
+			name = BowlingBag;
+			sourceTree = "<group>";
+		};
+		712D504E188F07A900EDD566 /* TempImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TempImage;
+			sourceTree = "<group>";
+		};
 		87FCE144188E179000947E78 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +160,7 @@
 		87FCE156188E179000947E78 /* BowlingBag */ = {
 			isa = PBXGroup;
 			children = (
+				712D504E188F07A900EDD566 /* TempImage */,
 				87FCE188188E270D00947E78 /* ViewController */,
 				87FCE15F188E179000947E78 /* BBAppDelegate.h */,
 				87FCE160188E179000947E78 /* BBAppDelegate.m */,
@@ -165,10 +206,8 @@
 		87FCE188188E270D00947E78 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				87FCE189188E27DD00947E78 /* BBLoginViewController.h */,
-				87FCE18A188E27DD00947E78 /* BBLoginViewController.m */,
-				87FCE18C188E280400947E78 /* BBRegisterViewController.h */,
-				87FCE18D188E280400947E78 /* BBRegisterViewController.m */,
+				712D5044188EE49C00EDD566 /* BowlingBag */,
+				712D5043188EE48F00EDD566 /* Login */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -272,11 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				712D504A188EEAB600EDD566 /* BBowlDetailViewController.m in Sources */,
 				87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */,
 				87FCE16A188E179000947E78 /* BBViewController.m in Sources */,
 				87FCE161188E179000947E78 /* BBAppDelegate.m in Sources */,
 				87FCE18B188E27DD00947E78 /* BBLoginViewController.m in Sources */,
 				87FCE15D188E179000947E78 /* main.m in Sources */,
+				712D5047188EE4EE00EDD566 /* BBagTableViewController.m in Sources */,
+				712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,13 @@
 #import "BBowlDetailViewController.h"
 
 @interface BBowlDetailViewController ()
+{
+    IBOutlet UIImageView *imageView;
+    
+    IBOutlet UITextView *ballTypeTextView;
+    IBOutlet UITextView *descriptionBallTextView;
+ 
+}
 
 @end
 

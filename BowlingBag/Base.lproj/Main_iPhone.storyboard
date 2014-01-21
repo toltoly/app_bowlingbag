@@ -249,11 +249,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="images.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gUF-Ho-b2o">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUF-Ho-b2o">
                                 <rect key="frame" x="20" y="71" width="146" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HxF-Jh-NMW">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxF-Jh-NMW">
                                 <rect key="frame" x="174" y="71" width="133" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -261,7 +261,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k4y-FY-BVi">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4y-FY-BVi">
                                 <rect key="frame" x="20" y="254" width="280" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -274,6 +274,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Aym-K5-ORy"/>
                     <connections>
+                        <outlet property="ballTypeTextView" destination="HxF-Jh-NMW" id="0cN-6C-Ngm"/>
+                        <outlet property="descriptionBallTextView" destination="k4y-FY-BVi" id="7YV-hN-txP"/>
+                        <outlet property="imageView" destination="gUF-Ho-b2o" id="0M0-aL-2ka"/>
                         <segue destination="Lhi-Mc-NdU" kind="push" identifier="EditBowlSegue" id="tZl-cG-uKK"/>
                     </connections>
                 </viewController>
@@ -357,9 +360,6 @@
             <point key="canvasLocation" x="-410" y="68"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="images.jpg" width="217" height="232"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

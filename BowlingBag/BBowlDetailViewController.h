@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BBPopoverMenuViewController.h"
 @interface BBowlDetailViewController : UIViewController
+
+
+@property (nonatomic, strong) BBPopoverMenuViewController *menuPicker;
+@property (nonatomic, strong) UIPopoverController         *menuPickerPopover;
 
 @end

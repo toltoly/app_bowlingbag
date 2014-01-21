@@ -52,12 +52,69 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setEditMode:(BOOL)editmode
+{
+    ballTypeTextView.selectable=editmode;
+    ballTypeTextView.editable=editmode;
+    
+    descriptionBallTextView.selectable=editmode;
+    descriptionBallTextView.editable=editmode;
+    
+    
+}
 
 #pragma -mark Button Action
 
 -(void)pressEdit
 {
     
-      [self performSegueWithIdentifier:@"EditBowlSegue" sender:nil];
+     // [self performSegueWithIdentifier:@"EditBowlSegue" sender:nil];
+    
+    //Edit mode
+    
+    
 }
+- (IBAction)pressPictureEdit:(UIButton*)sender {
+    
+ /*   if (_menuPickerPopover == nil) {
+        
+        
+        if (_menuPicker == nil) {
+            //Create the ColorPickerViewController.
+            _menuPicker = [[BBPopoverMenuViewController alloc] initWithStyle:UITableViewStylePlain];
+            
+            //Set this VC as the delegate.
+            _menuPicker.delegate = self;
+        }
+        
+        _menuPickerPopover = [[UIPopoverController alloc] initWithContentViewController:_menuPicker];
+        
+    }
+    
+    if(_menuPickerPopover.popoverVisible)
+    {
+        [_menuPickerPopover dismissPopoverAnimated:YES];
+        _menuPickerPopover=nil;
+    }
+    else
+        [_menuPickerPopover presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+*/
+    
+}
+
+
+
+#pragma mark - Popover methods
+-(void)menuItemSelected:(int)menuItem   {
+    
+    //Dismiss the popover if it's showing.
+    if (_menuPickerPopover) {
+        [_menuPickerPopover dismissPopoverAnimated:YES];
+        _menuPickerPopover = nil;
+        //   _menuPicker=nil;
+    }
+    
+}
+
 @end

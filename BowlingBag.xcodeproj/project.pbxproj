@@ -11,6 +11,7 @@
 		712D504A188EEAB600EDD566 /* BBowlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5049188EEAB600EDD566 /* BBowlDetailViewController.m */; };
 		712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D504C188EFD0300EDD566 /* BBowlEditViewController.m */; };
 		712D5050188F0EC100EDD566 /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 712D504F188F0EC100EDD566 /* images.jpg */; };
+		712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */; };
 		87FCE151188E179000947E78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE150188E179000947E78 /* Foundation.framework */; };
 		87FCE153188E179000947E78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE152188E179000947E78 /* CoreGraphics.framework */; };
 		87FCE155188E179000947E78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE154188E179000947E78 /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 		712D504B188EFD0300EDD566 /* BBowlEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBowlEditViewController.h; sourceTree = "<group>"; };
 		712D504C188EFD0300EDD566 /* BBowlEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBowlEditViewController.m; sourceTree = "<group>"; };
 		712D504F188F0EC100EDD566 /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpg; path = Resource/CutImage/images.jpg; sourceTree = SOURCE_ROOT; };
+		712D5052188F153200EDD566 /* BBPopoverMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPopoverMenuViewController.h; sourceTree = "<group>"; };
+		712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPopoverMenuViewController.m; sourceTree = "<group>"; };
 		87FCE14D188E179000947E78 /* BowlingBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FCE150188E179000947E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		87FCE152188E179000947E78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +133,15 @@
 			name = TempImage;
 			sourceTree = "<group>";
 		};
+		712D5051188F14EA00EDD566 /* PopOverMenu */ = {
+			isa = PBXGroup;
+			children = (
+				712D5052188F153200EDD566 /* BBPopoverMenuViewController.h */,
+				712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */,
+			);
+			name = PopOverMenu;
+			sourceTree = "<group>";
+		};
 		87FCE144188E179000947E78 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +221,7 @@
 		87FCE188188E270D00947E78 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				712D5051188F14EA00EDD566 /* PopOverMenu */,
 				712D5044188EE49C00EDD566 /* BowlingBag */,
 				712D5043188EE48F00EDD566 /* Login */,
 			);
@@ -321,6 +334,7 @@
 				87FCE161188E179000947E78 /* BBAppDelegate.m in Sources */,
 				87FCE18B188E27DD00947E78 /* BBLoginViewController.m in Sources */,
 				87FCE15D188E179000947E78 /* main.m in Sources */,
+				712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */,
 				712D5047188EE4EE00EDD566 /* BBagTableViewController.m in Sources */,
 				712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */,
 			);

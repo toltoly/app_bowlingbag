@@ -22,6 +22,8 @@
 		87FCE175188E179000947E78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE154188E179000947E78 /* UIKit.framework */; };
 		87FCE17D188E179000947E78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87FCE17B188E179000947E78 /* InfoPlist.strings */; };
 		87FCE17F188E179000947E78 /* BowlingBagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE17E188E179000947E78 /* BowlingBagTests.m */; };
+		87FCE18B188E27DD00947E78 /* BBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE18A188E27DD00947E78 /* BBLoginViewController.m */; };
+		87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE18D188E280400947E78 /* BBRegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		87FCE17A188E179000947E78 /* BowlingBagTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BowlingBagTests-Info.plist"; sourceTree = "<group>"; };
 		87FCE17C188E179000947E78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87FCE17E188E179000947E78 /* BowlingBagTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BowlingBagTests.m; sourceTree = "<group>"; };
+		87FCE189188E27DD00947E78 /* BBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoginViewController.h; sourceTree = "<group>"; };
+		87FCE18A188E27DD00947E78 /* BBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoginViewController.m; sourceTree = "<group>"; };
+		87FCE18C188E280400947E78 /* BBRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRegisterViewController.h; sourceTree = "<group>"; };
+		87FCE18D188E280400947E78 /* BBRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 		87FCE156188E179000947E78 /* BowlingBag */ = {
 			isa = PBXGroup;
 			children = (
+				87FCE188188E270D00947E78 /* ViewController */,
 				87FCE15F188E179000947E78 /* BBAppDelegate.h */,
 				87FCE160188E179000947E78 /* BBAppDelegate.m */,
 				87FCE162188E179000947E78 /* Main_iPhone.storyboard */,
@@ -153,6 +160,17 @@
 				87FCE17B188E179000947E78 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87FCE188188E270D00947E78 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				87FCE189188E27DD00947E78 /* BBLoginViewController.h */,
+				87FCE18A188E27DD00947E78 /* BBLoginViewController.m */,
+				87FCE18C188E280400947E78 /* BBRegisterViewController.h */,
+				87FCE18D188E280400947E78 /* BBRegisterViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */,
 				87FCE16A188E179000947E78 /* BBViewController.m in Sources */,
 				87FCE161188E179000947E78 /* BBAppDelegate.m in Sources */,
+				87FCE18B188E27DD00947E78 /* BBLoginViewController.m in Sources */,
 				87FCE15D188E179000947E78 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +495,7 @@
 				87FCE184188E179000947E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87FCE185188E179000947E78 /* Build configuration list for PBXNativeTarget "BowlingBagTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +504,7 @@
 				87FCE187188E179000947E78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CEE9E35D-E442-47C3-B295-EC6BBEE10978</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BowlingBag</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>63A2EFC7-6858-45F7-87B9-26C803B9EABF</key>
+		<string>https://github.com/toltoly/app_bowlingbag.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BowlingBag.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>63A2EFC7-6858-45F7-87B9-26C803B9EABF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/toltoly/app_bowlingbag.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>63A2EFC7-6858-45F7-87B9-26C803B9EABF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>63A2EFC7-6858-45F7-87B9-26C803B9EABF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>app_bowlingbag</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -10,6 +10,7 @@
 		712D5047188EE4EE00EDD566 /* BBagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5046188EE4EE00EDD566 /* BBagTableViewController.m */; };
 		712D504A188EEAB600EDD566 /* BBowlDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5049188EEAB600EDD566 /* BBowlDetailViewController.m */; };
 		712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D504C188EFD0300EDD566 /* BBowlEditViewController.m */; };
+		712D5050188F0EC100EDD566 /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 712D504F188F0EC100EDD566 /* images.jpg */; };
 		87FCE151188E179000947E78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE150188E179000947E78 /* Foundation.framework */; };
 		87FCE153188E179000947E78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE152188E179000947E78 /* CoreGraphics.framework */; };
 		87FCE155188E179000947E78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE154188E179000947E78 /* UIKit.framework */; };
@@ -46,6 +47,7 @@
 		712D5049188EEAB600EDD566 /* BBowlDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBowlDetailViewController.m; sourceTree = "<group>"; };
 		712D504B188EFD0300EDD566 /* BBowlEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBowlEditViewController.h; sourceTree = "<group>"; };
 		712D504C188EFD0300EDD566 /* BBowlEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBowlEditViewController.m; sourceTree = "<group>"; };
+		712D504F188F0EC100EDD566 /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpg; path = Resource/CutImage/images.jpg; sourceTree = SOURCE_ROOT; };
 		87FCE14D188E179000947E78 /* BowlingBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FCE150188E179000947E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		87FCE152188E179000947E78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +125,7 @@
 		712D504E188F07A900EDD566 /* TempImage */ = {
 			isa = PBXGroup;
 			children = (
+				712D504F188F0EC100EDD566 /* images.jpg */,
 			);
 			name = TempImage;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87FCE167188E179000947E78 /* Main_iPad.storyboard in Resources */,
+				712D5050188F0EC100EDD566 /* images.jpg in Resources */,
 				87FCE16C188E179000947E78 /* Images.xcassets in Resources */,
 				87FCE164188E179000947E78 /* Main_iPhone.storyboard in Resources */,
 				87FCE15B188E179000947E78 /* InfoPlist.strings in Resources */,

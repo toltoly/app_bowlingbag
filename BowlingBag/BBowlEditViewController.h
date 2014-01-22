@@ -15,5 +15,5 @@
     IBOutlet UIImageView *imageView;
 }
 
-@property BOOL newMedia;
+
 @end

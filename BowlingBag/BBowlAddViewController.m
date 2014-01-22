@@ -1,30 +1,32 @@
 //
-//  BBowlDetailViewController.m
+//  BBowlAddViewController.m
 //  BowlingBag
 //
-//  Created by Won Kim on 1/21/14.
+//  Created by won kim on 1/21/14.
 //  Copyright (c) 2014 toltoly. All rights reserved.
 //
 
-#import "BBowlDetailViewController.h"
+#import "BBowlAddViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "BBPopoverMenuViewController.h"
 
-@interface BBowlDetailViewController ()
+@interface BBowlAddViewController ()
 {
     IBOutlet UIImageView *imageView;
     
-    IBOutlet UITextView *ballName;
+    IBOutlet UITextView * ballName;
     IBOutlet UITextView *ballTypeTextView;
     IBOutlet UITextView *descriptionBallTextView;
- 
+    
     IBOutlet UIView *cameraPopup;
     
     IBOutlet UIButton *photoEdit;
-    
 }
 @property BOOL newMedia;
+
 @end
 
-@implementation BBowlDetailViewController
+@implementation BBowlAddViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,18 +41,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//    
-//    UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
-//    [rightbutton setTitle:@"Edit" forState:UIControlStateNormal];
-//   // [rightbutton setTitleColor:kLightBlueColor forState:UIControlStateNormal ];
-//    [rightbutton addTarget:self action:@selector(pressEdit) forControlEvents:UIControlEventTouchUpInside];
-//    rightbutton.frame=CGRectMake(50,50,50,50);
-//    
-//    UIBarButtonItem *customrightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightbutton];
-//    self.navigationItem.rightBarButtonItem=customrightBarItem;
-// //   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"White"] forBarMetrics:UIBarMetricsDefault];
+    //
+    //    UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
+    //    [rightbutton setTitle:@"Edit" forState:UIControlStateNormal];
+    //   // [rightbutton setTitleColor:kLightBlueColor forState:UIControlStateNormal ];
+    //    [rightbutton addTarget:self action:@selector(pressEdit) forControlEvents:UIControlEventTouchUpInside];
+    //    rightbutton.frame=CGRectMake(50,50,50,50);
+    //
+    //    UIBarButtonItem *customrightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightbutton];
+    //    self.navigationItem.rightBarButtonItem=customrightBarItem;
+    // //   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"White"] forBarMetrics:UIBarMetricsDefault];
     
-    [self setEditMode:FALSE];
+    [self setEditMode:TRUE];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -68,15 +70,13 @@
 
 -(void)setEditMode:(BOOL)editmode
 {
+    ballName.selectable=editmode;
+    ballName.editable=editmode;
     ballTypeTextView.selectable=editmode;
     ballTypeTextView.editable=editmode;
     
     descriptionBallTextView.selectable=editmode;
     descriptionBallTextView.editable=editmode;
-    
-    ballName.selectable=editmode;
-    ballName.editable=editmode;
-    
     photoEdit.hidden=!editmode;
     if(editmode)
     {
@@ -124,7 +124,7 @@
                            animated:YES completion:nil];
         // _newMedia = YES;
     }
-
+    
     
 }
 - (IBAction)pressCameraRoll:(id)sender {
@@ -142,7 +142,7 @@
                            animated:YES completion:nil];
         // _newMedia = YES;
     }
-
+    
     
 }
 - (IBAction)pressClosePopup:(id)sender {
@@ -152,7 +152,7 @@
 -(void)pressEdit
 {
     
-     // [self performSegueWithIdentifier:@"EditBowlSegue" sender:nil];
+    // [self performSegueWithIdentifier:@"EditBowlSegue" sender:nil];
     
     //Edit mode
     
@@ -166,36 +166,37 @@
     
     //Edit mode
     
-    [self setEditMode:FALSE];
+   // [self setEditMode:FALSE];
+    [self.navigationController popViewControllerAnimated:TRUE];
     
 }
 - (IBAction)pressPictureEdit:(UIButton*)sender {
     
     cameraPopup.hidden=FALSE;
- /*   if (_menuPickerPopover == nil) {
-        
-        
-        if (_menuPicker == nil) {
-            //Create the ColorPickerViewController.
-            _menuPicker = [[BBPopoverMenuViewController alloc] initWithStyle:UITableViewStylePlain];
-            
-            //Set this VC as the delegate.
-            _menuPicker.delegate = self;
-        }
-        
-        _menuPickerPopover = [[UIPopoverController alloc] initWithContentViewController:_menuPicker];
-        
-    }
-    
-    if(_menuPickerPopover.popoverVisible)
-    {
-        [_menuPickerPopover dismissPopoverAnimated:YES];
-        _menuPickerPopover=nil;
-    }
-    else
-        [_menuPickerPopover presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-    
-*/
+    /*   if (_menuPickerPopover == nil) {
+     
+     
+     if (_menuPicker == nil) {
+     //Create the ColorPickerViewController.
+     _menuPicker = [[BBPopoverMenuViewController alloc] initWithStyle:UITableViewStylePlain];
+     
+     //Set this VC as the delegate.
+     _menuPicker.delegate = self;
+     }
+     
+     _menuPickerPopover = [[UIPopoverController alloc] initWithContentViewController:_menuPicker];
+     
+     }
+     
+     if(_menuPickerPopover.popoverVisible)
+     {
+     [_menuPickerPopover dismissPopoverAnimated:YES];
+     _menuPickerPopover=nil;
+     }
+     else
+     [_menuPickerPopover presentPopoverFromRect:sender.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+     
+     */
     
 }
 

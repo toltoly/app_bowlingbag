@@ -9,7 +9,10 @@
 #import "BBowlEditViewController.h"
 
 @interface BBowlEditViewController ()
-
+{
+    
+}
+@property BOOL newMedia;
 @end
 
 @implementation BBowlEditViewController

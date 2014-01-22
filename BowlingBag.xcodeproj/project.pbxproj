@@ -29,6 +29,7 @@
 		87FCE17F188E179000947E78 /* BowlingBagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE17E188E179000947E78 /* BowlingBagTests.m */; };
 		87FCE18B188E27DD00947E78 /* BBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE18A188E27DD00947E78 /* BBLoginViewController.m */; };
 		87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE18D188E280400947E78 /* BBRegisterViewController.m */; };
+		87FCE191188F665E00947E78 /* BBowlAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE190188F665E00947E78 /* BBowlAddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		87FCE18A188E27DD00947E78 /* BBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoginViewController.m; sourceTree = "<group>"; };
 		87FCE18C188E280400947E78 /* BBRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRegisterViewController.h; sourceTree = "<group>"; };
 		87FCE18D188E280400947E78 /* BBRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRegisterViewController.m; sourceTree = "<group>"; };
+		87FCE18F188F665D00947E78 /* BBowlAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBowlAddViewController.h; sourceTree = "<group>"; };
+		87FCE190188F665E00947E78 /* BBowlAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBowlAddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				712D5049188EEAB600EDD566 /* BBowlDetailViewController.m */,
 				712D504B188EFD0300EDD566 /* BBowlEditViewController.h */,
 				712D504C188EFD0300EDD566 /* BBowlEditViewController.m */,
+				87FCE18F188F665D00947E78 /* BBowlAddViewController.h */,
+				87FCE190188F665E00947E78 /* BBowlAddViewController.m */,
 			);
 			name = BowlingBag;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				712D504A188EEAB600EDD566 /* BBowlDetailViewController.m in Sources */,
+				87FCE191188F665E00947E78 /* BBowlAddViewController.m in Sources */,
 				87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */,
 				87FCE16A188E179000947E78 /* BBViewController.m in Sources */,
 				87FCE161188E179000947E78 /* BBAppDelegate.m in Sources */,

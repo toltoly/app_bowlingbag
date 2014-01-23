@@ -119,7 +119,20 @@
         imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
         imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
-        imagePicker.allowsEditing = NO;
+
+        
+        imagePicker.allowsEditing = YES;
+        
+        UIView *view2 = [[UIView alloc] init];
+        UIImageView *imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cameraMask.png"]];
+        imageview.frame = CGRectMake(0, 0, 320, 320);
+        
+        [view2 addSubview:imageview];
+        [view2 bringSubviewToFront:imageview];
+        
+        
+        imagePicker.cameraOverlayView = view2;
+        
         [self presentViewController:imagePicker
                            animated:YES completion:nil];
         // _newMedia = YES;
@@ -137,7 +150,16 @@
         imagePicker.sourceType =
         UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
-        imagePicker.allowsEditing = NO;
+        imagePicker.allowsEditing = YES;
+//        UIView *view2 = [[UIView alloc] init];
+//        UIImageView *imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cameraMask.png"]];
+//        imageview.frame = CGRectMake(0, 0, 640, 640);
+//        
+//        [view2 addSubview:imageview];
+//        [view2 bringSubviewToFront:imageview];
+//        
+//        
+//        imagePicker.cameraOverlayView = view2;
         [self presentViewController:imagePicker
                            animated:YES completion:nil];
         // _newMedia = YES;

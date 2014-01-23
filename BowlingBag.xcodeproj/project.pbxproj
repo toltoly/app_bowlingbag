@@ -30,6 +30,7 @@
 		87FCE18B188E27DD00947E78 /* BBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE18A188E27DD00947E78 /* BBLoginViewController.m */; };
 		87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE18D188E280400947E78 /* BBRegisterViewController.m */; };
 		87FCE191188F665E00947E78 /* BBowlAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE190188F665E00947E78 /* BBowlAddViewController.m */; };
+		87FCE1931890D42200947E78 /* cameraMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 87FCE1921890D42200947E78 /* cameraMask.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		87FCE18D188E280400947E78 /* BBRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRegisterViewController.m; sourceTree = "<group>"; };
 		87FCE18F188F665D00947E78 /* BBowlAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBowlAddViewController.h; sourceTree = "<group>"; };
 		87FCE190188F665E00947E78 /* BBowlAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBowlAddViewController.m; sourceTree = "<group>"; };
+		87FCE1921890D42200947E78 /* cameraMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cameraMask.png; path = Resource/CutImage/cameraMask.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		712D504E188F07A900EDD566 /* TempImage */ = {
 			isa = PBXGroup;
 			children = (
+				87FCE1921890D42200947E78 /* cameraMask.png */,
 				712D504F188F0EC100EDD566 /* images.jpg */,
 			);
 			name = TempImage;
@@ -310,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FCE1931890D42200947E78 /* cameraMask.png in Resources */,
 				87FCE167188E179000947E78 /* Main_iPad.storyboard in Resources */,
 				712D5050188F0EC100EDD566 /* images.jpg in Resources */,
 				87FCE16C188E179000947E78 /* Images.xcassets in Resources */,

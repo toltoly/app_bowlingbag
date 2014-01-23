@@ -20,6 +20,9 @@
     
     IBOutlet UIButton *photoEdit;
     
+    
+      UITapGestureRecognizer  *tapRecognizer;
+    
 }
 @property BOOL newMedia;
 @end
@@ -50,6 +53,20 @@
 //    self.navigationItem.rightBarButtonItem=customrightBarItem;
 // //   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"White"] forBarMetrics:UIBarMetricsDefault];
     
+    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                            action:@selector(didTapAnywhere:)];
+    
+    
+    //Notification
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(keyboardWillShow:) name:
+     UIKeyboardWillShowNotification object:nil];
+    
+    [nc addObserver:self selector:@selector(keyboardWillHide:) name:
+     UIKeyboardWillHideNotification object:nil];
+
+    
     [self setEditMode:FALSE];
 }
 
@@ -66,6 +83,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark  - keypad visible Notification
+
+-(void) keyboardWillShow:(NSNotification *) note {
+    
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+    
+}
+
+-(void) keyboardWillHide:(NSNotification *) note
+{
+
+    [self.view removeGestureRecognizer:tapRecognizer];
+}
+
+-(void)didTapAnywhere: (UITapGestureRecognizer*) recognizer {
+    [ballName resignFirstResponder];
+    [ballTypeTextView resignFirstResponder];
+    [descriptionBallTextView resignFirstResponder];
+
+}
 -(void)setEditMode:(BOOL)editmode
 {
     ballTypeTextView.selectable=editmode;
@@ -275,6 +313,7 @@ finishedSavingWithError:(NSError *)error
         [alert show];
     }
 }
+
 
 
 @end

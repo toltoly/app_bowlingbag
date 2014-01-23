@@ -10,4 +10,28 @@
 
 @implementation BBAppState
 
+static BBAppState *sharedInstance;
+
++ (BBAppState*)getInstance {
+	
+	@synchronized(self) {
+		if(!sharedInstance) {
+			
+            sharedInstance = [[BBAppState alloc] init];
+            
+		}
+	}
+	
+	return sharedInstance;
+}
+
+- (id)init{
+    self = [super init];
+    if(self){
+
+	}
+    return self;
+}
+
+
 @end

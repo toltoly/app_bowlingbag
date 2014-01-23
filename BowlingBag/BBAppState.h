@@ -10,4 +10,7 @@
 
 @interface BBAppState : NSObject
 
++ (BBAppState*)getInstance;
+
+
 @end

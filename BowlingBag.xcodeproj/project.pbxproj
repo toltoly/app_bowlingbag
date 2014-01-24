@@ -32,6 +32,9 @@
 		87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE18D188E280400947E78 /* BBRegisterViewController.m */; };
 		87FCE191188F665E00947E78 /* BBowlAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FCE190188F665E00947E78 /* BBowlAddViewController.m */; };
 		87FCE1931890D42200947E78 /* cameraMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 87FCE1921890D42200947E78 /* cameraMask.png */; };
+		87FCE19518921A6700947E78 /* text_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 87FCE19418921A6700947E78 /* text_box.png */; };
+		87FCE19718921AD000947E78 /* edit_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 87FCE19618921AD000947E78 /* edit_box.png */; };
+		87FCE19918921ED300947E78 /* camera_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 87FCE19818921ED300947E78 /* camera_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		87FCE18F188F665D00947E78 /* BBowlAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBowlAddViewController.h; sourceTree = "<group>"; };
 		87FCE190188F665E00947E78 /* BBowlAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBowlAddViewController.m; sourceTree = "<group>"; };
 		87FCE1921890D42200947E78 /* cameraMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cameraMask.png; path = Resource/CutImage/cameraMask.png; sourceTree = SOURCE_ROOT; };
+		87FCE19418921A6700947E78 /* text_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_box.png; path = Resource/CutImage/text_box.png; sourceTree = SOURCE_ROOT; };
+		87FCE19618921AD000947E78 /* edit_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit_box.png; path = Resource/CutImage/edit_box.png; sourceTree = SOURCE_ROOT; };
+		87FCE19818921ED300947E78 /* camera_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon.png; path = Resource/CutImage/camera_icon.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,9 @@
 		712D504E188F07A900EDD566 /* TempImage */ = {
 			isa = PBXGroup;
 			children = (
+				87FCE19818921ED300947E78 /* camera_icon.png */,
+				87FCE19618921AD000947E78 /* edit_box.png */,
+				87FCE19418921A6700947E78 /* text_box.png */,
 				87FCE1921890D42200947E78 /* cameraMask.png */,
 				712D504F188F0EC100EDD566 /* images.jpg */,
 			);
@@ -330,6 +339,9 @@
 				87FCE167188E179000947E78 /* Main_iPad.storyboard in Resources */,
 				712D5050188F0EC100EDD566 /* images.jpg in Resources */,
 				87FCE16C188E179000947E78 /* Images.xcassets in Resources */,
+				87FCE19918921ED300947E78 /* camera_icon.png in Resources */,
+				87FCE19518921A6700947E78 /* text_box.png in Resources */,
+				87FCE19718921AD000947E78 /* edit_box.png in Resources */,
 				87FCE164188E179000947E78 /* Main_iPhone.storyboard in Resources */,
 				87FCE15B188E179000947E78 /* InfoPlist.strings in Resources */,
 			);

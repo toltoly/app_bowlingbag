@@ -15,9 +15,14 @@
     IBOutlet UITextView *ballName;
     IBOutlet UITextView *ballTypeTextView;
     IBOutlet UITextView *descriptionBallTextView;
+    
+    IBOutlet UIImageView *ballTypeBGImage;
+    IBOutlet UIImageView *ballNameBGImage;
+    IBOutlet UIImageView *descriptionBGImage;
+
+    
  
     IBOutlet UIView *cameraPopup;
-    
     IBOutlet UIButton *photoEdit;
     
     
@@ -41,6 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent=NO;
 	// Do any additional setup after loading the view.
 //    
 //    UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -65,10 +71,13 @@
     
     [nc addObserver:self selector:@selector(keyboardWillHide:) name:
      UIKeyboardWillHideNotification object:nil];
+    
 
+   
     
     [self setEditMode:FALSE];
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -83,7 +92,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark  - keypad visible Notification
+#pragma  -mark TextView delegate
+
+-(void)textViewDidChange:(UITextView *)textView
+{
+    
+}
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    NSLog(@"textViewShouldBeginEditing : %d",textView.tag);
+    return TRUE;
+}
+#pragma  -mark keypad visible Notification
 
 -(void) keyboardWillShow:(NSNotification *) note {
     
@@ -114,6 +134,22 @@
     
     ballName.selectable=editmode;
     ballName.editable=editmode;
+    
+    if(editmode)
+    {
+        [ballTypeBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
+        [ballNameBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
+        [descriptionBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
+    }
+    else
+    {
+        [ballTypeBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
+        [ballNameBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
+        [descriptionBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
+        
+    }
+
+
     
     photoEdit.hidden=!editmode;
     if(editmode)

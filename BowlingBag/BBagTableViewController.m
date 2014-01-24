@@ -7,7 +7,7 @@
 //
 
 #import "BBagTableViewController.h"
-
+#import <Parse/Parse.h>
 @interface BBagTableViewController ()
 {
     
@@ -31,6 +31,10 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent=NO;
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    [testObject saveInBackground];
 	// Do any additional setup after loading the view.
 }
 

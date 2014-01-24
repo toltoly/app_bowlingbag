@@ -12,6 +12,7 @@
 {
     IBOutlet UIImageView *imageView;
     
+    IBOutlet UIView *detailView;
     IBOutlet UITextView *ballName;
     IBOutlet UITextView *ballTypeTextView;
     IBOutlet UITextView *descriptionBallTextView;
@@ -350,6 +351,33 @@ finishedSavingWithError:(NSError *)error
     }
 }
 
+#pragma mark - transition functions
+-(void)moveView:(id)aView From:(float)from Distance:(float)dist Speed:(float)speed AxisX:(BOOL)axisX
+{
+    if(![aView isKindOfClass:[UIView class]])
+        return;
+    
+    UIView* view=(UIView*)aView;
+    
+    CGRect frame=view.frame;
+    if(axisX)
+    {
+        frame.origin.x=from;
+        view.frame=frame;
+        frame.origin.x=from+dist;
+    }
+    else
+    {
+        frame.origin.y=from;
+        view.frame=frame;
+        frame.origin.y=from+dist;
+    }
+    
+    [UIView animateWithDuration:speed animations:^{
+        view.frame = frame;
+    }];
+    
+}
 
 
 @end

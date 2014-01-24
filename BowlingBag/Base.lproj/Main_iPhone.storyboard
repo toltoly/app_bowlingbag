@@ -360,7 +360,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHu-eF-Wr3">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHu-eF-Wr3" userLabel="DetailView">
                                 <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -479,6 +479,7 @@
                         <outlet property="cameraPopup" destination="T6K-WY-GiL" id="Hkz-zO-z5g"/>
                         <outlet property="descriptionBGImage" destination="v9m-OE-dVc" id="ofC-df-g2P"/>
                         <outlet property="descriptionBallTextView" destination="k4y-FY-BVi" id="7YV-hN-txP"/>
+                        <outlet property="detailView" destination="sHu-eF-Wr3" id="um1-IM-jQe"/>
                         <outlet property="imageView" destination="gUF-Ho-b2o" id="0M0-aL-2ka"/>
                         <outlet property="photoEdit" destination="rq0-iK-sbm" id="Mbx-hw-kb7"/>
                         <segue destination="Lhi-Mc-NdU" kind="push" identifier="EditBowlSegue" id="tZl-cG-uKK"/>

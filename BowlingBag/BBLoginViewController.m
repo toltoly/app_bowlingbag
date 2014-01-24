@@ -7,7 +7,7 @@
 //
 
 #import "BBLoginViewController.h"
-
+#import <Parse/Parse.h>
 @interface BBLoginViewController ()
 
 @end
@@ -42,6 +42,10 @@
 #pragma -mark Button Action
 
 - (IBAction)pressLogin:(id)sender {
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    [testObject saveInBackground];
     
     [self performSegueWithIdentifier:@"HomeSegue"sender:self];
 }

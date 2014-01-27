@@ -1,22 +1,22 @@
 //
-//  BBagTableViewController.m
+//  BBNoteTableViewController.m
 //  BowlingBag
 //
-//  Created by Won Kim on 1/21/14.
+//  Created by won kim on 1/26/14.
 //  Copyright (c) 2014 toltoly. All rights reserved.
 //
 
-#import "BBagTableViewController.h"
-#import <Parse/Parse.h>
-@interface BBagTableViewController ()
+#import "BBNoteTableViewController.h"
+
+@interface BBNoteTableViewController ()
 {
     
-    IBOutlet UITableView *bagTableView;
+    IBOutlet UITableView *noteTableView;
 }
 
 @end
 
-@implementation BBagTableViewController
+@implementation BBNoteTableViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,11 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.translucent=NO;
-    
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
 	// Do any additional setup after loading the view.
 }
 
@@ -42,20 +37,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-
-#pragma -mark Button Action
-- (IBAction)pressLogout:(id)sender {
-    
-    [self performSegueWithIdentifier:@"BackHomeSegue" sender:nil];
- //   [self dismissViewControllerAnimated:TRUE completion:nil];
-}
-
-- (IBAction)pressAddBowl:(id)sender {
-     [self performSegueWithIdentifier:@"AddBowlSegue" sender:nil];
-    
 }
 
 
@@ -72,7 +53,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-      UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"kBowlCell"];
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"kNoteCell"];
     
     return cell;
 }
@@ -83,11 +64,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     
- //   [self performSegueWithIdentifier:@"BowlDetailSegue" sender:nil];
+    
+    [self performSegueWithIdentifier:@"NoteDetailSegue" sender:nil];
     
 }
-
 
 @end

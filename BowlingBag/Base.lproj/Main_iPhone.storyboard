@@ -202,12 +202,12 @@
                         <outlet property="bagTableView" destination="iCB-ph-gbV" id="lNx-4f-pLk"/>
                         <segue destination="n5f-KR-DkP" kind="push" identifier="BowlDetailSegue" id="07g-XR-cAW"/>
                         <segue destination="Lhi-Mc-NdU" kind="push" identifier="AddBowlSegue" id="wLU-GW-UWH"/>
-                        <segue destination="vXZ-lx-hvc" kind="modal" id="54O-u3-YCw"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="BackHomeSegue" id="54O-u3-YCw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ny-S2-6Rm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="-1089"/>
+            <point key="canvasLocation" x="1134" y="-1473"/>
         </scene>
         <!--Bowl Add View Controller-->
         <scene sceneID="jSe-Su-B8B">
@@ -396,7 +396,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6K-WY-GiL" userLabel="CameraPopup">
-                                <rect key="frame" x="-340" y="0.0" width="340" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="BNm-dg-CzN" userLabel="BGMask">
@@ -404,7 +404,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAS-Mp-56Q">
-                                        <rect key="frame" x="72" y="201" width="186" height="30"/>
+                                        <rect key="frame" x="72" y="113" width="186" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Camera">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -414,7 +414,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bj-CP-gkJ">
-                                        <rect key="frame" x="72" y="259" width="186" height="30"/>
+                                        <rect key="frame" x="72" y="173" width="186" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Camera roll">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -424,7 +424,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4N-Hg-9st">
-                                        <rect key="frame" x="91" y="313" width="149" height="30"/>
+                                        <rect key="frame" x="96" y="237" width="149" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Close">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -456,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCJ-bf-f4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2131" y="-853"/>
+            <point key="canvasLocation" x="2027" y="-1418"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tVd-DJ-xxn">
@@ -599,7 +599,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="1000" y="-901"/>
+            <point key="canvasLocation" x="1256" y="-807"/>
         </scene>
         <!--Navigation Controller - note-->
         <scene sceneID="ovu-2F-KpY">
@@ -632,7 +632,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wLU-GW-UWH"/>
         <segue reference="uov-hV-bUA"/>
+        <segue reference="tZl-cG-uKK"/>
     </inferredMetricsTieBreakers>
 </document>

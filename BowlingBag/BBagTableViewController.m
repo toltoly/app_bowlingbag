@@ -85,7 +85,7 @@
 {
 
     
- //   [self performSegueWithIdentifier:@"BowlDetailSegue" sender:nil];
+    [self performSegueWithIdentifier:@"BowlDetailSegue" sender:nil];
     
 }
 

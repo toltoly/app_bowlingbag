@@ -43,9 +43,9 @@
 
 - (IBAction)pressLogin:(id)sender {
     
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+  /*  PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
     testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+    [testObject saveInBackground];*/
     
     [self performSegueWithIdentifier:@"HomeSegue"sender:self];
 }

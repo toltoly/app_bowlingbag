@@ -8,6 +8,7 @@
 
 #import "BBowlDetailViewController.h"
 
+#define  kViewDetailMoveDistance 180
 @interface BBowlDetailViewController ()
 {
     IBOutlet UIImageView *imageView;
@@ -102,6 +103,12 @@
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     NSLog(@"textViewShouldBeginEditing : %d",textView.tag);
+    
+    if(textView.tag==2)
+    {
+        //move view to up
+        [self moveView:detailView From:0 Distance:-kViewDetailMoveDistance Speed:0.5 AxisX:FALSE];
+    }
     return TRUE;
 }
 #pragma  -mark keypad visible Notification
@@ -115,6 +122,12 @@
 
 -(void) keyboardWillHide:(NSNotification *) note
 {
+    
+    NSLog(@"keyboardWillHide %f",detailView.frame.origin.y);
+    if(detailView.frame.origin.y==-kViewDetailMoveDistance)
+    {
+        [self moveView:detailView From:-kViewDetailMoveDistance Distance:kViewDetailMoveDistance Speed:0.5 AxisX:FALSE];
+    }
 
     [self.view removeGestureRecognizer:tapRecognizer];
 }
@@ -198,9 +211,28 @@
         
         imagePicker.allowsEditing = YES;
         
+        NSString* fileName=@"cameraMask_iphone4.png";
+        CGRect frame=[[UIScreen mainScreen] bounds];
+        if([[UIDevice currentDevice]userInterfaceIdiom]==UIUserInterfaceIdiomPhone)
+        {
+            if (frame.size.height == 568)
+            {
+                fileName=@"cameraMask_iphone4.png";
+                
+            }
+            else
+            {
+                //iphone 3.5 inch screen
+            }
+        }
+        else
+        {
+            //[ipad]
+        }
+        
         UIView *view2 = [[UIView alloc] init];
-        UIImageView *imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cameraMask.png"]];
-        imageview.frame = CGRectMake(0, 0, 320, 320);
+        UIImageView *imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:fileName]];
+        imageview.frame =frame;
         
         [view2 addSubview:imageview];
         [view2 bringSubviewToFront:imageview];
@@ -323,7 +355,34 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *image = info[UIImagePickerControllerOriginalImage];
         
-        imageView.image = image;
+        
+      //   CGRect frame=[[UIScreen mainScreen] bounds];
+        if([[UIDevice currentDevice]userInterfaceIdiom]==UIUserInterfaceIdiomPhone)
+        {
+//            if (frame.size.height == 568)
+//            {
+//                UIImage* maskImage = [self maskImage:image withMask:[UIImage imageNamed:@"imageMask.png"]];
+//                
+//                imageView.image=[self scaleAndRotateImage:maskImage];
+//                
+//            }
+//            else
+//            {
+//                //iphone 3.5 inch screen
+//                
+//                 UIImage* maskImage = [self resizeImage:image toSize:CGSizeMake(247, 247)];
+//                
+//                imageView.image=[self maskImage:maskImage withMask:[UIImage imageNamed:@"imageMask_iphone4.png"]];
+//            }
+//            
+            UIImage* maskImage = [self resizeImage:image toSize:CGSizeMake(247, 247)];
+            
+            imageView.image=[self maskImage:maskImage withMask:[UIImage imageNamed:@"imageMask_iphone4.png"]];
+        }
+        else
+        {
+            //[ipad]
+        }
         if (_newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,
@@ -350,7 +409,175 @@ finishedSavingWithError:(NSError *)error
         [alert show];
     }
 }
+- (UIImage*) maskImage:(UIImage *)image withMask:(UIImage *)maskImage {
+    
+	CGImageRef maskRef = maskImage.CGImage;
+    
+	CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
+                                        CGImageGetHeight(maskRef),
+                                        CGImageGetBitsPerComponent(maskRef),
+                                        CGImageGetBitsPerPixel(maskRef),
+                                        CGImageGetBytesPerRow(maskRef),
+                                        CGImageGetDataProvider(maskRef), NULL, false);
+    
+	CGImageRef masked = CGImageCreateWithMask([image CGImage], mask);
+	return [UIImage imageWithCGImage:masked];
+    
+}
 
+- (UIImage *)scaleAndRotateImage:(UIImage *)image {
+    
+    int kMaxResolution = 640; // Or whatever
+    
+    CGImageRef imgRef = image.CGImage;
+    
+    CGFloat width = CGImageGetWidth(imgRef);
+    CGFloat height = CGImageGetHeight(imgRef);
+    
+    
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    CGRect bounds = CGRectMake(0, 0, width, height);
+    if (width > kMaxResolution || height > kMaxResolution) {
+        CGFloat ratio = width/height;
+        if (ratio > 1) {
+            bounds.size.width = kMaxResolution;
+            bounds.size.height = roundf(bounds.size.width / ratio);
+        }
+        else {
+            bounds.size.height = kMaxResolution;
+            bounds.size.width = roundf(bounds.size.height * ratio);
+        }
+    }
+    
+    CGFloat scaleRatio = bounds.size.width / width;
+    CGSize imageSize = CGSizeMake(CGImageGetWidth(imgRef), CGImageGetHeight(imgRef));
+    CGFloat boundHeight;
+    UIImageOrientation orient = image.imageOrientation;
+    switch(orient) {
+            
+        case UIImageOrientationUp: //EXIF = 1
+            transform = CGAffineTransformIdentity;
+            break;
+            
+        case UIImageOrientationUpMirrored: //EXIF = 2
+            transform = CGAffineTransformMakeTranslation(imageSize.width, 0.0);
+            transform = CGAffineTransformScale(transform, -1.0, 1.0);
+            break;
+            
+        case UIImageOrientationDown: //EXIF = 3
+            transform = CGAffineTransformMakeTranslation(imageSize.width, imageSize.height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationDownMirrored: //EXIF = 4
+            transform = CGAffineTransformMakeTranslation(0.0, imageSize.height);
+            transform = CGAffineTransformScale(transform, 1.0, -1.0);
+            break;
+            
+        case UIImageOrientationLeftMirrored: //EXIF = 5
+            boundHeight = bounds.size.height;
+            bounds.size.height = bounds.size.width;
+            bounds.size.width = boundHeight;
+            transform = CGAffineTransformMakeTranslation(imageSize.height, imageSize.width);
+            transform = CGAffineTransformScale(transform, -1.0, 1.0);
+            transform = CGAffineTransformRotate(transform, 3.0 * M_PI / 2.0);
+            break;
+            
+        case UIImageOrientationLeft: //EXIF = 6
+            boundHeight = bounds.size.height;
+            bounds.size.height = bounds.size.width;
+            bounds.size.width = boundHeight;
+            transform = CGAffineTransformMakeTranslation(0.0, imageSize.width);
+            transform = CGAffineTransformRotate(transform, 3.0 * M_PI / 2.0);
+            break;
+            
+        case UIImageOrientationRightMirrored: //EXIF = 7
+            boundHeight = bounds.size.height;
+            bounds.size.height = bounds.size.width;
+            bounds.size.width = boundHeight;
+            transform = CGAffineTransformMakeScale(-1.0, 1.0);
+            transform = CGAffineTransformRotate(transform, M_PI / 2.0);
+            break;
+            
+        case UIImageOrientationRight: //EXIF = 8
+            boundHeight = bounds.size.height;
+            bounds.size.height = bounds.size.width;
+            bounds.size.width = boundHeight;
+            transform = CGAffineTransformMakeTranslation(imageSize.height, 0.0);
+            transform = CGAffineTransformRotate(transform, M_PI / 2.0);
+            break;
+            
+        default:
+            [NSException raise:NSInternalInconsistencyException format:@"Invalid image orientation"];
+            
+    }
+    
+    UIGraphicsBeginImageContext(bounds.size);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    if (orient == UIImageOrientationRight || orient == UIImageOrientationLeft) {
+        CGContextScaleCTM(context, -scaleRatio, scaleRatio);
+        CGContextTranslateCTM(context, -height, 0);
+    }
+    else {
+        CGContextScaleCTM(context, scaleRatio, -scaleRatio);
+        CGContextTranslateCTM(context, 0, -height);
+    }
+    
+    CGContextConcatCTM(context, transform);
+    
+    CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, width, height), imgRef);
+    UIImage *imageCopy = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return imageCopy;
+}
+
+-(UIImage *)resizeImage:(UIImage *)image toSize:(CGSize)destSize{
+    float currentHeight = image.size.height;
+    float currentWidth = image.size.width;
+    float liChange ;
+    CGSize newSize ;
+    if(currentWidth == currentHeight) // image is square
+    {
+        liChange = destSize.height / currentHeight;
+        newSize.height = currentHeight * liChange;
+        newSize.width = currentWidth * liChange;
+    }
+    else if(currentHeight > currentWidth) // image is landscape
+    {
+        liChange  = destSize.width / currentWidth;
+        newSize.height = currentHeight * liChange;
+        newSize.width = destSize.width;
+    }
+    else                                // image is Portrait
+    {
+        liChange = destSize.height / currentHeight;
+        newSize.height= destSize.height;
+        newSize.width = currentWidth * liChange;
+    }
+    
+    
+    UIGraphicsBeginImageContext( newSize );
+    CGContextRef                context;
+    UIImage                     *outputImage = nil;
+    
+    context = UIGraphicsGetCurrentContext();
+    [image drawInRect:CGRectMake( 0, 0, newSize.width, newSize.height )];
+    outputImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    CGImageRef imageRef;
+    int x = (newSize.width == destSize.width) ? 0 : (newSize.width - destSize.width)/2;
+    int y = (newSize.height == destSize.height) ? 0 : (newSize.height - destSize.height )/2;
+    if ( ( imageRef = CGImageCreateWithImageInRect( outputImage.CGImage, CGRectMake(x, y, destSize.width, destSize.height) ) ) ) {
+        outputImage = [[UIImage alloc] initWithCGImage: imageRef] ;
+    }
+    CGImageRelease(imageRef);
+    return  outputImage;
+}
 #pragma mark - transition functions
 -(void)moveView:(id)aView From:(float)from Distance:(float)dist Speed:(float)speed AxisX:(BOOL)axisX
 {

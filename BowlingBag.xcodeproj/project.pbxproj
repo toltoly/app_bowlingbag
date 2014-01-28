@@ -24,6 +24,9 @@
 		712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */; };
 		8711A298189605AD009BCF15 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8711A297189605AD009BCF15 /* Parse.framework */; };
 		8711A29C18960B90009BCF15 /* BBNoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8711A29B18960B90009BCF15 /* BBNoteTableViewController.m */; };
+		8711A29E1897400C009BCF15 /* cameraMask_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A29D1897400C009BCF15 /* cameraMask_iphone4.png */; };
+		8711A2A118974569009BCF15 /* imageMask_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A29F18974569009BCF15 /* imageMask_iphone4.png */; };
+		8711A2A218974569009BCF15 /* imageMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A2A018974569009BCF15 /* imageMask.png */; };
 		87FCE151188E179000947E78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE150188E179000947E78 /* Foundation.framework */; };
 		87FCE153188E179000947E78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE152188E179000947E78 /* CoreGraphics.framework */; };
 		87FCE155188E179000947E78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE154188E179000947E78 /* UIKit.framework */; };
@@ -82,6 +85,9 @@
 		8711A297189605AD009BCF15 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8711A29A18960B90009BCF15 /* BBNoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNoteTableViewController.h; sourceTree = "<group>"; };
 		8711A29B18960B90009BCF15 /* BBNoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNoteTableViewController.m; sourceTree = "<group>"; };
+		8711A29D1897400C009BCF15 /* cameraMask_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraMask_iphone4.png; sourceTree = "<group>"; };
+		8711A29F18974569009BCF15 /* imageMask_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageMask_iphone4.png; sourceTree = "<group>"; };
+		8711A2A018974569009BCF15 /* imageMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageMask.png; sourceTree = "<group>"; };
 		87FCE14D188E179000947E78 /* BowlingBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FCE150188E179000947E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		87FCE152188E179000947E78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,6 +192,9 @@
 		712D504E188F07A900EDD566 /* TempImage */ = {
 			isa = PBXGroup;
 			children = (
+				8711A29F18974569009BCF15 /* imageMask_iphone4.png */,
+				8711A2A018974569009BCF15 /* imageMask.png */,
+				8711A29D1897400C009BCF15 /* cameraMask_iphone4.png */,
 				87FCE19818921ED300947E78 /* camera_icon.png */,
 				87FCE19618921AD000947E78 /* edit_box.png */,
 				87FCE19418921A6700947E78 /* text_box.png */,
@@ -389,14 +398,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				87FCE1931890D42200947E78 /* cameraMask.png in Resources */,
+				8711A2A118974569009BCF15 /* imageMask_iphone4.png in Resources */,
 				87FCE167188E179000947E78 /* Main_iPad.storyboard in Resources */,
 				712D5050188F0EC100EDD566 /* images.jpg in Resources */,
 				87FCE16C188E179000947E78 /* Images.xcassets in Resources */,
 				87FCE19918921ED300947E78 /* camera_icon.png in Resources */,
 				87FCE19518921A6700947E78 /* text_box.png in Resources */,
+				8711A29E1897400C009BCF15 /* cameraMask_iphone4.png in Resources */,
 				87FCE19718921AD000947E78 /* edit_box.png in Resources */,
 				87FCE164188E179000947E78 /* Main_iPhone.storyboard in Resources */,
 				87FCE15B188E179000947E78 /* InfoPlist.strings in Resources */,
+				8711A2A218974569009BCF15 /* imageMask.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

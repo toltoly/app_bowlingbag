@@ -27,6 +27,7 @@
 		8711A29E1897400C009BCF15 /* cameraMask_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A29D1897400C009BCF15 /* cameraMask_iphone4.png */; };
 		8711A2A118974569009BCF15 /* imageMask_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A29F18974569009BCF15 /* imageMask_iphone4.png */; };
 		8711A2A218974569009BCF15 /* imageMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A2A018974569009BCF15 /* imageMask.png */; };
+		8711A2A518976504009BCF15 /* BBNoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8711A2A418976504009BCF15 /* BBNoteDetailViewController.m */; };
 		87FCE151188E179000947E78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE150188E179000947E78 /* Foundation.framework */; };
 		87FCE153188E179000947E78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE152188E179000947E78 /* CoreGraphics.framework */; };
 		87FCE155188E179000947E78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE154188E179000947E78 /* UIKit.framework */; };
@@ -88,6 +89,8 @@
 		8711A29D1897400C009BCF15 /* cameraMask_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraMask_iphone4.png; sourceTree = "<group>"; };
 		8711A29F18974569009BCF15 /* imageMask_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageMask_iphone4.png; sourceTree = "<group>"; };
 		8711A2A018974569009BCF15 /* imageMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageMask.png; sourceTree = "<group>"; };
+		8711A2A318976504009BCF15 /* BBNoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNoteDetailViewController.h; sourceTree = "<group>"; };
+		8711A2A418976504009BCF15 /* BBNoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNoteDetailViewController.m; sourceTree = "<group>"; };
 		87FCE14D188E179000947E78 /* BowlingBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FCE150188E179000947E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		87FCE152188E179000947E78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -218,6 +221,8 @@
 			children = (
 				8711A29A18960B90009BCF15 /* BBNoteTableViewController.h */,
 				8711A29B18960B90009BCF15 /* BBNoteTableViewController.m */,
+				8711A2A318976504009BCF15 /* BBNoteDetailViewController.h */,
+				8711A2A418976504009BCF15 /* BBNoteDetailViewController.m */,
 			);
 			name = Note;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */,
 				87FCE16A188E179000947E78 /* BBViewController.m in Sources */,
 				87FCE161188E179000947E78 /* BBAppDelegate.m in Sources */,
+				8711A2A518976504009BCF15 /* BBNoteDetailViewController.m in Sources */,
 				7128BE7718901B1E00B1B26B /* BBAppState.m in Sources */,
 				87FCE18B188E27DD00947E78 /* BBLoginViewController.m in Sources */,
 				87FCE15D188E179000947E78 /* main.m in Sources */,

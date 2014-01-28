@@ -26,9 +26,11 @@
  
     IBOutlet UIView *cameraPopup;
     IBOutlet UIButton *photoEdit;
+    UITapGestureRecognizer  *tapRecognizer;
     
+    IBOutlet UIButton *deleteBowlButton;
     
-      UITapGestureRecognizer  *tapRecognizer;
+  
     
 }
 @property BOOL newMedia;
@@ -77,13 +79,23 @@
 
    
     
-    [self setEditMode:FALSE];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if(_onlyEditMode)
+    {
+        deleteBowlButton.hidden=FALSE;
+        [self setEditMode:TRUE];
+    }
+    else
+    {
+        deleteBowlButton.hidden=TRUE;
+    [self setEditMode:FALSE];
+    }
     
     cameraPopup.hidden=TRUE;
 }
@@ -196,7 +208,16 @@
     
 }
 
+
+
 #pragma -mark Button Action
+- (IBAction)pressDeleteBowl:(id)sender {
+    [self. navigationController popViewControllerAnimated:TRUE];
+
+    
+}
+
+
 - (IBAction)PressCamera:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
@@ -295,7 +316,16 @@
     
     //Edit mode
     
-    [self setEditMode:FALSE];
+    if(_onlyEditMode)
+    {
+        //go back to table
+        [self. navigationController popViewControllerAnimated:TRUE];
+        
+    }
+    else
+    {
+        [self setEditMode:FALSE];
+    }
     
 }
 - (IBAction)pressPictureEdit:(UIButton*)sender {

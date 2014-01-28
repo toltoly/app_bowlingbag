@@ -23,6 +23,7 @@
     IBOutlet UIImageView *noteTextImage;
     IBOutlet UITextView *noteTextview;
     
+    IBOutlet UIButton *deleteNoteButton;
 }
 
 @end
@@ -69,10 +70,25 @@
      UIKeyboardWillHideNotification object:nil];
     
     
-     [self setEditMode:FALSE];
+    
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if(_onlyEditMode)
+    {
+        deleteNoteButton.hidden=FALSE;
+        [self setEditMode:TRUE];
+    }
+    else
+    {
+        deleteNoteButton.hidden=TRUE;
+        [self setEditMode:FALSE];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -176,7 +192,19 @@
     
     //Edit mode
     
+    if(_onlyEditMode)
+    {
+        [self.navigationController popViewControllerAnimated:TRUE];
+    }
+    else
     [self setEditMode:FALSE];
+    
+}
+
+#pragma  makr button Action
+
+- (IBAction)pressDeleteNote:(id)sender {
+    [self.navigationController popViewControllerAnimated:TRUE];
     
 }
 

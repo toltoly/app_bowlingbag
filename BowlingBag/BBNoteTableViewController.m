@@ -7,6 +7,7 @@
 //
 
 #import "BBNoteTableViewController.h"
+#import "BBNoteDetailViewController.h"
 
 @interface BBNoteTableViewController ()
 {
@@ -40,6 +41,37 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma -mark Button Action
+- (IBAction)pressLogout:(id)sender {
+    
+    [self performSegueWithIdentifier:@"BackHomeSegue" sender:nil];
+    //   [self dismissViewControllerAnimated:TRUE completion:nil];
+}
+
+- (IBAction)pressAddBowl:(id)sender {
+    [self performSegueWithIdentifier:@"AddNoteSegue" sender:nil];
+    
+}
+
+#pragma  -mark segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"AddNoteSegue"]  )
+    {
+        // Get reference to the destination view controller
+        BBNoteDetailViewController *vc = [segue destinationViewController];
+        
+        [vc setOnlyEditMode:TRUE];
+    }
+    else if([[segue identifier] isEqualToString:@"NoteDetailSegue"])
+    {
+        BBNoteDetailViewController *vc = [segue destinationViewController];
+        [vc setOnlyEditMode:FALSE];
+    }
 }
 
 

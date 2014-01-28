@@ -10,4 +10,6 @@
 
 @interface BBNoteDetailViewController : UIViewController<UITextViewDelegate>
 
+@property (nonatomic)  BOOL onlyEditMode;
+
 @end

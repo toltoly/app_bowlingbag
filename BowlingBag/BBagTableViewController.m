@@ -7,6 +7,7 @@
 //
 
 #import "BBagTableViewController.h"
+#import "BBowlDetailViewController.h"
 #import <Parse/Parse.h>
 @interface BBagTableViewController ()
 {
@@ -59,6 +60,25 @@
 }
 
 
+#pragma  -mark segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"AddBowlSegue"]  )
+    {
+        // Get reference to the destination view controller
+        BBowlDetailViewController *vc = [segue destinationViewController];
+
+        [vc setOnlyEditMode:TRUE];
+    }
+    else if([[segue identifier] isEqualToString:@"BowlDetailSegue"])
+    {
+         BBowlDetailViewController *vc = [segue destinationViewController];
+        [vc setOnlyEditMode:FALSE];
+    }
+}
+
+
 #pragma -mark tableview delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -84,10 +104,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    
     [self performSegueWithIdentifier:@"BowlDetailSegue" sender:nil];
     
 }
+
+
 
 
 @end

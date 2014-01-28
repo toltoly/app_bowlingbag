@@ -201,121 +201,13 @@
                     <connections>
                         <outlet property="bagTableView" destination="iCB-ph-gbV" id="lNx-4f-pLk"/>
                         <segue destination="n5f-KR-DkP" kind="push" identifier="BowlDetailSegue" id="07g-XR-cAW"/>
-                        <segue destination="Lhi-Mc-NdU" kind="push" identifier="AddBowlSegue" id="wLU-GW-UWH"/>
                         <segue destination="vXZ-lx-hvc" kind="modal" identifier="BackHomeSegue" id="54O-u3-YCw"/>
+                        <segue destination="n5f-KR-DkP" kind="push" identifier="AddBowlSegue" id="ZfI-4e-1Au"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ny-S2-6Rm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1134" y="-1473"/>
-        </scene>
-        <!--Bowl Add View Controller-->
-        <scene sceneID="jSe-Su-B8B">
-            <objects>
-                <viewController id="Lhi-Mc-NdU" customClass="BBowlAddViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wQb-DF-mJQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="9cU-EI-1f1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ko3-ws-pgg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vw5-na-cmx">
-                                <rect key="frame" x="27" y="67" width="121" height="167"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Key-yt-GR1" userLabel="Description">
-                                <rect key="frame" x="27" y="261" width="280" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvm-2i-ft9">
-                                <rect key="frame" x="102" y="198" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pressPictureEdit:" destination="n5f-KR-DkP" eventType="touchUpInside" id="BPm-NN-Ecw"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCN-ln-SwM" userLabel="ballType">
-                                <rect key="frame" x="167" y="149" width="133" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qae-Bb-r4H" userLabel="ballName">
-                                <rect key="frame" x="167" y="67" width="133" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jhi-bc-e2N" userLabel="CameraPopup">
-                                <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="Jhp-c9-b3M" userLabel="BGMask">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5U-G9-ffC">
-                                        <rect key="frame" x="72" y="201" width="186" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Camera">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="PressCamera:" destination="n5f-KR-DkP" eventType="touchUpInside" id="b5p-00-TBM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XtS-CH-FlC">
-                                        <rect key="frame" x="72" y="259" width="186" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Camera roll">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pressCameraRoll:" destination="n5f-KR-DkP" eventType="touchUpInside" id="UfP-0u-FR3"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbd-w9-kHl">
-                                        <rect key="frame" x="91" y="313" width="149" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Close">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pressClosePopup:" destination="n5f-KR-DkP" eventType="touchUpInside" id="ZcP-X2-C9V"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="TtI-9Q-wiB"/>
-                    <connections>
-                        <outlet property="ballName" destination="Qae-Bb-r4H" id="VXV-sX-NfH"/>
-                        <outlet property="ballTypeTextView" destination="sCN-ln-SwM" id="3Ux-mG-LnQ"/>
-                        <outlet property="cameraPopup" destination="jhi-bc-e2N" id="LKk-8G-434"/>
-                        <outlet property="descriptionBallTextView" destination="Key-yt-GR1" id="BgX-Xv-5GW"/>
-                        <outlet property="imageView" destination="vw5-na-cmx" id="xI4-A9-3C9"/>
-                        <outlet property="photoEdit" destination="dvm-2i-ft9" id="eAA-Bj-P3b"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ski-kP-cIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3759" y="-362"/>
         </scene>
         <!--Bowl Detail View Controller-->
         <scene sceneID="PWd-zh-2EB">
@@ -368,14 +260,14 @@
                                         </connections>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text_box.png" translatesAutoresizingMaskIntoConstraints="NO" id="v9m-OE-dVc" userLabel="descriptionBG">
-                                        <rect key="frame" x="8" y="185" width="312" height="318"/>
+                                        <rect key="frame" x="8" y="185" width="312" height="207"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4y-FY-BVi" userLabel="description">
-                                        <rect key="frame" x="20" y="195" width="273" height="286"/>
+                                        <rect key="frame" x="20" y="195" width="273" height="174"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna ]</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
@@ -395,6 +287,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKR-U2-jxK">
+                                <rect key="frame" x="34" y="409" width="252" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete Bowl">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressDeleteBowl:" destination="n5f-KR-DkP" eventType="touchUpInside" id="aHj-9l-E3b"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6K-WY-GiL" userLabel="CameraPopup">
                                 <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -446,12 +348,12 @@
                         <outlet property="ballTypeBGImage" destination="uOM-OG-jxS" id="BlN-d9-XR6"/>
                         <outlet property="ballTypeTextView" destination="HxF-Jh-NMW" id="pO2-DI-Vbn"/>
                         <outlet property="cameraPopup" destination="T6K-WY-GiL" id="Hkz-zO-z5g"/>
+                        <outlet property="deleteBowlButton" destination="lKR-U2-jxK" id="67I-RZ-oB4"/>
                         <outlet property="descriptionBGImage" destination="v9m-OE-dVc" id="ofC-df-g2P"/>
                         <outlet property="descriptionBallTextView" destination="k4y-FY-BVi" id="7YV-hN-txP"/>
                         <outlet property="detailView" destination="sHu-eF-Wr3" id="um1-IM-jQe"/>
                         <outlet property="imageView" destination="gUF-Ho-b2o" id="0M0-aL-2ka"/>
                         <outlet property="photoEdit" destination="rq0-iK-sbm" id="Mbx-hw-kb7"/>
-                        <segue destination="Lhi-Mc-NdU" kind="push" identifier="EditBowlSegue" id="tZl-cG-uKK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCJ-bf-f4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -461,7 +363,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="tVd-DJ-xxn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gqp-1B-fJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController definesPresentationContext="YES" id="qgu-ru-6zI" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="AWm-Je-3mc"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -476,6 +377,7 @@
                         <segue destination="LHm-PT-WX2" kind="relationship" relationship="viewControllers" id="DIt-rY-OHe"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gqp-1B-fJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="622" y="-51"/>
         </scene>
@@ -532,10 +434,41 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Note" id="spd-uj-Z55"/>
+                    <navigationItem key="navigationItem" title="Note" id="spd-uj-Z55">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="2W7-xp-jam">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QhD-ve-TDy">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="logout">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressLogout:" destination="g4c-6J-awR" eventType="touchUpInside" id="pLe-EW-nht"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="aX8-kN-x6y">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2vh-7A-UUh">
+                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressAddBowl:" destination="g4c-6J-awR" eventType="touchUpInside" id="uSv-fG-Y5e"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="noteTableView" destination="q5R-rX-k7y" id="CeU-YN-7HM"/>
                         <segue destination="xu8-J1-wXi" kind="push" identifier="NoteDetailSegue" id="VFm-lR-2t8"/>
+                        <segue destination="xu8-J1-wXi" kind="push" identifier="AddNoteSegue" id="4kZ-DC-ggZ"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="BackHomeSegue" id="TKS-ya-JSG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SJa-dd-lWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -575,11 +508,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text_box.png" translatesAutoresizingMaskIntoConstraints="NO" id="paW-jh-nvf">
-                                        <rect key="frame" x="12" y="88" width="296" height="356"/>
+                                        <rect key="frame" x="12" y="88" width="296" height="308"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" text="note note note" translatesAutoresizingMaskIntoConstraints="NO" id="BqB-IF-scf" userLabel="NoteText View">
-                                        <rect key="frame" x="31" y="104" width="252" height="307"/>
+                                        <rect key="frame" x="31" y="104" width="252" height="266"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -591,11 +524,22 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNO-26-VNH">
+                                <rect key="frame" x="20" y="404" width="274" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete Note">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressDeleteNote:" destination="xu8-J1-wXi" eventType="touchUpInside" id="2wx-Xb-Gyp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ETm-eb-uVD"/>
                     <connections>
+                        <outlet property="deleteNoteButton" destination="QNO-26-VNH" id="Vuq-ov-aAB"/>
                         <outlet property="noteDetailView" destination="43A-ra-1dq" id="CzW-2p-5kd"/>
                         <outlet property="noteHeaderImage" destination="8nW-cx-H1Z" id="YbP-kf-JKQ"/>
                         <outlet property="noteHeaderLabel" destination="e8w-zf-wc6" id="V42-Bw-jT6"/>
@@ -611,7 +555,6 @@
         <!--Navigation Controller - bag-->
         <scene sceneID="Syb-8W-Ehf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qe9-ro-vqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wKh-uY-eYz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="bag" id="etW-ZG-lYU"/>
                     <toolbarItems/>
@@ -624,6 +567,7 @@
                         <segue destination="S74-CE-lnV" kind="relationship" relationship="rootViewController" id="3HW-jU-VBz"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qe9-ro-vqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1256" y="-807"/>
         </scene>
@@ -659,6 +603,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="uov-hV-bUA"/>
-        <segue reference="tZl-cG-uKK"/>
+        <segue reference="TKS-ya-JSG"/>
+        <segue reference="ZfI-4e-1Au"/>
+        <segue reference="4kZ-DC-ggZ"/>
     </inferredMetricsTieBreakers>
 </document>

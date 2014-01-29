@@ -57,6 +57,7 @@
                                 </state>
                                 <connections>
                                     <action selector="pressForgotPassword:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fU0-Cc-eKv"/>
+                                    <segue destination="53z-Kc-Ldb" kind="modal" id="g2D-Yl-vZC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -403,6 +404,55 @@
             </objects>
             <point key="canvasLocation" x="622" y="-51"/>
         </scene>
+        <!--Reset Password View Controller-->
+        <scene sceneID="Eiq-tI-VCL">
+            <objects>
+                <viewController id="53z-Kc-Ldb" customClass="BBResetPasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8C3-8c-dyZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="eKi-VN-crN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nbl-T9-X8z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snu-IO-E7H">
+                                <rect key="frame" x="50" y="276" width="220" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressSend:" destination="53z-Kc-Ldb" eventType="touchUpInside" id="iga-S8-i1q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyz-df-QRz">
+                                <rect key="frame" x="50" y="336" width="220" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressBack:" destination="53z-Kc-Ldb" eventType="touchUpInside" id="sVM-2W-V0g"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-OJ-7Ga">
+                                <rect key="frame" x="37" y="220" width="255" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="UPF-OJ-7Ga" id="hFk-Au-iCn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IPV-ir-Nzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-925" y="51"/>
+        </scene>
         <!--View Controller - Setting-->
         <scene sceneID="5vx-iM-QkL">
             <objects>
@@ -625,7 +675,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="54O-u3-YCw"/>
-        <segue reference="doz-0r-UQl"/>
+        <segue reference="uov-hV-bUA"/>
         <segue reference="4kZ-DC-ggZ"/>
         <segue reference="ZfI-4e-1Au"/>
     </inferredMetricsTieBreakers>

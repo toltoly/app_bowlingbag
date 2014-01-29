@@ -22,6 +22,7 @@
 		712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D504C188EFD0300EDD566 /* BBowlEditViewController.m */; };
 		712D5050188F0EC100EDD566 /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 712D504F188F0EC100EDD566 /* images.jpg */; };
 		712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */; };
+		71F0D09A1899908600BB1E58 /* BBResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D0991899908600BB1E58 /* BBResetPasswordViewController.m */; };
 		8711A298189605AD009BCF15 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8711A297189605AD009BCF15 /* Parse.framework */; };
 		8711A29C18960B90009BCF15 /* BBNoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8711A29B18960B90009BCF15 /* BBNoteTableViewController.m */; };
 		8711A29E1897400C009BCF15 /* cameraMask_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A29D1897400C009BCF15 /* cameraMask_iphone4.png */; };
@@ -83,6 +84,8 @@
 		712D504F188F0EC100EDD566 /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpg; path = Resource/CutImage/images.jpg; sourceTree = SOURCE_ROOT; };
 		712D5052188F153200EDD566 /* BBPopoverMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPopoverMenuViewController.h; sourceTree = "<group>"; };
 		712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPopoverMenuViewController.m; sourceTree = "<group>"; };
+		71F0D0981899908600BB1E58 /* BBResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBResetPasswordViewController.h; sourceTree = "<group>"; };
+		71F0D0991899908600BB1E58 /* BBResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBResetPasswordViewController.m; sourceTree = "<group>"; };
 		8711A297189605AD009BCF15 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8711A29A18960B90009BCF15 /* BBNoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNoteTableViewController.h; sourceTree = "<group>"; };
 		8711A29B18960B90009BCF15 /* BBNoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNoteTableViewController.m; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				87FCE18A188E27DD00947E78 /* BBLoginViewController.m */,
 				87FCE18C188E280400947E78 /* BBRegisterViewController.h */,
 				87FCE18D188E280400947E78 /* BBRegisterViewController.m */,
+				71F0D0981899908600BB1E58 /* BBResetPasswordViewController.h */,
+				71F0D0991899908600BB1E58 /* BBResetPasswordViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				712D504A188EEAB600EDD566 /* BBowlDetailViewController.m in Sources */,
+				71F0D09A1899908600BB1E58 /* BBResetPasswordViewController.m in Sources */,
 				87FCE191188F665E00947E78 /* BBowlAddViewController.m in Sources */,
 				87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */,
 				87FCE16A188E179000947E78 /* BBViewController.m in Sources */,

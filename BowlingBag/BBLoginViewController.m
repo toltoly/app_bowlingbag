@@ -13,6 +13,8 @@
     IBOutlet UITextField *emailTextField;
     
     IBOutlet UITextField *passwordTextField;
+    
+    UITapGestureRecognizer  *tapRecognizer;
 }
 
 @end
@@ -35,6 +37,28 @@
     
   //  [self performSegueWithIdentifier:@"HomeSegue"sender:self];
     
+    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                            action:@selector(didTapAnywhere:)];
+    
+    
+    //Notification
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(keyboardWillShow:) name:
+     UIKeyboardWillShowNotification object:nil];
+    
+    [nc addObserver:self selector:@selector(keyboardWillHide:) name:
+     UIKeyboardWillHideNotification object:nil];
+
+    
+ 
+    
+
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
     // If we have a cached user, we'll get it back here
     PFUser *currentUser = [PFUser currentUser];
@@ -46,15 +70,37 @@
     {
         
     }
-
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma  -mark keypad visible Notification
+
+-(void) keyboardWillShow:(NSNotification *) note {
+    
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+    
+}
+
+-(void) keyboardWillHide:(NSNotification *) note
+{
+    
+    
+    [self.view removeGestureRecognizer:tapRecognizer];
+}
+
+-(void)didTapAnywhere: (UITapGestureRecognizer*) recognizer {
+    [emailTextField resignFirstResponder];
+    [passwordTextField resignFirstResponder];
+
+}
+
+    
+    
 
 
 #pragma -mark Button Action

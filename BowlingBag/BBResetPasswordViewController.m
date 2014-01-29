@@ -12,6 +12,8 @@
 {
     IBOutlet UITextField *emailTextField;
     
+    UITapGestureRecognizer  *tapRecognizer;
+    
 }
 
 @end
@@ -31,6 +33,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                            action:@selector(didTapAnywhere:)];
+    
+    
+    //Notification
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(keyboardWillShow:) name:
+     UIKeyboardWillShowNotification object:nil];
+    
+    [nc addObserver:self selector:@selector(keyboardWillHide:) name:
+     UIKeyboardWillHideNotification object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,13 +54,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma  -mark keypad visible Notification
+
+-(void) keyboardWillShow:(NSNotification *) note {
+    
+    [self.view addGestureRecognizer:tapRecognizer];
+    
+    
+}
+
+-(void) keyboardWillHide:(NSNotification *) note
+{
+    
+    
+    [self.view removeGestureRecognizer:tapRecognizer];
+}
+
+-(void)didTapAnywhere: (UITapGestureRecognizer*) recognizer {
+    [emailTextField resignFirstResponder];
+
+    
+}
 #pragma mark-  Button Action
 
 - (IBAction)pressSend:(id)sender {
     
     if([self validateEmail:emailTextField.text])
     {
-        [PFUser requestPasswordResetForEmailInBackground:@"emailTextField.text"];
+        [PFUser requestPasswordResetForEmailInBackground:emailTextField.text];
         
         UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Sent" message:@"Please check your email." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [warningAlert show];

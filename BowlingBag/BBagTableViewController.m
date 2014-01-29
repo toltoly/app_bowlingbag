@@ -54,6 +54,7 @@
 #pragma -mark Button Action
 - (IBAction)pressLogout:(id)sender {
     
+    [PFUser logOut];
     [self performSegueWithIdentifier:@"BackHomeSegue" sender:nil];
  //   [self dismissViewControllerAnimated:TRUE completion:nil];
 }

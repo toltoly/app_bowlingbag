@@ -7,7 +7,8 @@
 //
 
 #import "BBowlDetailViewController.h"
-
+#import "UIImage+ResizeAdditions.h"
+#import <Parse/Parse.h>
 #define  kViewDetailMoveDistance 180
 @interface BBowlDetailViewController ()
 {
@@ -34,6 +35,12 @@
     
 }
 @property BOOL newMedia;
+
+@property (nonatomic, strong) PFFile *photoFile;
+@property (nonatomic, strong) PFFile *thumbnailFile;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier fileUploadBackgroundTaskId;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier photoPostBackgroundTaskId;
+
 @end
 
 @implementation BBowlDetailViewController
@@ -636,5 +643,50 @@ finishedSavingWithError:(NSError *)error
     
 }
 
+
+#pragma mark -Parse 
+
+- (BOOL)uploadImage:(UIImage *)anImage {
+    // Resize the image to be square (what is shown in the preview)
+    UIImage *resizedImage = [anImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit
+                                                          bounds:CGSizeMake(560.0f, 560.0f)
+                                            interpolationQuality:kCGInterpolationHigh];
+    // Create a thumbnail and add a corner radius for use in table views
+    UIImage *thumbnailImage = [anImage thumbnailImage:86.0f
+                                    transparentBorder:0.0f
+                                         cornerRadius:10.0f
+                                 interpolationQuality:kCGInterpolationDefault];
+    
+    // Get an NSData representation of our images. We use JPEG for the larger image
+    // for better compression and PNG for the thumbnail to keep the corner radius transparency
+    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
+    NSData *thumbnailImageData = UIImageJPEGRepresentation(thumbnailImage, 0.8f);
+    
+    if (!imageData || !thumbnailImageData) {
+        return NO;
+    }
+    
+    self.photoFile = [PFFile fileWithData:imageData];
+    self.thumbnailFile = [PFFile fileWithData:thumbnailImageData];
+    
+    // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
+    self.fileUploadBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+    }];
+    
+    [self.photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self.thumbnailFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+            }];
+        } else {
+            [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+        }
+    }];
+    
+    return YES;
+
+
+}
 
 @end

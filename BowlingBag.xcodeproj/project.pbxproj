@@ -23,6 +23,10 @@
 		712D5050188F0EC100EDD566 /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 712D504F188F0EC100EDD566 /* images.jpg */; };
 		712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */; };
 		71F0D09A1899908600BB1E58 /* BBResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D0991899908600BB1E58 /* BBResetPasswordViewController.m */; };
+		71F0D0A51899A2D200BB1E58 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D09E1899A2D200BB1E58 /* UIImage+Alpha.m */; };
+		71F0D0A61899A2D200BB1E58 /* UIImage+AlphaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D0A01899A2D200BB1E58 /* UIImage+AlphaAdditions.m */; };
+		71F0D0A71899A2D200BB1E58 /* UIImage+ResizeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D0A21899A2D200BB1E58 /* UIImage+ResizeAdditions.m */; };
+		71F0D0A81899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D0A41899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.m */; };
 		8711A298189605AD009BCF15 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8711A297189605AD009BCF15 /* Parse.framework */; };
 		8711A29C18960B90009BCF15 /* BBNoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8711A29B18960B90009BCF15 /* BBNoteTableViewController.m */; };
 		8711A29E1897400C009BCF15 /* cameraMask_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A29D1897400C009BCF15 /* cameraMask_iphone4.png */; };
@@ -86,6 +90,14 @@
 		712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPopoverMenuViewController.m; sourceTree = "<group>"; };
 		71F0D0981899908600BB1E58 /* BBResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBResetPasswordViewController.h; sourceTree = "<group>"; };
 		71F0D0991899908600BB1E58 /* BBResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBResetPasswordViewController.m; sourceTree = "<group>"; };
+		71F0D09D1899A2D200BB1E58 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		71F0D09E1899A2D200BB1E58 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		71F0D09F1899A2D200BB1E58 /* UIImage+AlphaAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AlphaAdditions.h"; sourceTree = "<group>"; };
+		71F0D0A01899A2D200BB1E58 /* UIImage+AlphaAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AlphaAdditions.m"; sourceTree = "<group>"; };
+		71F0D0A11899A2D200BB1E58 /* UIImage+ResizeAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeAdditions.h"; sourceTree = "<group>"; };
+		71F0D0A21899A2D200BB1E58 /* UIImage+ResizeAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeAdditions.m"; sourceTree = "<group>"; };
+		71F0D0A31899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCornerAdditions.h"; sourceTree = "<group>"; };
+		71F0D0A41899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCornerAdditions.m"; sourceTree = "<group>"; };
 		8711A297189605AD009BCF15 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8711A29A18960B90009BCF15 /* BBNoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNoteTableViewController.h; sourceTree = "<group>"; };
 		8711A29B18960B90009BCF15 /* BBNoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNoteTableViewController.m; sourceTree = "<group>"; };
@@ -163,6 +175,7 @@
 		7128BE7418901AFD00B1B26B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				71F0D09C1899A2D200BB1E58 /* Categories */,
 				7128BE7518901B1E00B1B26B /* BBAppState.h */,
 				7128BE7618901B1E00B1B26B /* BBAppState.m */,
 			);
@@ -219,6 +232,21 @@
 				712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */,
 			);
 			name = PopOverMenu;
+			sourceTree = "<group>";
+		};
+		71F0D09C1899A2D200BB1E58 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				71F0D09D1899A2D200BB1E58 /* UIImage+Alpha.h */,
+				71F0D09E1899A2D200BB1E58 /* UIImage+Alpha.m */,
+				71F0D09F1899A2D200BB1E58 /* UIImage+AlphaAdditions.h */,
+				71F0D0A01899A2D200BB1E58 /* UIImage+AlphaAdditions.m */,
+				71F0D0A11899A2D200BB1E58 /* UIImage+ResizeAdditions.h */,
+				71F0D0A21899A2D200BB1E58 /* UIImage+ResizeAdditions.m */,
+				71F0D0A31899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.h */,
+				71F0D0A41899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		8711A29918960AFA009BCF15 /* Note */ = {
@@ -444,14 +472,18 @@
 				71F0D09A1899908600BB1E58 /* BBResetPasswordViewController.m in Sources */,
 				87FCE191188F665E00947E78 /* BBowlAddViewController.m in Sources */,
 				87FCE18E188E280400947E78 /* BBRegisterViewController.m in Sources */,
+				71F0D0A61899A2D200BB1E58 /* UIImage+AlphaAdditions.m in Sources */,
 				87FCE16A188E179000947E78 /* BBViewController.m in Sources */,
 				87FCE161188E179000947E78 /* BBAppDelegate.m in Sources */,
 				8711A2A518976504009BCF15 /* BBNoteDetailViewController.m in Sources */,
 				7128BE7718901B1E00B1B26B /* BBAppState.m in Sources */,
+				71F0D0A51899A2D200BB1E58 /* UIImage+Alpha.m in Sources */,
 				87FCE18B188E27DD00947E78 /* BBLoginViewController.m in Sources */,
 				87FCE15D188E179000947E78 /* main.m in Sources */,
+				71F0D0A81899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.m in Sources */,
 				712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */,
 				712D5047188EE4EE00EDD566 /* BBagTableViewController.m in Sources */,
+				71F0D0A71899A2D200BB1E58 /* UIImage+ResizeAdditions.m in Sources */,
 				712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */,
 				8711A29C18960B90009BCF15 /* BBNoteTableViewController.m in Sources */,
 			);

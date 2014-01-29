@@ -373,6 +373,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = toltoly;
 				TargetAttributes = {
+					87FCE14C188E179000947E78 = {
+						DevelopmentTeam = AYSHKRM6RC;
+					};
 					87FCE170188E179000947E78 = {
 						TestTargetID = 87FCE14C188E179000947E78;
 					};
@@ -581,6 +584,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: won kim (82GBQJ5AAU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: won kim (82GBQJ5AAU)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/wkim/Source/app_bowlingbag,
@@ -591,6 +596,7 @@
 				INFOPLIST_FILE = "BowlingBag/BowlingBag-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "625A348C-EC77-4B82-98E1-48FAE89FD394";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -601,6 +607,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: won kim (AYSHKRM6RC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: won kim (AYSHKRM6RC)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/wkim/Source/app_bowlingbag,
@@ -611,7 +619,7 @@
 				INFOPLIST_FILE = "BowlingBag/BowlingBag-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2D2C919D-90CF-4EE9-BD6B-8C304FF31891";
+				PROVISIONING_PROFILE = "640CA67F-F66B-42A8-8F88-6334EBF54409";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

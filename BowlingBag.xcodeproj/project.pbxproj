@@ -98,6 +98,7 @@
 		71F0D0A21899A2D200BB1E58 /* UIImage+ResizeAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeAdditions.m"; sourceTree = "<group>"; };
 		71F0D0A31899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCornerAdditions.h"; sourceTree = "<group>"; };
 		71F0D0A41899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCornerAdditions.m"; sourceTree = "<group>"; };
+		71F0D0A91899AEBA00BB1E58 /* BBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstants.h; sourceTree = "<group>"; };
 		8711A297189605AD009BCF15 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8711A29A18960B90009BCF15 /* BBNoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNoteTableViewController.h; sourceTree = "<group>"; };
 		8711A29B18960B90009BCF15 /* BBNoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNoteTableViewController.m; sourceTree = "<group>"; };
@@ -178,6 +179,7 @@
 				71F0D09C1899A2D200BB1E58 /* Categories */,
 				7128BE7518901B1E00B1B26B /* BBAppState.h */,
 				7128BE7618901B1E00B1B26B /* BBAppState.m */,
+				71F0D0A91899AEBA00BB1E58 /* BBConstants.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";

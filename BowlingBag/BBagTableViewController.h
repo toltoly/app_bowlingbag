@@ -10,4 +10,7 @@
 
 @interface BBagTableViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
+
+@property (nonatomic, strong) NSArray *bowlArray;
+
 @end

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
@@ -54,12 +55,17 @@
                                 <state key="normal" title="Forgot pasword">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressForgotPassword:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fU0-Cc-eKv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="fIL-JT-uuS"/>
                     <connections>
+                        <outlet property="emailTextField" destination="iT1-AH-R7F" id="h6d-DQ-Udd"/>
+                        <outlet property="passwordTextField" destination="dzv-0F-9MH" id="ja9-O4-5QS"/>
                         <segue destination="qgu-ru-6zI" kind="modal" identifier="HomeSegue" id="uov-hV-bUA"/>
                     </connections>
                 </viewController>
@@ -113,12 +119,28 @@
                                 <state key="normal" title="Facebook Account">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressFacebook:" destination="PZP-Ov-4NW" eventType="touchUpInside" id="dIM-WI-UF5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVn-dN-aoy">
+                                <rect key="frame" x="73" y="444" width="175" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressBack:" destination="PZP-Ov-4NW" eventType="touchUpInside" id="yd7-r0-N63"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qNd-qY-PCX"/>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="2pA-XT-2IM" id="eIT-YD-zvs"/>
+                        <outlet property="emailTextField" destination="IvS-ca-cV1" id="Uqt-F4-ING"/>
+                        <outlet property="passwordTextField" destination="Z8N-jO-acH" id="4fn-ay-hnC"/>
                         <segue destination="qgu-ru-6zI" kind="modal" identifier="HomeSegue" id="doz-0r-UQl"/>
                     </connections>
                 </viewController>
@@ -602,9 +624,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uov-hV-bUA"/>
-        <segue reference="TKS-ya-JSG"/>
-        <segue reference="ZfI-4e-1Au"/>
+        <segue reference="54O-u3-YCw"/>
+        <segue reference="doz-0r-UQl"/>
         <segue reference="4kZ-DC-ggZ"/>
+        <segue reference="ZfI-4e-1Au"/>
     </inferredMetricsTieBreakers>
 </document>

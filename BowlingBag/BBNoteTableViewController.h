@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBNoteTableViewController : UIViewController
+@interface BBNoteTableViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) NSArray *noteArray;
 
 @end

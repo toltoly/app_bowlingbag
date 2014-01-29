@@ -21,6 +21,8 @@
 
 @implementation BBNoteTableViewController
 
+@synthesize noteArray;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,6 +36,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+     noteArray= @[ @"Hello ", @"Hi", @"Bye" ];
 
 }
 
@@ -83,12 +87,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 20;
+    return noteArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"kNoteCell"];
+    
+    cell.textLabel.text=noteArray[indexPath.row];
     
     return cell;
 }

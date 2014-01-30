@@ -252,21 +252,6 @@
                                         <rect key="frame" x="17" y="23" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text_box.png" translatesAutoresizingMaskIntoConstraints="NO" id="uOM-OG-jxS" userLabel="ballTypeBG">
-                                        <rect key="frame" x="173" y="102" width="141" height="75"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxF-Jh-NMW" userLabel="ballType">
-                                        <rect key="frame" x="173" y="102" width="133" height="63"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="n5f-KR-DkP" id="1TS-uT-pLp"/>
-                                        </connections>
-                                    </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text_box.png" translatesAutoresizingMaskIntoConstraints="NO" id="MXV-x8-Tn6" userLabel="ballNameBG">
                                         <rect key="frame" x="171" y="23" width="141" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -307,6 +292,15 @@
                                             <action selector="pressPictureEdit:" destination="n5f-KR-DkP" eventType="touchUpInside" id="Syx-BZ-5VE"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3L-pj-b4i">
+                                        <rect key="frame" x="177" y="121" width="128" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Arsenal" backgroundImage="text_box.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -320,12 +314,50 @@
                                     <action selector="pressDeleteBowl:" destination="n5f-KR-DkP" eventType="touchUpInside" id="aHj-9l-E3b"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5h-OE-vFf" userLabel="DropdownList">
+                                <rect key="frame" x="173" y="160" width="138" height="155"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text_box.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ytd-9e-BZI">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eA-0s-yrd" userLabel="Button1">
+                                        <rect key="frame" x="5" y="10" width="128" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Arsenal" backgroundImage="text_box.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYK-Wh-asR" userLabel="Button2">
+                                        <rect key="frame" x="4" y="55" width="128" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Arsenal" backgroundImage="text_box.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l78-PV-FBl" userLabel="Button3">
+                                        <rect key="frame" x="3" y="101" width="128" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Arsenal" backgroundImage="text_box.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6K-WY-GiL" userLabel="CameraPopup">
-                                <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
+                                <rect key="frame" x="-320" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="BNm-dg-CzN" userLabel="BGMask">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAS-Mp-56Q">
@@ -368,15 +400,18 @@
                     <connections>
                         <outlet property="ballName" destination="tTO-BO-hsV" id="WE4-j4-35F"/>
                         <outlet property="ballNameBGImage" destination="MXV-x8-Tn6" id="rmy-Qy-UHK"/>
-                        <outlet property="ballTypeBGImage" destination="uOM-OG-jxS" id="BlN-d9-XR6"/>
-                        <outlet property="ballTypeTextView" destination="HxF-Jh-NMW" id="pO2-DI-Vbn"/>
                         <outlet property="cameraPopup" destination="T6K-WY-GiL" id="Hkz-zO-z5g"/>
                         <outlet property="deleteBowlButton" destination="lKR-U2-jxK" id="67I-RZ-oB4"/>
                         <outlet property="descriptionBGImage" destination="v9m-OE-dVc" id="ofC-df-g2P"/>
                         <outlet property="descriptionBallTextView" destination="k4y-FY-BVi" id="7YV-hN-txP"/>
                         <outlet property="detailView" destination="sHu-eF-Wr3" id="um1-IM-jQe"/>
+                        <outlet property="dropdownView" destination="s5h-OE-vFf" id="urs-oR-H9L"/>
                         <outlet property="imageView" destination="gUF-Ho-b2o" id="0M0-aL-2ka"/>
                         <outlet property="photoEdit" destination="rq0-iK-sbm" id="Mbx-hw-kb7"/>
+                        <outlet property="typeButton1" destination="S3L-pj-b4i" id="cbD-3O-n4u"/>
+                        <outlet property="typeButton2" destination="6eA-0s-yrd" id="PGs-Hm-h36"/>
+                        <outlet property="typeButton3" destination="iYK-Wh-asR" id="5Er-gH-MN4"/>
+                        <outlet property="typeButton4" destination="l78-PV-FBl" id="S6J-mz-tct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCJ-bf-f4b" userLabel="First Responder" sceneMemberID="firstResponder"/>

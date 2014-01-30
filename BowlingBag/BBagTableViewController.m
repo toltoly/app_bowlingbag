@@ -9,10 +9,15 @@
 #import "BBagTableViewController.h"
 #import "BBowlDetailViewController.h"
 #import <Parse/Parse.h>
+#import "BBBowl.h"
 @interface BBagTableViewController ()
 {
     
     IBOutlet UITableView *bagTableView;
+    IBOutlet UISegmentedControl *segumentControler;
+    
+    int curBagType;
+    BBAppState* appState;
 }
 
 @end
@@ -35,11 +40,13 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent=NO;
     
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+    appState=[BBAppState getInstance];
+ 
+   // bowlArray= @[ @"Blue", @"Red", @"Green" ];
+    bowlArray=[NSMutableArray array];
     
-    bowlArray= @[ @"Blue", @"Red", @"Green" ];
+    segumentControler.selectedSegmentIndex=0;
+    curBagType=0;
 	// Do any additional setup after loading the view.
 }
 
@@ -49,9 +56,49 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self retrieveData];
+    
+}
 
 
 #pragma -mark Button Action
+-(IBAction)changeViewSegue
+{
+    if(curBagType==segumentControler.selectedSegmentIndex)
+        return;
+    
+    curBagType=segumentControler.selectedSegmentIndex;
+    
+    if(segumentControler.selectedSegmentIndex == 0)
+    {
+        
+        [self retrieveData];
+        
+        
+    }
+    else if(segumentControler.selectedSegmentIndex == 1)
+    {
+         [self retrieveData];
+        
+    }
+    else if(segumentControler.selectedSegmentIndex == 2)
+    {
+        
+        [self retrieveData];
+        
+    }
+    else if(segumentControler.selectedSegmentIndex == 3)
+    {
+        
+         [self retrieveData];
+    }
+    
+}
+
 - (IBAction)pressLogout:(id)sender {
     
     [PFUser logOut];
@@ -116,6 +163,35 @@
 }
 
 
+#pragma mark PARSE
+-(void)retrieveData
+{
+    
+    [bowlArray removeAllObjects];
+    PFQuery *queryBowl = [PFQuery queryWithClassName:kBagClassKey];
+    [queryBowl whereKey:kBagUserKey equalTo:appState.user];
+    [queryBowl whereKey:kBagTypeKey equalTo:appState.typeName[curBagType]];
+    [queryBowl setCachePolicy:kPFCachePolicyCacheThenNetwork];
+    [queryBowl findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
 
+                BBBowl* bowl=[[BBBowl alloc]initWithPFObject:object];
+                [bowlArray addObject:bowl];
+                
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    [bagTableView reloadData];
+    
+}
 
 @end

@@ -15,6 +15,8 @@
     IBOutlet UITextField *passwordTextField;
     
     UITapGestureRecognizer  *tapRecognizer;
+    
+    BBAppState* appState;
 }
 
 @end
@@ -61,8 +63,9 @@
     [super viewDidAppear:animated];
     
     // If we have a cached user, we'll get it back here
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser)
+    appState=[BBAppState getInstance];
+    appState.user=[PFUser currentUser];
+    if (appState.user)
     {
         [self performSegueWithIdentifier:@"HomeSegue"sender:self];
     }

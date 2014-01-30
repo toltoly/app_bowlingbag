@@ -22,6 +22,7 @@
 		712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D504C188EFD0300EDD566 /* BBowlEditViewController.m */; };
 		712D5050188F0EC100EDD566 /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 712D504F188F0EC100EDD566 /* images.jpg */; };
 		712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */; };
+		71C0E98F189AE0BF00FA12F8 /* BBBowl.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C0E98E189AE0BF00FA12F8 /* BBBowl.m */; };
 		71F0D09A1899908600BB1E58 /* BBResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D0991899908600BB1E58 /* BBResetPasswordViewController.m */; };
 		71F0D0A51899A2D200BB1E58 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D09E1899A2D200BB1E58 /* UIImage+Alpha.m */; };
 		71F0D0A61899A2D200BB1E58 /* UIImage+AlphaAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F0D0A01899A2D200BB1E58 /* UIImage+AlphaAdditions.m */; };
@@ -88,6 +89,8 @@
 		712D504F188F0EC100EDD566 /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpg; path = Resource/CutImage/images.jpg; sourceTree = SOURCE_ROOT; };
 		712D5052188F153200EDD566 /* BBPopoverMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPopoverMenuViewController.h; sourceTree = "<group>"; };
 		712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPopoverMenuViewController.m; sourceTree = "<group>"; };
+		71C0E98D189AE0BF00FA12F8 /* BBBowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBowl.h; sourceTree = "<group>"; };
+		71C0E98E189AE0BF00FA12F8 /* BBBowl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBowl.m; sourceTree = "<group>"; };
 		71F0D0981899908600BB1E58 /* BBResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBResetPasswordViewController.h; sourceTree = "<group>"; };
 		71F0D0991899908600BB1E58 /* BBResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBResetPasswordViewController.m; sourceTree = "<group>"; };
 		71F0D09D1899A2D200BB1E58 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
@@ -176,6 +179,7 @@
 		7128BE7418901AFD00B1B26B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				71C0E98C189AE06A00FA12F8 /* Data */,
 				71F0D09C1899A2D200BB1E58 /* Categories */,
 				7128BE7518901B1E00B1B26B /* BBAppState.h */,
 				7128BE7618901B1E00B1B26B /* BBAppState.m */,
@@ -234,6 +238,15 @@
 				712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */,
 			);
 			name = PopOverMenu;
+			sourceTree = "<group>";
+		};
+		71C0E98C189AE06A00FA12F8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				71C0E98D189AE0BF00FA12F8 /* BBBowl.h */,
+				71C0E98E189AE0BF00FA12F8 /* BBBowl.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		71F0D09C1899A2D200BB1E58 /* Categories */ = {
@@ -477,6 +490,7 @@
 				71F0D0A61899A2D200BB1E58 /* UIImage+AlphaAdditions.m in Sources */,
 				87FCE16A188E179000947E78 /* BBViewController.m in Sources */,
 				87FCE161188E179000947E78 /* BBAppDelegate.m in Sources */,
+				71C0E98F189AE0BF00FA12F8 /* BBBowl.m in Sources */,
 				8711A2A518976504009BCF15 /* BBNoteDetailViewController.m in Sources */,
 				7128BE7718901B1E00B1B26B /* BBAppState.m in Sources */,
 				71F0D0A51899A2D200BB1E58 /* UIImage+Alpha.m in Sources */,

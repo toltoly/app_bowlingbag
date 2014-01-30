@@ -28,6 +28,8 @@ static BBAppState *sharedInstance;
 - (id)init{
     self = [super init];
     if(self){
+        
+         _typeName=@[@"Arsenal",@"League",@"Tournament",@"Sport Shot"];
 
 	}
     return self;

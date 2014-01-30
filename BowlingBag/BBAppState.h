@@ -10,6 +10,9 @@
 
 @interface BBAppState : NSObject
 
+@property (nonatomic,strong) NSArray* typeName;
+@property (nonatomic, strong) PFUser *user;
+
 + (BBAppState*)getInstance;
 
 

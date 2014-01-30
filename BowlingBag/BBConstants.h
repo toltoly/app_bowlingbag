@@ -9,15 +9,14 @@
 
 //////////////////////////////////////////////////
 // BowlBag
-#define kBagClassKey = @"BowlBag";
+#define kBagClassKey            @"BowlBag"
 
 // Field keys
 #define  kBagNameKey            @"name"
 #define  kBagTypeKey            @"type"
 #define  kBagNoteKey            @"note"
-#define  kBagPictureKey         @"image";
+#define  kBagImageKey           @"image"
 #define  kBagThumbnailKey       @"thumbnail"
-#define  kBagLeagueKey          @"league"
 #define  kBagFeaturedKey        @"featured"
 #define  kBagUserKey            @"user"
 

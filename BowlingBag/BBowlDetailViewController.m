@@ -16,14 +16,17 @@
     
     IBOutlet UIView *detailView;
     IBOutlet UITextView *ballName;
-    IBOutlet UITextView *ballTypeTextView;
     IBOutlet UITextView *descriptionBallTextView;
-    
-    IBOutlet UIImageView *ballTypeBGImage;
     IBOutlet UIImageView *ballNameBGImage;
     IBOutlet UIImageView *descriptionBGImage;
-
     
+    
+    IBOutlet UIView *dropdownView;
+
+    IBOutlet UIButton *typeButton1;
+    IBOutlet UIButton *typeButton2;
+    IBOutlet UIButton *typeButton3;
+    IBOutlet UIButton *typeButton4;
  
     IBOutlet UIView *cameraPopup;
     IBOutlet UIButton *photoEdit;
@@ -153,14 +156,13 @@
 
 -(void)didTapAnywhere: (UITapGestureRecognizer*) recognizer {
     [ballName resignFirstResponder];
-    [ballTypeTextView resignFirstResponder];
+
     [descriptionBallTextView resignFirstResponder];
 
 }
 -(void)setEditMode:(BOOL)editmode
 {
-    ballTypeTextView.selectable=editmode;
-    ballTypeTextView.editable=editmode;
+
     
     descriptionBallTextView.selectable=editmode;
     descriptionBallTextView.editable=editmode;
@@ -170,13 +172,13 @@
     
     if(editmode)
     {
-        [ballTypeBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
+
         [ballNameBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
         [descriptionBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
     }
     else
     {
-        [ballTypeBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
+  
         [ballNameBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
         [descriptionBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
         
@@ -688,5 +690,15 @@ finishedSavingWithError:(NSError *)error
 
 
 }
+
+#pragma mark -DropDownList
+
+-(void)setDropDownList
+{
+    typeButton1;
+    
+    
+}
+
 
 @end

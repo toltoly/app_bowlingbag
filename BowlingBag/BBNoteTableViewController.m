@@ -8,14 +8,19 @@
 
 #import "BBNoteTableViewController.h"
 #import "BBNoteDetailViewController.h"
-#import <Parse/Parse.h>
+
 @interface BBNoteTableViewController ()
 {
     
     IBOutlet UITableView *noteTableView;
     
+
+    
+    BBAppState* appState;
+
    
 }
+
 
 @end
 
@@ -39,9 +44,16 @@
     
      noteArray= @[ @"Hello ", @"Hi", @"Bye" ];
 
+    appState=[BBAppState getInstance];
+
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 
+
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -51,6 +63,8 @@
 
 
 #pragma -mark Button Action
+
+
 - (IBAction)pressLogout:(id)sender {
     
     [PFUser logOut];
@@ -113,5 +127,7 @@
     [self performSegueWithIdentifier:@"NoteDetailSegue" sender:nil];
     
 }
+
+
 
 @end

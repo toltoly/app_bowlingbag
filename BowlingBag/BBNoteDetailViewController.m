@@ -24,11 +24,15 @@
     IBOutlet UITextView *noteTextview;
     
     IBOutlet UIButton *deleteNoteButton;
+    
+    
 }
 
 @end
 
 @implementation BBNoteDetailViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

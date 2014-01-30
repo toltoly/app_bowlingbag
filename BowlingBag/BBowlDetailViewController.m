@@ -34,6 +34,7 @@
     
     IBOutlet UIButton *deleteBowlButton;
     
+    BBAppState* appState;
   
     
 }
@@ -47,6 +48,7 @@
 @end
 
 @implementation BBowlDetailViewController
+@synthesize bowl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -73,6 +75,8 @@
 //    self.navigationItem.rightBarButtonItem=customrightBarItem;
 // //   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"White"] forBarMetrics:UIBarMetricsDefault];
     
+    
+    appState=[BBAppState getInstance];
     tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                             action:@selector(didTapAnywhere:)];
     
@@ -108,6 +112,7 @@
     }
     
     cameraPopup.hidden=TRUE;
+    dropdownView.hidden=TRUE;
 }
 
 - (void)didReceiveMemoryWarning
@@ -163,6 +168,7 @@
 -(void)setEditMode:(BOOL)editmode
 {
 
+    typeButton1.userInteractionEnabled=editmode;
     
     descriptionBallTextView.selectable=editmode;
     descriptionBallTextView.editable=editmode;
@@ -366,6 +372,16 @@
 */
     
 }
+
+- (IBAction)pressTypeButton:(UIButton *)sender {
+    
+    int index=[self getTypeInt:sender.titleLabel.text];
+
+    [self showDropDown:dropdownView.hidden withType:index];
+    
+    
+}
+
 
 
 
@@ -693,12 +709,43 @@ finishedSavingWithError:(NSError *)error
 
 #pragma mark -DropDownList
 
--(void)setDropDownList
+-(void)setDropDownList:(int)type
 {
-    typeButton1;
-    
-    
+    [typeButton1 setTitle:appState.typeName[type] forState:UIControlStateNormal];
+    [typeButton2 setTitle:appState.typeName[(type+1)%4] forState:UIControlStateNormal];
+    [typeButton3 setTitle:appState.typeName[(type+2)%4]forState:UIControlStateNormal];
+    [typeButton4 setTitle:appState.typeName[(type+3)%4] forState:UIControlStateNormal];
 }
+
+-(void)showDropDown:(BOOL)show withType:(int)type
+{
+    dropdownView.hidden=!show;
+    if(show)
+    {
+        [typeButton1 setBackgroundImage:[UIImage imageNamed:@"edit_box.png"] forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+          [typeButton1 setBackgroundImage:[UIImage imageNamed:@"text_box.png"] forState:UIControlStateNormal];
+    }
+    [self setDropDownList:type];
+}
+
+-(int)getTypeInt:(NSString*)title
+{
+    
+    for(int i=0;i<appState.typeName.count;i++)
+    {
+        if([title isEqualToString:appState.typeName[i]])
+        {
+            return i;
+        }
+    }
+    
+    return 0;
+}
+
 
 
 @end

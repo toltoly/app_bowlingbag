@@ -87,6 +87,7 @@
         BBNoteDetailViewController *vc = [segue destinationViewController];
         
         [vc setOnlyEditMode:TRUE];
+        
     }
     else if([[segue identifier] isEqualToString:@"NoteDetailSegue"])
     {

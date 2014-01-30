@@ -18,6 +18,7 @@
     
     int curBagType;
     BBAppState* appState;
+    BBBowl* selBowl;
 }
 
 @end
@@ -122,11 +123,13 @@
         BBowlDetailViewController *vc = [segue destinationViewController];
 
         [vc setOnlyEditMode:TRUE];
+        [vc setBowl:[[BBBowl alloc]init]];
     }
     else if([[segue identifier] isEqualToString:@"BowlDetailSegue"])
     {
          BBowlDetailViewController *vc = [segue destinationViewController];
         [vc setOnlyEditMode:FALSE];
+        [vc setBowl:selBowl];
     }
 }
 
@@ -146,7 +149,8 @@
 {
       UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"kBowlCell"];
     
-    cell.textLabel.text=bowlArray[indexPath.row];
+    BBBowl* bowl=bowlArray[indexPath.row];
+    cell.textLabel.text=bowl.name;
     
     return cell;
 }
@@ -157,6 +161,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    selBowl=bowlArray[indexPath.row];
 
     [self performSegueWithIdentifier:@"BowlDetailSegue" sender:nil];
     

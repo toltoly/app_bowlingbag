@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "BBPopoverMenuViewController.h"
+#import "BBBowl.h"
 @interface BBowlDetailViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 
 
@@ -17,7 +18,7 @@
 @property (nonatomic, strong) UIPopoverController         *menuPickerPopover;
 
 @property (nonatomic)  BOOL onlyEditMode;
-
+@property (nonatomic, strong)BBBowl* bowl;
 
 
 @end

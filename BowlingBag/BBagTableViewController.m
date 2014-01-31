@@ -8,6 +8,8 @@
 
 #import "BBagTableViewController.h"
 #import "BBowlDetailViewController.h"
+#import "BBBowlCell.h"
+#import "UIImageView+WebCache.h"
 #import <Parse/Parse.h>
 #import "BBBowl.h"
 @interface BBagTableViewController ()
@@ -147,10 +149,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-      UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"kBowlCell"];
+    BBBowlCell* cell = (BBBowlCell *)[tableView dequeueReusableCellWithIdentifier:@"kBowlCell"];
     
     BBBowl* bowl=bowlArray[indexPath.row];
-    cell.textLabel.text=bowl.name;
+    NSLog(@" tableView %@",bowl);
+    cell.name.text= bowl.name;
+    [cell.thumbImage setImageWithURL: [NSURL URLWithString:bowl.thumbnail.url] placeholderImage:[UIImage imageNamed:@"camera_icon.png"]];
     
     return cell;
 }
@@ -172,30 +176,36 @@
 -(void)retrieveData
 {
     
-    [bowlArray removeAllObjects];
     PFQuery *queryBowl = [PFQuery queryWithClassName:kBagClassKey];
-    [queryBowl whereKey:kBagUserKey equalTo:appState.user];
+    [queryBowl whereKey:kBagUserKey equalTo:[PFUser currentUser]];
     [queryBowl whereKey:kBagTypeKey equalTo:appState.typeName[curBagType]];
     [queryBowl setCachePolicy:kPFCachePolicyCacheThenNetwork];
     [queryBowl findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
+              [bowlArray removeAllObjects];
             NSLog(@"Successfully retrieved %d scores.", objects.count);
             // Do something with the found objects
             for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
+               
 
                 BBBowl* bowl=[[BBBowl alloc]initWithPFObject:object];
+               
+                NSLog(@" retrieveData %@",bowl);
                 [bowlArray addObject:bowl];
                 
+                
+                
+                
             }
+              [bagTableView reloadData];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
     
-    [bagTableView reloadData];
+  
     
 }
 

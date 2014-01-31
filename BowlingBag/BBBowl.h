@@ -13,12 +13,14 @@
   
 }
 
+@property (nonatomic,strong)    NSString* objectID;
 @property (nonatomic,strong)    NSString* name;
 @property (nonatomic,strong)    NSString* type;
 @property (nonatomic,strong)    NSString* note;
-@property (nonatomic,strong)    NSString* image;
-@property (nonatomic,strong)    NSString* thumbnail;
+@property (nonatomic,strong)    PFFile* image;
+@property (nonatomic,strong)    PFFile* thumbnail;
 @property (nonatomic)           BOOL featured;
+
 
 
 -(id)initWithPFObject:(PFObject*)object;
@@ -27,6 +29,7 @@
 
 -(NSArray *)parseBowl:(NSArray *)array;
 
-
-
+-(void)save;
+-(void)update;
+-(void)deleteObject;
 @end

@@ -8,8 +8,10 @@
 
 #import "BBowlDetailViewController.h"
 #import "UIImage+ResizeAdditions.h"
+#import "UIImageView+WebCache.h"
 #import <Parse/Parse.h>
 #define  kViewDetailMoveDistance 180
+
 @interface BBowlDetailViewController ()
 {
     IBOutlet UIImageView *imageView;
@@ -35,6 +37,8 @@
     IBOutlet UIButton *deleteBowlButton;
     
     BBAppState* appState;
+    
+    BOOL isInEditMode;
   
     
 }
@@ -91,7 +95,7 @@
      UIKeyboardWillHideNotification object:nil];
     
 
-   
+    isInEditMode=FALSE;
     
 }
 
@@ -102,17 +106,56 @@
     
     if(_onlyEditMode)
     {
-        deleteBowlButton.hidden=FALSE;
+        deleteBowlButton.hidden=TRUE;
         [self setEditMode:TRUE];
     }
     else
     {
-        deleteBowlButton.hidden=TRUE;
-    [self setEditMode:FALSE];
+        deleteBowlButton.hidden=FALSE;
+        [self setEditMode:isInEditMode];
     }
+    
+    
     
     cameraPopup.hidden=TRUE;
     dropdownView.hidden=TRUE;
+    [self fillView];
+}
+
+-(void)fillView
+{
+    
+
+    ballName.text=bowl.name;
+    descriptionBallTextView.text=bowl.note;
+    if(bowl.image!=nil && bowl.image.url.length!=0)
+    {
+        [imageView setImageWithURL: [NSURL URLWithString:bowl.image.url] placeholderImage:[UIImage imageNamed:@"camera_icon.png"]];
+  
+    }
+    
+    
+}
+-(void)saveBowl
+{
+    bowl.name=ballName.text;
+    bowl.note=descriptionBallTextView.text;
+    bowl.type=typeButton1.titleLabel.text;
+    // create a photo object
+
+    [bowl save];
+    
+    
+}
+-(void)updatBowl
+{
+    bowl.name=ballName.text;
+    bowl.note=descriptionBallTextView.text;
+    bowl.type=typeButton1.titleLabel.text;
+    // create a photo object
+    
+    [bowl update];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -168,6 +211,7 @@
 -(void)setEditMode:(BOOL)editmode
 {
 
+    isInEditMode=editmode;
     typeButton1.userInteractionEnabled=editmode;
     
     descriptionBallTextView.selectable=editmode;
@@ -227,6 +271,8 @@
 
 #pragma -mark Button Action
 - (IBAction)pressDeleteBowl:(id)sender {
+    
+    [bowl deleteObject];
     [self. navigationController popViewControllerAnimated:TRUE];
 
     
@@ -334,17 +380,22 @@
     if(_onlyEditMode)
     {
         //go back to table
+        [self saveBowl];
         [self. navigationController popViewControllerAnimated:TRUE];
         
     }
     else
     {
+        [self updatBowl];
         [self setEditMode:FALSE];
+       
     }
     
 }
 - (IBAction)pressPictureEdit:(UIButton*)sender {
     
+    bowl.name=ballName.text;
+    bowl.note=descriptionBallTextView.text;
     cameraPopup.hidden=FALSE;
  /*   if (_menuPickerPopover == nil) {
         
@@ -374,6 +425,10 @@
 }
 
 - (IBAction)pressTypeButton:(UIButton *)sender {
+    
+    [ballName resignFirstResponder];
+    
+    [descriptionBallTextView resignFirstResponder];
     
     int index=[self getTypeInt:sender.titleLabel.text];
 
@@ -432,7 +487,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 //            
             UIImage* maskImage = [self resizeImage:image toSize:CGSizeMake(247, 247)];
             
-            imageView.image=[self maskImage:maskImage withMask:[UIImage imageNamed:@"imageMask_iphone4.png"]];
+            UIImage* finalImage=[self maskImage:maskImage withMask:[UIImage imageNamed:@"imageMask_iphone4.png"]];
+            [self uploadImage:finalImage];
+            imageView.image=finalImage;
         }
         else
         {
@@ -663,50 +720,40 @@ finishedSavingWithError:(NSError *)error
 
 
 #pragma mark -Parse 
-
 - (BOOL)uploadImage:(UIImage *)anImage {
-    // Resize the image to be square (what is shown in the preview)
-    UIImage *resizedImage = [anImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit
-                                                          bounds:CGSizeMake(560.0f, 560.0f)
-                                            interpolationQuality:kCGInterpolationHigh];
-    // Create a thumbnail and add a corner radius for use in table views
-    UIImage *thumbnailImage = [anImage thumbnailImage:86.0f
-                                    transparentBorder:0.0f
-                                         cornerRadius:10.0f
-                                 interpolationQuality:kCGInterpolationDefault];
     
-    // Get an NSData representation of our images. We use JPEG for the larger image
-    // for better compression and PNG for the thumbnail to keep the corner radius transparency
-    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
-    NSData *thumbnailImageData = UIImageJPEGRepresentation(thumbnailImage, 0.8f);
+//UIImage *resizedImage = [anImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(//, 560.0f) interpolationQuality:kCGInterpolationHigh];
+    
+    UIImage *resizedImage = [anImage thumbnailImage:247 transparentBorder:0.0f cornerRadius:10.0f interpolationQuality:kCGInterpolationDefault];
+    UIImage *thumbnailImage = [anImage thumbnailImage:56.0f transparentBorder:0.0f cornerRadius:10.0f interpolationQuality:kCGInterpolationDefault];
+    
+    // JPEG to decrease file size and enable faster uploads & downloads
+    NSData *imageData = UIImagePNGRepresentation(resizedImage);
+    NSData *thumbnailImageData = UIImagePNGRepresentation(thumbnailImage);
     
     if (!imageData || !thumbnailImageData) {
         return NO;
     }
     
-    self.photoFile = [PFFile fileWithData:imageData];
-    self.thumbnailFile = [PFFile fileWithData:thumbnailImageData];
+    bowl.image= [PFFile fileWithData:imageData];
+   
+    bowl.thumbnail = [PFFile fileWithData:thumbnailImageData];
     
-    // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
-    self.fileUploadBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
-    }];
-    
-    [self.photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [bowl.image saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
-            [self.thumbnailFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+            
+            NSLog(@"uploadImage");
+             NSLog(@"bowl.image %@",bowl.image.url);
+            [ bowl.thumbnail saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
             }];
         } else {
-            [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+            
         }
     }];
     
     return YES;
-
-
 }
-
 #pragma mark -DropDownList
 
 -(void)setDropDownList:(int)type

@@ -17,7 +17,7 @@
 
 @implementation BBBowl
 
-@synthesize  name,type,note,image,thumbnail,featured;
+@synthesize  name,type,note,image,thumbnail,featured,objectID;
 
 
 -(id)initWithPFObject:(PFObject*)object
@@ -31,6 +31,8 @@
         self.image=object[kBagImageKey];
         self.thumbnail=object[kBagThumbnailKey];
         self.featured=[object[kBagFeaturedKey] boolValue];
+        self.objectID=object.objectId;
+        
         
         
     }
@@ -38,6 +40,11 @@
     
 }
 
+- (NSString *)description {
+    NSString *descriptionString = [NSString stringWithFormat:@"Name: %@ \n type: %@ \n image:%@", self.name, self.type,self.image.url];
+    return descriptionString;
+    
+}
 -(int)getTypeInt
 {
     
@@ -75,4 +82,73 @@
     
 }
 
+-(void)save
+{
+    
+    PFObject *newBowl = [PFObject objectWithClassName:kBagClassKey];
+    [newBowl setObject:name forKey:kBagNameKey];
+    [newBowl setObject:type forKey:kBagTypeKey];
+    [newBowl setObject:note forKey:kBagNoteKey];
+    
+    if(image)
+    {
+        [newBowl setObject:image forKey:kBagImageKey];
+        [newBowl setObject:thumbnail forKey:kBagThumbnailKey];
+    }
+    [newBowl setObject:[NSNumber numberWithBool:NO]  forKey:kBagFeaturedKey];
+    [newBowl setObject:[PFUser currentUser] forKey:kBagUserKey];
+    
+    
+    // Save the Photo PFObject
+    [newBowl saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+  
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't add your bowl" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+        }
+       
+    }];
+
+    
+}
+-(void)update
+{
+    PFQuery *queryBowl = [PFQuery queryWithClassName:kBagClassKey];
+    [queryBowl whereKey:kBagUserKey equalTo:[PFUser currentUser]];
+    
+    // Retrieve the object by id
+    [queryBowl getObjectInBackgroundWithId:objectID block:^(PFObject *bowl, NSError *error) {
+
+        bowl[kBagNameKey]=self.name;
+        bowl[kBagTypeKey]=self.type;
+        bowl[kBagNoteKey]=self.note;
+        if( self.image)
+        {
+            bowl[kBagImageKey]=self.image;
+            bowl[kBagThumbnailKey]=self.thumbnail;
+        }
+        bowl[kBagFeaturedKey]=[NSNumber numberWithBool:NO];
+      
+        [bowl saveInBackground];
+        
+    }];
+    
+}
+
+-(void)deleteObject
+{
+    PFQuery *queryBowl = [PFQuery queryWithClassName:kBagClassKey];
+    [queryBowl whereKey:kBagUserKey equalTo:[PFUser currentUser]];
+    
+    // Retrieve the object by id
+    [queryBowl getObjectInBackgroundWithId:objectID block:^(PFObject *bowl, NSError *error) {
+        
+
+        
+        [bowl deleteInBackground];
+        
+    }];
+
+}
 @end

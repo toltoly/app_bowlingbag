@@ -10,6 +10,13 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "BBPopoverMenuViewController.h"
 #import "BBBowl.h"
+
+typedef enum DetailType : NSUInteger {
+    EditOnly,
+    EditAndSave,
+    None
+} DetailType;
+
 @interface BBowlDetailViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 
 
@@ -17,8 +24,8 @@
 @property (nonatomic, strong) BBPopoverMenuViewController *menuPicker;
 @property (nonatomic, strong) UIPopoverController         *menuPickerPopover;
 
-@property (nonatomic)  BOOL onlyEditMode;
+
 @property (nonatomic, strong)BBBowl* bowl;
 
-
+@property (nonatomic)  DetailType detailViewType;
 @end

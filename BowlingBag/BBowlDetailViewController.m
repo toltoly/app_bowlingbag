@@ -53,6 +53,7 @@
 
 @implementation BBowlDetailViewController
 @synthesize bowl;
+@synthesize detailViewType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -104,15 +105,19 @@
 {
     [super viewWillAppear:animated];
     
-    if(_onlyEditMode)
+    if(detailViewType==EditOnly)
     {
         deleteBowlButton.hidden=TRUE;
         [self setEditMode:TRUE];
     }
+    else if(detailViewType==EditAndSave)
+    {
+        [self setEditMode:isInEditMode];
+    }
     else
     {
-        deleteBowlButton.hidden=FALSE;
-        [self setEditMode:isInEditMode];
+         deleteBowlButton.hidden=TRUE;
+         [self setEditMode:FALSE];
     }
     
     
@@ -211,6 +216,9 @@
 -(void)setEditMode:(BOOL)editmode
 {
 
+    if(detailViewType==EditAndSave)
+        deleteBowlButton.hidden=!editmode;
+    
     isInEditMode=editmode;
     typeButton1.userInteractionEnabled=editmode;
     
@@ -222,6 +230,7 @@
     
     if(editmode)
     {
+
 
         [ballNameBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
         [descriptionBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
@@ -237,6 +246,13 @@
 
     
     photoEdit.hidden=!editmode;
+    
+    if(detailViewType==None)
+    
+        
+         return;
+    
+    
     if(editmode)
     {
         UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -377,7 +393,7 @@
     
     //Edit mode
     
-    if(_onlyEditMode)
+    if(detailViewType==EditOnly)
     {
         //go back to table
         [self saveBowl];

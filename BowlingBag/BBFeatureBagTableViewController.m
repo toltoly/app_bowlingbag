@@ -1,18 +1,19 @@
 //
-//  BBagTableViewController.m
+//  BBFeatureBagTableViewController.m
 //  BowlingBag
 //
-//  Created by Won Kim on 1/21/14.
+//  Created by Won Kim on 2/3/14.
 //  Copyright (c) 2014 toltoly. All rights reserved.
 //
 
-#import "BBagTableViewController.h"
+#import "BBFeatureBagTableViewController.h"
+
 #import "BBowlDetailViewController.h"
 #import "BBBowlCell.h"
 #import "UIImageView+WebCache.h"
 #import <Parse/Parse.h>
 #import "BBBowl.h"
-@interface BBagTableViewController ()
+@interface BBFeatureBagTableViewController ()
 {
     
     IBOutlet UITableView *bagTableView;
@@ -21,14 +22,11 @@
     int curBagType;
     BBAppState* appState;
     BBBowl* selBowl;
-    
-    DetailType detailViewtype;
 }
 
 @end
 
-@implementation BBagTableViewController
-
+@implementation BBFeatureBagTableViewController
 @synthesize bowlArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,8 +44,8 @@
     self.navigationController.navigationBar.translucent=NO;
     
     appState=[BBAppState getInstance];
- 
-   // bowlArray= @[ @"Blue", @"Red", @"Green" ];
+    
+    // bowlArray= @[ @"Blue", @"Red", @"Green" ];
     bowlArray=[NSMutableArray array];
     
     segumentControler.selectedSegmentIndex=0;
@@ -87,7 +85,7 @@
     }
     else if(segumentControler.selectedSegmentIndex == 1)
     {
-         [self retrieveData];
+        [self retrieveData];
         
     }
     else if(segumentControler.selectedSegmentIndex == 2)
@@ -99,7 +97,7 @@
     else if(segumentControler.selectedSegmentIndex == 3)
     {
         
-         [self retrieveData];
+        [self retrieveData];
     }
     
 }
@@ -108,11 +106,11 @@
     
     [PFUser logOut];
     [self performSegueWithIdentifier:@"BackHomeSegue" sender:nil];
- //   [self dismissViewControllerAnimated:TRUE completion:nil];
+    //   [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
 - (IBAction)pressAddBowl:(id)sender {
-     [self performSegueWithIdentifier:@"AddBowlSegue" sender:nil];
+    [self performSegueWithIdentifier:@"AddBowlSegue" sender:nil];
     
 }
 
@@ -125,16 +123,16 @@
     {
         // Get reference to the destination view controller
         BBowlDetailViewController *vc = [segue destinationViewController];
-
-    
+        
+        
         [vc setDetailViewType:EditOnly];
         [vc setBowl:[[BBBowl alloc]init]];
     }
     else if([[segue identifier] isEqualToString:@"BowlDetailSegue"])
     {
-         BBowlDetailViewController *vc = [segue destinationViewController];
-       
-         [vc setDetailViewType:EditAndSave];
+        BBowlDetailViewController *vc = [segue destinationViewController];
+        
+        [vc setDetailViewType:EditAndSave];
         [vc setBowl:selBowl];
     }
     else if([[segue identifier] isEqualToString:@"FeatureBowlDetailSegue"])
@@ -144,7 +142,6 @@
         [vc setDetailViewType:None];
         [vc setBowl:selBowl];
     }
-    
     
 }
 
@@ -179,8 +176,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     selBowl=bowlArray[indexPath.row];
-
-    [self performSegueWithIdentifier:@"BowlDetailSegue" sender:nil];
+    
+    [self performSegueWithIdentifier:@"FeatureBowlDetailSegue" sender:nil];
     
 }
 
@@ -190,20 +187,20 @@
 {
     
     PFQuery *queryBowl = [PFQuery queryWithClassName:kBagClassKey];
-    [queryBowl whereKey:kBagUserKey equalTo:[PFUser currentUser]];
     [queryBowl whereKey:kBagTypeKey equalTo:appState.typeName[curBagType]];
+     [queryBowl whereKey:kBagFeaturedKey equalTo:[NSNumber numberWithBool:YES]];
     [queryBowl setCachePolicy:kPFCachePolicyCacheThenNetwork];
     [queryBowl findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-              [bowlArray removeAllObjects];
+            [bowlArray removeAllObjects];
             NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
             // Do something with the found objects
             for (PFObject *object in objects) {
-               
-
+                
+                
                 BBBowl* bowl=[[BBBowl alloc]initWithPFObject:object];
-               
+                
                 NSLog(@" retrieveData %@",bowl);
                 [bowlArray addObject:bowl];
                 
@@ -211,14 +208,14 @@
                 
                 
             }
-              [bagTableView reloadData];
+            [bagTableView reloadData];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
     
-  
+    
     
 }
 

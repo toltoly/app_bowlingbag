@@ -187,7 +187,7 @@
 {
     
     PFQuery *queryBowl = [PFQuery queryWithClassName:kBagClassKey];
-    [queryBowl whereKey:kBagTypeKey equalTo:appState.typeName[curBagType]];
+ //   [queryBowl whereKey:kBagTypeKey equalTo:appState.typeName[curBagType]];
      [queryBowl whereKey:kBagFeaturedKey equalTo:[NSNumber numberWithBool:YES]];
     [queryBowl setCachePolicy:kPFCachePolicyCacheThenNetwork];
     [queryBowl findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NSUInteger BAG_TYPE;
+
+enum
+{
+    ARSENAL             = 1 << 0,
+    LEAGUE              = 1 << 1,
+    TOURNAMENT          = 1 << 2,
+    SPORT_SHOT          = 1 << 3,
+};
+
+
+
 @interface BBBowl : NSObject
 {
   
@@ -20,7 +32,7 @@
 @property (nonatomic,strong)    PFFile* image;
 @property (nonatomic,strong)    PFFile* thumbnail;
 @property (nonatomic)           BOOL featured;
-
+@property (nonatomic)           BAG_TYPE bagtype;
 
 
 -(id)initWithPFObject:(PFObject*)object;

@@ -22,6 +22,9 @@
 		712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D504C188EFD0300EDD566 /* BBowlEditViewController.m */; };
 		712D5050188F0EC100EDD566 /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 712D504F188F0EC100EDD566 /* images.jpg */; };
 		712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */; };
+		7130245518A14C240068150F /* BBSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7130245418A14C240068150F /* BBSettingViewController.m */; };
+		7130245818A160150068150F /* item_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7130245618A160150068150F /* item_checked.png */; };
+		7130245918A160150068150F /* item_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7130245718A160150068150F /* item_unchecked.png */; };
 		719CD312189C333D0033742B /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 719CD2FB189C333C0033742B /* SDWebImageCompat.m */; };
 		719CD316189C333D0033742B /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 719CD303189C333D0033742B /* SDWebImageManager.m */; };
 		719CD31C189C333D0033742B /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 719CD310189C333D0033742B /* UIImageView+WebCache.m */; };
@@ -104,6 +107,10 @@
 		712D504F188F0EC100EDD566 /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpg; path = Resource/CutImage/images.jpg; sourceTree = SOURCE_ROOT; };
 		712D5052188F153200EDD566 /* BBPopoverMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPopoverMenuViewController.h; sourceTree = "<group>"; };
 		712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPopoverMenuViewController.m; sourceTree = "<group>"; };
+		7130245318A14C240068150F /* BBSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSettingViewController.h; sourceTree = "<group>"; };
+		7130245418A14C240068150F /* BBSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSettingViewController.m; sourceTree = "<group>"; };
+		7130245618A160150068150F /* item_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item_checked.png; path = Resource/CutImage/item_checked.png; sourceTree = SOURCE_ROOT; };
+		7130245718A160150068150F /* item_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item_unchecked.png; path = Resource/CutImage/item_unchecked.png; sourceTree = SOURCE_ROOT; };
 		719CD2FA189C333C0033742B /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
 		719CD2FB189C333C0033742B /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
 		719CD302189C333D0033742B /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
@@ -267,6 +274,8 @@
 		712D504E188F07A900EDD566 /* TempImage */ = {
 			isa = PBXGroup;
 			children = (
+				7130245618A160150068150F /* item_checked.png */,
+				7130245718A160150068150F /* item_unchecked.png */,
 				8711A29F18974569009BCF15 /* imageMask_iphone4.png */,
 				8711A2A018974569009BCF15 /* imageMask.png */,
 				8711A29D1897400C009BCF15 /* cameraMask_iphone4.png */,
@@ -286,6 +295,15 @@
 				712D5053188F153200EDD566 /* BBPopoverMenuViewController.m */,
 			);
 			name = PopOverMenu;
+			sourceTree = "<group>";
+		};
+		7130245218A14C070068150F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				7130245318A14C240068150F /* BBSettingViewController.h */,
+				7130245418A14C240068150F /* BBSettingViewController.m */,
+			);
+			name = Setting;
 			sourceTree = "<group>";
 		};
 		719CD33C189C4B620033742B /* Cell */ = {
@@ -457,6 +475,7 @@
 		87FCE188188E270D00947E78 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7130245218A14C070068150F /* Setting */,
 				719CD33C189C4B620033742B /* Cell */,
 				8711A29918960AFA009BCF15 /* Note */,
 				712D5051188F14EA00EDD566 /* PopOverMenu */,
@@ -546,6 +565,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7130245818A160150068150F /* item_checked.png in Resources */,
 				87FCE1931890D42200947E78 /* cameraMask.png in Resources */,
 				8711A2A118974569009BCF15 /* imageMask_iphone4.png in Resources */,
 				87FCE167188E179000947E78 /* Main_iPad.storyboard in Resources */,
@@ -556,6 +576,7 @@
 				8711A29E1897400C009BCF15 /* cameraMask_iphone4.png in Resources */,
 				87FCE19718921AD000947E78 /* edit_box.png in Resources */,
 				87FCE164188E179000947E78 /* Main_iPhone.storyboard in Resources */,
+				7130245918A160150068150F /* item_unchecked.png in Resources */,
 				87FCE15B188E179000947E78 /* InfoPlist.strings in Resources */,
 				8711A2A218974569009BCF15 /* imageMask.png in Resources */,
 			);
@@ -605,6 +626,7 @@
 				719CD335189C34F50033742B /* SDWebImageDownloader.m in Sources */,
 				719CD33A189C34F50033742B /* UIImage+MultiFormat.m in Sources */,
 				719CD316189C333D0033742B /* SDWebImageManager.m in Sources */,
+				7130245518A14C240068150F /* BBSettingViewController.m in Sources */,
 				71F0D0A71899A2D200BB1E58 /* UIImage+ResizeAdditions.m in Sources */,
 				712D504D188EFD0300EDD566 /* BBowlEditViewController.m in Sources */,
 				8711A29C18960B90009BCF15 /* BBNoteTableViewController.m in Sources */,

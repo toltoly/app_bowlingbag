@@ -17,7 +17,7 @@
 
 @implementation BBBowl
 
-@synthesize  name,type,note,image,thumbnail,featured,objectID;
+@synthesize  name,type,note,image,thumbnail,featured,objectID,bagtype;
 
 
 -(id)initWithPFObject:(PFObject*)object
@@ -26,11 +26,12 @@
        
         state=[BBAppState getInstance];
         self.name=object[kBagNameKey];
-        self.type=object[kBagTypeKey];
+     //   self.type=object[kBagTypeKey];
         self.note=object[kBagNoteKey];
         self.image=object[kBagImageKey];
         self.thumbnail=object[kBagThumbnailKey];
         self.featured=[object[kBagFeaturedKey] boolValue];
+        self.bagtype=[object[kBagTypeKey] integerValue];
         self.objectID=object.objectId;
         
         
@@ -41,7 +42,7 @@
 }
 
 - (NSString *)description {
-    NSString *descriptionString = [NSString stringWithFormat:@"Name: %@ \n type: %@ \n image:%@", self.name, self.type,self.image.url];
+    NSString *descriptionString = [NSString stringWithFormat:@"Name: %@ \n type: %lu \n image:%@", self.name, (unsigned long)self.bagtype,self.image.url];
     return descriptionString;
     
 }
@@ -87,7 +88,8 @@
     
     PFObject *newBowl = [PFObject objectWithClassName:kBagClassKey];
     [newBowl setObject:name forKey:kBagNameKey];
-    [newBowl setObject:type forKey:kBagTypeKey];
+//    [newBowl setObject:type forKey:kBagTypeKey];
+    [newBowl setObject:[NSNumber numberWithInteger:bagtype]  forKey:kBagTypeKey];
     [newBowl setObject:note forKey:kBagNoteKey];
     
     if(image)
@@ -121,7 +123,7 @@
     [queryBowl getObjectInBackgroundWithId:objectID block:^(PFObject *bowl, NSError *error) {
 
         bowl[kBagNameKey]=self.name;
-        bowl[kBagTypeKey]=self.type;
+        bowl[kBagTypeKey]=[NSNumber numberWithInteger:bagtype];
         bowl[kBagNoteKey]=self.note;
         if( self.image)
         {

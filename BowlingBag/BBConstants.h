@@ -13,11 +13,12 @@
 
 // Field keys
 #define  kBagNameKey            @"name"
-#define  kBagTypeKey            @"type"
+//#define  kBagTypeKey            @"type"
 #define  kBagNoteKey            @"note"
 #define  kBagImageKey           @"image"
 #define  kBagThumbnailKey       @"thumbnail"
 #define  kBagFeaturedKey        @"featured"
+#define  kBagTypeKey            @"bagtype"
 #define  kBagUserKey            @"user"
 
 ///////////////////////////////////////////////////

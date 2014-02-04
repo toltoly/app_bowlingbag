@@ -191,7 +191,7 @@
     
     PFQuery *queryBowl = [PFQuery queryWithClassName:kBagClassKey];
     [queryBowl whereKey:kBagUserKey equalTo:[PFUser currentUser]];
-    [queryBowl whereKey:kBagTypeKey equalTo:appState.typeName[curBagType]];
+   // [queryBowl whereKey:kBagTypeKey equalTo:appState.typeName[curBagType]];
     [queryBowl setCachePolicy:kPFCachePolicyCacheThenNetwork];
     [queryBowl findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -201,12 +201,33 @@
             // Do something with the found objects
             for (PFObject *object in objects) {
                
-
                 BBBowl* bowl=[[BBBowl alloc]initWithPFObject:object];
-               
-                NSLog(@" retrieveData %@",bowl);
-                [bowlArray addObject:bowl];
-                
+                if(curBagType==0)
+                {
+
+                    NSLog(@" retrieveData %@",bowl);
+                    [bowlArray addObject:bowl];
+                }
+                else if(curBagType==1)
+                {
+                    
+                    
+                    NSLog(@" retrieveData %@",bowl);
+                    if(bowl.bagtype&LEAGUE)
+                        [bowlArray addObject:bowl];
+                    
+                }
+                else if(curBagType==2)
+                {
+                    if(bowl.bagtype&TOURNAMENT)
+                        [bowlArray addObject:bowl];
+                    
+                }
+                else if(curBagType==3)
+                {
+                    if(bowl.bagtype&SPORT_SHOT)
+                        [bowlArray addObject:bowl];
+                }
                 
                 
                 

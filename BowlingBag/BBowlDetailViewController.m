@@ -29,7 +29,11 @@
     IBOutlet UIButton *typeButton2;
     IBOutlet UIButton *typeButton3;
     IBOutlet UIButton *typeButton4;
- 
+    
+    IBOutlet UIImageView *image1;
+    IBOutlet UIImageView *image2;
+    IBOutlet UIImageView *image3;
+    
     IBOutlet UIView *cameraPopup;
     IBOutlet UIButton *photoEdit;
     UITapGestureRecognizer  *tapRecognizer;
@@ -145,7 +149,7 @@
 {
     bowl.name=ballName.text;
     bowl.note=descriptionBallTextView.text;
-    bowl.type=typeButton1.titleLabel.text;
+  //  bowl.type=typeButton1.titleLabel.text;
     // create a photo object
 
     [bowl save];
@@ -156,7 +160,7 @@
 {
     bowl.name=ballName.text;
     bowl.note=descriptionBallTextView.text;
-    bowl.type=typeButton1.titleLabel.text;
+ //   bowl.type=typeButton1.titleLabel.text;
     // create a photo object
     
     [bowl update];
@@ -177,7 +181,7 @@
 }
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    NSLog(@"textViewShouldBeginEditing : %d",textView.tag);
+    NSLog(@"textViewShouldBeginEditing : %ld",(long)textView.tag);
     
     if(textView.tag==2)
     {
@@ -228,6 +232,8 @@
     ballName.selectable=editmode;
     ballName.editable=editmode;
     
+  
+    
     if(editmode)
     {
 
@@ -237,6 +243,7 @@
     }
     else
     {
+        dropdownView.hidden=TRUE;
   
         [ballNameBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
         [descriptionBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
@@ -446,9 +453,50 @@
     
     [descriptionBallTextView resignFirstResponder];
     
-    int index=[self getTypeInt:sender.titleLabel.text];
+   // int index=[self getTypeInt:sender.titleLabel.text];
 
-    [self showDropDown:dropdownView.hidden withType:index];
+    switch (sender.tag) {
+        case 0: //Type
+            [self showDropDown:dropdownView.hidden withType:bowl.bagtype];
+            break;
+        case 1: //league
+            if(bowl.bagtype & LEAGUE)
+            {
+                bowl.bagtype&= ~LEAGUE;
+            }
+            else
+            {
+                bowl.bagtype|=LEAGUE;
+               
+            }
+            [self setDropDownList:bowl.bagtype];
+            break;
+        case 2://tournament
+            if(bowl.bagtype & TOURNAMENT)
+            {
+                bowl.bagtype&= ~TOURNAMENT;
+            }
+            else
+            {
+                bowl.bagtype|=TOURNAMENT;
+            }
+            [self setDropDownList:bowl.bagtype];
+            break;
+        case 3: //sport bag
+            if(bowl.bagtype & SPORT_SHOT)
+            {
+                 bowl.bagtype&= ~SPORT_SHOT;
+            }
+            else
+            {
+                bowl.bagtype|=SPORT_SHOT;
+            }
+            [self setDropDownList:bowl.bagtype];
+            break;
+        default:
+            break;
+    }
+ 
     
     
 }
@@ -772,15 +820,36 @@ finishedSavingWithError:(NSError *)error
 }
 #pragma mark -DropDownList
 
--(void)setDropDownList:(int)type
+-(void)setDropDownList:(BAG_TYPE)type
 {
-    [typeButton1 setTitle:appState.typeName[type] forState:UIControlStateNormal];
+  /*  [typeButton1 setTitle:appState.typeName[type] forState:UIControlStateNormal];
     [typeButton2 setTitle:appState.typeName[(type+1)%4] forState:UIControlStateNormal];
     [typeButton3 setTitle:appState.typeName[(type+2)%4]forState:UIControlStateNormal];
     [typeButton4 setTitle:appState.typeName[(type+3)%4] forState:UIControlStateNormal];
+   */
+    
+    [image1 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
+    [image2 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
+    [image3 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
+    
+    if(type & LEAGUE)
+    {
+       [image1 setImage:[UIImage imageNamed:@"item_checked.png"]];
+    }
+    
+    if(type & TOURNAMENT)
+    {
+        [image2 setImage:[UIImage imageNamed:@"item_checked.png"]];
+    }
+    
+    if(type & SPORT_SHOT)
+    {
+        [image3 setImage:[UIImage imageNamed:@"item_checked.png"]];
+    }
+    
 }
 
--(void)showDropDown:(BOOL)show withType:(int)type
+-(void)showDropDown:(BOOL)show withType:(BAG_TYPE)type
 {
     dropdownView.hidden=!show;
     if(show)

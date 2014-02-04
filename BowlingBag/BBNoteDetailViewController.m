@@ -25,7 +25,7 @@
     
     IBOutlet UIButton *deleteNoteButton;
     
-    
+    BOOL isInEditMode;
 }
 
 @end
@@ -33,7 +33,7 @@
 @implementation BBNoteDetailViewController
 
 
-
+@synthesize detailViewType,note;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -74,25 +74,63 @@
      UIKeyboardWillHideNotification object:nil];
     
     
-    
+    isInEditMode=FALSE;
 
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
     
-    if(_onlyEditMode)
+    if(detailViewType==EditOnly)
     {
+
         deleteNoteButton.hidden=FALSE;
         [self setEditMode:TRUE];
+    }
+    else if(detailViewType==EditAndSave)
+    {
+        deleteNoteButton.hidden=TRUE;
+        [self setEditMode:isInEditMode];
     }
     else
     {
         deleteNoteButton.hidden=TRUE;
         [self setEditMode:FALSE];
     }
+    
+    [self fillView];
 }
+
+
+-(void)fillView
+{
+    
+    noteHeaderLabel.text=note.title;
+    noteTextview.text=note.note;
+    
+}
+-(void)saveNote
+{
+    note.title=noteHeaderLabel.text;
+    note.note=noteTextview.text;
+    
+    [note save];
+    
+    
+}
+-(void)updateNote
+{
+    note.title=noteHeaderLabel.text;
+    note.note=noteTextview.text;
+    //   bowl.type=typeButton1.titleLabel.text;
+    // create a photo object
+    
+    [note update];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -192,16 +230,21 @@
 -(void)pressSave
 {
     
-
     
-    //Edit mode
-    
-    if(_onlyEditMode)
+    if(detailViewType==EditOnly)
     {
-        [self.navigationController popViewControllerAnimated:TRUE];
+        //go back to table
+        [self saveNote];
+        [self. navigationController popViewControllerAnimated:TRUE];
+        
     }
     else
-    [self setEditMode:FALSE];
+    {
+        [self updateNote];
+        [self setEditMode:FALSE];
+        
+    }
+
     
 }
 
@@ -220,7 +263,7 @@
 }
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    NSLog(@"textViewShouldBeginEditing : %d",textView.tag);
+    NSLog(@"textViewShouldBeginEditing : %ld",(long)textView.tag);
     
     if(textView.tag==1)
     {

@@ -9,6 +9,7 @@
 #import "BBNoteTableViewController.h"
 #import "BBNoteDetailViewController.h"
 #import "BBNote.h"
+#import "BBBowlCell.h"
 @interface BBNoteTableViewController ()
 {
     
@@ -83,20 +84,27 @@
 #pragma  -mark segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+
+    
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"AddNoteSegue"]  )
     {
         // Get reference to the destination view controller
         BBNoteDetailViewController *vc = [segue destinationViewController];
         
-        [vc setOnlyEditMode:TRUE];
         
+        [vc setDetailViewType:EditOnly];
+        [vc setNote:[[BBNote alloc]init]];
     }
     else if([[segue identifier] isEqualToString:@"NoteDetailSegue"])
     {
         BBNoteDetailViewController *vc = [segue destinationViewController];
-        [vc setOnlyEditMode:FALSE];
+        
+        [vc setDetailViewType:EditAndSave];
+        [vc setNote:selNote];
     }
+  
+    
 }
 
 
@@ -113,11 +121,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"kNoteCell"];
     
-    cell.textLabel.text=noteArray[indexPath.row];
+    BBBowlCell* cell = (BBBowlCell *)[tableView dequeueReusableCellWithIdentifier:@"kNoteCell"];
+    BBNote* bowl=noteArray[indexPath.row];
+    NSLog(@" tableView %@",bowl);
+    cell.name.text= bowl.title;
+  //  [cell.thumbImage setImageWithURL: [NSURL URLWithString:bowl.thumbnail.url] placeholderImage:[UIImage imageNamed:@"camera_icon.png"]];
     
     return cell;
+    
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

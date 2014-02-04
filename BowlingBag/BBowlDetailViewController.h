@@ -11,11 +11,7 @@
 #import "BBPopoverMenuViewController.h"
 #import "BBBowl.h"
 
-typedef enum DetailType : NSUInteger {
-    EditOnly,
-    EditAndSave,
-    None
-} DetailType;
+
 
 @interface BBowlDetailViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 

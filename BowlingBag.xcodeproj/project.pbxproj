@@ -26,6 +26,7 @@
 		7130245818A160150068150F /* item_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7130245618A160150068150F /* item_checked.png */; };
 		7130245918A160150068150F /* item_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7130245718A160150068150F /* item_unchecked.png */; };
 		7130245C18A1830B0068150F /* BBNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7130245B18A1830B0068150F /* BBNote.m */; };
+		7130245E18A19C5D0068150F /* note.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7130245D18A19C5D0068150F /* note.jpeg */; };
 		719CD312189C333D0033742B /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 719CD2FB189C333C0033742B /* SDWebImageCompat.m */; };
 		719CD316189C333D0033742B /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 719CD303189C333D0033742B /* SDWebImageManager.m */; };
 		719CD31C189C333D0033742B /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 719CD310189C333D0033742B /* UIImageView+WebCache.m */; };
@@ -114,6 +115,7 @@
 		7130245718A160150068150F /* item_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item_unchecked.png; path = Resource/CutImage/item_unchecked.png; sourceTree = SOURCE_ROOT; };
 		7130245A18A1830B0068150F /* BBNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNote.h; sourceTree = "<group>"; };
 		7130245B18A1830B0068150F /* BBNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNote.m; sourceTree = "<group>"; };
+		7130245D18A19C5D0068150F /* note.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = note.jpeg; path = Resource/CutImage/note.jpeg; sourceTree = SOURCE_ROOT; };
 		719CD2FA189C333C0033742B /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
 		719CD2FB189C333C0033742B /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
 		719CD302189C333D0033742B /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 		712D504E188F07A900EDD566 /* TempImage */ = {
 			isa = PBXGroup;
 			children = (
+				7130245D18A19C5D0068150F /* note.jpeg */,
 				7130245618A160150068150F /* item_checked.png */,
 				7130245718A160150068150F /* item_unchecked.png */,
 				8711A29F18974569009BCF15 /* imageMask_iphone4.png */,
@@ -579,6 +582,7 @@
 				87FCE19918921ED300947E78 /* camera_icon.png in Resources */,
 				87FCE19518921A6700947E78 /* text_box.png in Resources */,
 				8711A29E1897400C009BCF15 /* cameraMask_iphone4.png in Resources */,
+				7130245E18A19C5D0068150F /* note.jpeg in Resources */,
 				87FCE19718921AD000947E78 /* edit_box.png in Resources */,
 				87FCE164188E179000947E78 /* Main_iPhone.storyboard in Resources */,
 				7130245918A160150068150F /* item_unchecked.png in Resources */,

@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum DetailType : NSUInteger {
+    EditOnly,
+    EditAndSave,
+    None
+} DetailType;
+
 @interface BBAppState : NSObject
 
 @property (nonatomic,strong) NSArray* typeName;

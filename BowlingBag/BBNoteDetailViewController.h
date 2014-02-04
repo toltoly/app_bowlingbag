@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BBNote.h"
 @interface BBNoteDetailViewController : UIViewController<UITextViewDelegate>
 
-@property (nonatomic)  BOOL onlyEditMode;
 
+
+@property (nonatomic, strong)BBNote* note;
+
+@property (nonatomic)  DetailType detailViewType;
 
 @end

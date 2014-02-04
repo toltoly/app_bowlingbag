@@ -86,12 +86,12 @@
     if(detailViewType==EditOnly)
     {
 
-        deleteNoteButton.hidden=FALSE;
+        deleteNoteButton.hidden=TRUE;
         [self setEditMode:TRUE];
     }
     else if(detailViewType==EditAndSave)
     {
-        deleteNoteButton.hidden=TRUE;
+         deleteNoteButton.hidden=TRUE;
         [self setEditMode:isInEditMode];
     }
     else
@@ -113,7 +113,7 @@
 }
 -(void)saveNote
 {
-    note.title=noteHeaderLabel.text;
+    note.title=noteHeaderTextField.text;
     note.note=noteTextview.text;
     
     [note save];
@@ -122,7 +122,8 @@
 }
 -(void)updateNote
 {
-    note.title=noteHeaderLabel.text;
+    note.title=noteHeaderTextField.text;
+    noteHeaderLabel.text=noteHeaderTextField.text;
     note.note=noteTextview.text;
     //   bowl.type=typeButton1.titleLabel.text;
     // create a photo object
@@ -160,7 +161,9 @@
 
 -(void)didTapAnywhere: (UITapGestureRecognizer*) recognizer {
 
+    [noteHeaderTextField resignFirstResponder];
     
+    [noteTextview resignFirstResponder];
 }
 
 -(void)setEditMode:(BOOL)editmode
@@ -175,12 +178,17 @@
     
     if(editmode)
     {
+        if(detailViewType==EditAndSave)
+            deleteNoteButton.hidden=FALSE;
         [noteHeaderImage setImage:[UIImage imageNamed:@"edit_box.png"]];
         [noteTextImage setImage:[UIImage imageNamed:@"edit_box.png"]];
 
     }
     else
     {
+        if(detailViewType==EditAndSave)
+            deleteNoteButton.hidden=TRUE;
+        
         [noteHeaderImage setImage:[UIImage imageNamed:@"text_box.png"]];
         [noteTextImage setImage:[UIImage imageNamed:@"text_box.png"]];
 
@@ -224,12 +232,14 @@
     
     //Edit mode
     
+    noteHeaderTextField.text=noteHeaderLabel.text;
     [self setEditMode:TRUE];
     
 }
 -(void)pressSave
 {
     
+    [self didTapAnywhere:nil];
     
     if(detailViewType==EditOnly)
     {
@@ -251,6 +261,8 @@
 #pragma  makr button Action
 
 - (IBAction)pressDeleteNote:(id)sender {
+    
+    [note deleteObject];
     [self.navigationController popViewControllerAnimated:TRUE];
     
 }

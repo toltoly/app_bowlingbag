@@ -243,7 +243,8 @@
     }
     else
     {
-        dropdownView.hidden=TRUE;
+        //dropdownView.hidden=TRUE;
+        [self showDropDown:FALSE withType:bowl.bagtype];
   
         [ballNameBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
         [descriptionBGImage setImage:[UIImage imageNamed:@"text_box.png"]];

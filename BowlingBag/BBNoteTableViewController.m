@@ -8,7 +8,7 @@
 
 #import "BBNoteTableViewController.h"
 #import "BBNoteDetailViewController.h"
-
+#import "BBNote.h"
 @interface BBNoteTableViewController ()
 {
     
@@ -18,7 +18,7 @@
     
     BBAppState* appState;
 
-   
+    BBNote* selNote;
 }
 
 
@@ -42,18 +42,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-     noteArray= @[ @"Hello ", @"Hi", @"Bye" ];
-
     appState=[BBAppState getInstance];
+    
+
+    noteArray=[NSMutableArray array];
 
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-
+    
+    [self retrieveData];
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -117,18 +120,58 @@
     return cell;
 }
 
-- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 51;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+    selNote=noteArray[indexPath.row];
     [self performSegueWithIdentifier:@"NoteDetailSegue" sender:nil];
     
 }
 
+
+#pragma mark PARSE
+-(void)retrieveData
+{
+    
+    PFQuery *queryBowl = [PFQuery queryWithClassName:kNoteClassKey];
+    [queryBowl whereKey:kNoteUserKey equalTo:[PFUser currentUser]];
+    [queryBowl setCachePolicy:kPFCachePolicyCacheThenNetwork];
+    [queryBowl findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+     {
+        if (!error)
+        {
+            // The find succeeded.
+            [noteArray removeAllObjects];
+            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects)
+            {
+                
+                BBNote* bowl=[[BBNote alloc]initWithPFObject:object];
+
+                    
+                NSLog(@" retrieveData %@",bowl);
+                [noteArray addObject:bowl];
+                
+                
+                
+            }
+            [noteTableView reloadData];
+        }
+        else
+        {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    
+    
+}
 
 
 @end

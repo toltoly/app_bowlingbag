@@ -10,6 +10,6 @@
 
 @interface BBNoteTableViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic, strong) NSArray *noteArray;
+@property (nonatomic, strong) NSMutableArray *noteArray;
 
 @end

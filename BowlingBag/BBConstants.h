@@ -26,10 +26,10 @@
 
 //////////////////////////////////////////////////
 //Notes
-#define kNotesClassKey = @"Notes";
+#define kNoteClassKey            @"Notes"
 // Field keys
-#define  kNotesTitleKey          @"title"
+#define  kNoteTitleKey           @"title"
 #define  kNoteNoteKey            @"note"
-#define  kBagUserKey             @"user"
+#define  kNoteUserKey             @"user"
 
 ///////////////////////////////////////////////////

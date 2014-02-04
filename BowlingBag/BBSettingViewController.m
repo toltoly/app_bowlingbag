@@ -39,10 +39,54 @@
 
 - (IBAction)pressLogout:(id)sender {
     
-    [PFUser logOut];
-    [self performSegueWithIdentifier:@"BackHomeSegue" sender:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Logout" message:@"Are  you sure?"  delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alertView setTag:0];
+    [alertView show];
+    
+
     
 }
 
+#pragma mark - UIAlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex  {
+    
+
+    
+    switch (alertView.tag) {
+        case 0:
+            if (buttonIndex == 0)   {
+                // do nothing
+            }
+            else {
+                [PFUser logOut];
+                [self performSegueWithIdentifier:@"BackHomeSegue" sender:nil];
+
+            }
+            break;
+            
+        case 1:
+            if (buttonIndex == 0)   {
+                // do nothing
+            }
+            else        {
+
+            }
+            break;
+            
+        case 2:
+            if (buttonIndex == 0)   {
+                // do nothing
+            }
+            else        {
+
+            }
+            
+            
+        default:
+            break;
+    }
+    
+}
 
 @end

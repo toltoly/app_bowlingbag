@@ -10,7 +10,7 @@
 #import "UIImage+ResizeAdditions.h"
 #import "UIImageView+WebCache.h"
 #import <Parse/Parse.h>
-#define  kViewDetailMoveDistance 180
+#define  kViewDetailMoveDistance 170
 
 @interface BBowlDetailViewController ()
 {
@@ -83,7 +83,14 @@
 //    UIBarButtonItem *customrightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightbutton];
 //    self.navigationItem.rightBarButtonItem=customrightBarItem;
 // //   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"White"] forBarMetrics:UIBarMetricsDefault];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     
+    button.frame = CGRectMake(0,0,28,28);
+    [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    
+    [button addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [self.navigationItem setLeftBarButtonItem:barButtonItem];
     
     appState=[BBAppState getInstance];
     tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -128,6 +135,8 @@
     
     cameraPopup.hidden=TRUE;
     dropdownView.hidden=TRUE;
+    
+    [self showDropDown:dropdownView.hidden withType:bowl.bagtype];
     [self fillView];
 }
 
@@ -139,7 +148,7 @@
     descriptionBallTextView.text=bowl.note;
     if(bowl.image!=nil && bowl.image.url.length!=0)
     {
-        [imageView setImageWithURL: [NSURL URLWithString:bowl.image.url] placeholderImage:[UIImage imageNamed:@"camera_icon.png"]];
+        [imageView setImageWithURL: [NSURL URLWithString:bowl.image.url] placeholderImage:[UIImage imageNamed:@"CameraCircle"]];
   
     }
     
@@ -186,7 +195,10 @@
     if(textView.tag==2)
     {
         //move view to up
+        if(detailView.frame.origin.y==0)
+        {
         [self moveView:detailView From:0 Distance:-kViewDetailMoveDistance Speed:0.5 AxisX:FALSE];
+        }
     }
     return TRUE;
 }
@@ -226,29 +238,40 @@
     isInEditMode=editmode;
     typeButton1.userInteractionEnabled=editmode;
     
-    descriptionBallTextView.selectable=editmode;
+   // descriptionBallTextView.selectable=editmode;
     descriptionBallTextView.editable=editmode;
     
-    ballName.selectable=editmode;
+   // ballName.selectable=editmode;
     ballName.editable=editmode;
     
   
     
     if(editmode)
     {
-
-
-        [ballNameBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
-        [descriptionBGImage setImage:[UIImage imageNamed:@"edit_box.png"]];
+        
+        image1.image=[UIImage imageNamed:@"Ballinbag_edit"];
+        image2.image=[UIImage imageNamed:@"Ballinbag_edit"];
+        image3.image=[UIImage imageNamed:@"Ballinbag_edit"];
+        
+        typeButton2.enabled=TRUE;
+        typeButton3.enabled=TRUE;
+        typeButton4.enabled=TRUE;
+        
+        ballNameBGImage.hidden=FALSE;
+        descriptionBGImage.hidden=FALSE;
     }
     else
     {
-        //dropdownView.hidden=TRUE;
-        [self showDropDown:FALSE withType:bowl.bagtype];
-  
-        [ballNameBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
-        [descriptionBGImage setImage:[UIImage imageNamed:@"text_box.png"]];
+        image1.image=[UIImage imageNamed:@"Ballinbag_display"];
+        image2.image=[UIImage imageNamed:@"Ballinbag_display"];
+        image3.image=[UIImage imageNamed:@"Ballinbag_display"];
         
+        typeButton2.enabled=FALSE;
+        typeButton3.enabled=FALSE;
+        typeButton4.enabled=FALSE;
+        
+        ballNameBGImage.hidden=TRUE;
+        descriptionBGImage.hidden=TRUE;
     }
 
 
@@ -264,10 +287,13 @@
     if(editmode)
     {
         UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [rightbutton setTitle:@"Save" forState:UIControlStateNormal];
+
+        
+        rightbutton.frame = CGRectMake(0,0,28,28);
+        [rightbutton setBackgroundImage:[UIImage imageNamed:@"Save_hollow"] forState:UIControlStateNormal];
         // [rightbutton setTitleColor:kLightBlueColor forState:UIControlStateNormal ];
         [rightbutton addTarget:self action:@selector(pressSave) forControlEvents:UIControlEventTouchUpInside];
-        rightbutton.frame=CGRectMake(50,50,50,50);
+     
         
         UIBarButtonItem *customrightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightbutton];
         self.navigationItem.rightBarButtonItem=customrightBarItem;
@@ -278,10 +304,11 @@
     else
     {
         UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [rightbutton setTitle:@"Edit" forState:UIControlStateNormal];
+        rightbutton.frame = CGRectMake(0,0,28,28);
+        [rightbutton setBackgroundImage:[UIImage imageNamed:@"Edit_hollow"] forState:UIControlStateNormal];
         // [rightbutton setTitleColor:kLightBlueColor forState:UIControlStateNormal ];
         [rightbutton addTarget:self action:@selector(pressEdit) forControlEvents:UIControlEventTouchUpInside];
-        rightbutton.frame=CGRectMake(50,50,50,50);
+  
         
         UIBarButtonItem *customrightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightbutton];
         self.navigationItem.rightBarButtonItem=customrightBarItem;
@@ -829,39 +856,46 @@ finishedSavingWithError:(NSError *)error
     [typeButton4 setTitle:appState.typeName[(type+3)%4] forState:UIControlStateNormal];
    */
     
-    [image1 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
-    [image2 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
-    [image3 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
+//    [image1 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
+//    [image2 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
+//    [image3 setImage:[UIImage imageNamed:@"item_unchecked.png"]];
+    
+    image1.hidden=TRUE;
+    image2.hidden=TRUE;
+    image3.hidden=TRUE;
     
     if(type & LEAGUE)
     {
-       [image1 setImage:[UIImage imageNamed:@"item_checked.png"]];
-    }
+//       [image1 setImage:[UIImage imageNamed:@"item_checked.png"]];
+         image1.hidden=FALSE;
+   }
     
     if(type & TOURNAMENT)
     {
-        [image2 setImage:[UIImage imageNamed:@"item_checked.png"]];
+//        [image2 setImage:[UIImage imageNamed:@"item_checked.png"]];
+         image2.hidden=FALSE;
     }
     
     if(type & SPORT_SHOT)
     {
-        [image3 setImage:[UIImage imageNamed:@"item_checked.png"]];
+//        [image3 setImage:[UIImage imageNamed:@"item_checked.png"]];
+         image3.hidden=FALSE;
     }
     
 }
 
 -(void)showDropDown:(BOOL)show withType:(BAG_TYPE)type
 {
-    dropdownView.hidden=!show;
-    if(show)
-    {
-        [typeButton1 setBackgroundImage:[UIImage imageNamed:@"edit_box.png"] forState:UIControlStateNormal];
-        
-    }
-    else
-    {
-          [typeButton1 setBackgroundImage:[UIImage imageNamed:@"text_box.png"] forState:UIControlStateNormal];
-    }
+//    dropdownView.hidden=!show;
+//    if(show)
+//    {
+//        [typeButton1 setBackgroundImage:[UIImage imageNamed:@"edit_box.png"] forState:UIControlStateNormal];
+//        
+//    }
+//    else
+//    {
+//          [typeButton1 setBackgroundImage:[UIImage imageNamed:@"text_box.png"] forState:UIControlStateNormal];
+//    }
     [self setDropDownList:type];
 }
 

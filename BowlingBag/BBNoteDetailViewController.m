@@ -60,6 +60,15 @@
     //    self.navigationItem.rightBarButtonItem=customrightBarItem;
     // //   [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"White"] forBarMetrics:UIBarMetricsDefault];
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    button.frame = CGRectMake(0,0,28,28);
+    [button setBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    
+    [button addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    [self.navigationItem setLeftBarButtonItem:barButtonItem];
+    
     tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                             action:@selector(didTapAnywhere:)];
     
@@ -180,8 +189,10 @@
     {
         if(detailViewType==EditAndSave)
             deleteNoteButton.hidden=FALSE;
-        [noteHeaderImage setImage:[UIImage imageNamed:@"edit_box.png"]];
-        [noteTextImage setImage:[UIImage imageNamed:@"edit_box.png"]];
+        
+        noteHeaderImage.hidden=FALSE;
+        noteTextImage.hidden=FALSE;
+      
 
     }
     else
@@ -189,8 +200,9 @@
         if(detailViewType==EditAndSave)
             deleteNoteButton.hidden=TRUE;
         
-        [noteHeaderImage setImage:[UIImage imageNamed:@"text_box.png"]];
-        [noteTextImage setImage:[UIImage imageNamed:@"text_box.png"]];
+        noteHeaderImage.hidden=TRUE;
+        noteTextImage.hidden=TRUE;
+
 
         
     }
@@ -198,10 +210,11 @@
     if(editmode)
     {
         UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [rightbutton setTitle:@"Save" forState:UIControlStateNormal];
+        rightbutton.frame = CGRectMake(0,0,28,28);
+        [rightbutton setBackgroundImage:[UIImage imageNamed:@"Save_hollow"] forState:UIControlStateNormal];
         // [rightbutton setTitleColor:kLightBlueColor forState:UIControlStateNormal ];
         [rightbutton addTarget:self action:@selector(pressSave) forControlEvents:UIControlEventTouchUpInside];
-        rightbutton.frame=CGRectMake(50,50,50,50);
+      //  rightbutton.frame=CGRectMake(50,50,50,50);
         
         UIBarButtonItem *customrightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightbutton];
         self.navigationItem.rightBarButtonItem=customrightBarItem;
@@ -212,10 +225,11 @@
     else
     {
         UIButton *rightbutton = [UIButton buttonWithType:UIButtonTypeSystem];
-        [rightbutton setTitle:@"Edit" forState:UIControlStateNormal];
+        rightbutton.frame = CGRectMake(0,0,28,28);
+        [rightbutton setBackgroundImage:[UIImage imageNamed:@"Edit_hollow"] forState:UIControlStateNormal];
         // [rightbutton setTitleColor:kLightBlueColor forState:UIControlStateNormal ];
         [rightbutton addTarget:self action:@selector(pressEdit) forControlEvents:UIControlEventTouchUpInside];
-        rightbutton.frame=CGRectMake(50,50,50,50);
+      //  rightbutton.frame=CGRectMake(50,50,50,50);
         
         UIBarButtonItem *customrightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightbutton];
         self.navigationItem.rightBarButtonItem=customrightBarItem;

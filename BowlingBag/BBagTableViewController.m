@@ -167,7 +167,7 @@
     BBBowl* bowl=bowlArray[indexPath.row];
     NSLog(@" tableView %@",bowl);
     cell.name.text= bowl.name;
-    [cell.thumbImage setImageWithURL: [NSURL URLWithString:bowl.thumbnail.url] placeholderImage:[UIImage imageNamed:@"camera_icon.png"]];
+    [cell.thumbImage setImageWithURL: [NSURL URLWithString:bowl.thumbnail.url] placeholderImage:[UIImage imageNamed:@"CameraCircle"]];
     
     return cell;
 }

@@ -54,6 +54,8 @@
 		8711A2A118974569009BCF15 /* imageMask_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A29F18974569009BCF15 /* imageMask_iphone4.png */; };
 		8711A2A218974569009BCF15 /* imageMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 8711A2A018974569009BCF15 /* imageMask.png */; };
 		8711A2A518976504009BCF15 /* BBNoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8711A2A418976504009BCF15 /* BBNoteDetailViewController.m */; };
+		873A26E318E5E3AA0025F626 /* BBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873A26E218E5E3A90025F626 /* BBTabBarController.m */; };
+		873A26E618E5E7E80025F626 /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873A26E518E5E7E80025F626 /* BBNavigationController.m */; };
 		87FCE151188E179000947E78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE150188E179000947E78 /* Foundation.framework */; };
 		87FCE153188E179000947E78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE152188E179000947E78 /* CoreGraphics.framework */; };
 		87FCE155188E179000947E78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE154188E179000947E78 /* UIKit.framework */; };
@@ -168,6 +170,10 @@
 		8711A2A018974569009BCF15 /* imageMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageMask.png; sourceTree = "<group>"; };
 		8711A2A318976504009BCF15 /* BBNoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNoteDetailViewController.h; sourceTree = "<group>"; };
 		8711A2A418976504009BCF15 /* BBNoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNoteDetailViewController.m; sourceTree = "<group>"; };
+		873A26E118E5E3A90025F626 /* BBTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBTabBarController.h; sourceTree = "<group>"; };
+		873A26E218E5E3A90025F626 /* BBTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBTabBarController.m; sourceTree = "<group>"; };
+		873A26E418E5E7E80025F626 /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
+		873A26E518E5E7E80025F626 /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
 		87FCE14D188E179000947E78 /* BowlingBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FCE150188E179000947E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		87FCE152188E179000947E78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -489,6 +495,10 @@
 				712D5051188F14EA00EDD566 /* PopOverMenu */,
 				712D5044188EE49C00EDD566 /* BowlingBag */,
 				712D5043188EE48F00EDD566 /* Login */,
+				873A26E118E5E3A90025F626 /* BBTabBarController.h */,
+				873A26E218E5E3A90025F626 /* BBTabBarController.m */,
+				873A26E418E5E7E80025F626 /* BBNavigationController.h */,
+				873A26E518E5E7E80025F626 /* BBNavigationController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -631,8 +641,10 @@
 				71AADF2618A0430700E5AF31 /* BBFeatureBagTableViewController.m in Sources */,
 				71F0D0A81899A2D200BB1E58 /* UIImage+RoundedCornerAdditions.m in Sources */,
 				712D5054188F153200EDD566 /* BBPopoverMenuViewController.m in Sources */,
+				873A26E618E5E7E80025F626 /* BBNavigationController.m in Sources */,
 				712D5047188EE4EE00EDD566 /* BBagTableViewController.m in Sources */,
 				719CD33F189C4CFA0033742B /* BBBowlCell.m in Sources */,
+				873A26E318E5E3AA0025F626 /* BBTabBarController.m in Sources */,
 				719CD335189C34F50033742B /* SDWebImageDownloader.m in Sources */,
 				719CD33A189C34F50033742B /* UIImage+MultiFormat.m in Sources */,
 				719CD316189C333D0033742B /* SDWebImageManager.m in Sources */,

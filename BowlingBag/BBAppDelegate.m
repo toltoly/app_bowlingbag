@@ -14,12 +14,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    
+
+   
     // Override point for customization after application launch.
     [Parse setApplicationId:@"lqMzxP6TOTVuV3OSeW6m0tti4h3uNbZszZQvaTXV"
                   clientKey:@"aoNjFluW02h6LV4FP1X8j845I4a3GZezPU4IPO5R"];
     
-    
+     [PFFacebookUtils initializeFacebook];
     
    // [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     return YES;
@@ -45,11 +46,20 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
 }
 
 @end

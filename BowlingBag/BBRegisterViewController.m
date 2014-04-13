@@ -16,6 +16,7 @@
     
     UITapGestureRecognizer  *tapRecognizer;
 
+    IBOutlet UIButton *stayLoginButton;
 }
 
 @end
@@ -50,6 +51,13 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [BBAppState getInstance].stayLogin= [[NSUserDefaults standardUserDefaults] boolForKey:@"kStayLogin"];
+    
+    [self changeStayLoginButton];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -155,6 +163,8 @@
 
 - (IBAction)pressFacebook:(id)sender {
     
+    
+    
 }
 
 - (IBAction)pressBack:(id)sender {
@@ -163,11 +173,58 @@
     
 }
 
+- (IBAction)pressFacebookSignIn:(id)sender {
+    NSArray *permissionsArray = @[ @"email", @"basic_info",@"publish_stream"];
+    
+    // Login PFUser using Facebook
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        
+        if (!user) {
+            if (!error) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            } else {
+                NSLog(@"Uh oh. An error occurred: %@", error);
+            }
+        } else if (user.isNew) {
+            NSLog(@"User with facebook signed up and logged in!");
+            [self performSegueWithIdentifier:@"HomeSegue"sender:self];
+        } else {
+            NSLog(@"User with facebook logged in!");
+            [self performSegueWithIdentifier:@"HomeSegue"sender:self];
+        }
+    }];
+    
+}
+
+- (IBAction)pressStayLogin:(id)sender {
+    
+    [BBAppState getInstance].stayLogin=![BBAppState getInstance].stayLogin;
+    [[NSUserDefaults standardUserDefaults] setBool:[BBAppState getInstance].stayLogin forKey:@"kStayLogin"];
+    
+    [self changeStayLoginButton];
+}
+
 #pragma mark- Helper function
 -(BOOL) validateEmail: (NSString *) candidate {
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex]; //  return 0;
     return [emailTest evaluateWithObject:candidate];
+}
+-(void)changeStayLoginButton
+{
+    if([BBAppState getInstance].stayLogin)
+    {
+        UIImage *btnImage = [UIImage imageNamed:@"checkButton"];
+        [stayLoginButton setImage:btnImage forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        UIImage *btnImage = [UIImage imageNamed:@"uncheckButton"];
+        [stayLoginButton setImage:btnImage forState:UIControlStateNormal];
+    }
+    
+    
 }
 
 @end

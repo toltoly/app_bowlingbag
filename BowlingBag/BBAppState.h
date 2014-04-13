@@ -18,7 +18,7 @@ typedef enum DetailType : NSUInteger {
 
 @property (nonatomic,strong) NSArray* typeName;
 @property (nonatomic, strong) PFUser *user;
-
+@property (nonatomic) BOOL  stayLogin;
 + (BBAppState*)getInstance;
 
 

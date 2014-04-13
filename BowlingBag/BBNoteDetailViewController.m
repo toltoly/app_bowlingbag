@@ -8,7 +8,7 @@
 
 #import "BBNoteDetailViewController.h"
 
-#define  kViewDetailMoveDistance 100
+#define  kViewDetailMoveDistance 40
 
 @interface BBNoteDetailViewController ()
 {
@@ -26,6 +26,7 @@
     IBOutlet UIButton *deleteNoteButton;
     
     BOOL isInEditMode;
+    IBOutlet UIButton *sharedButton;
 }
 
 @end
@@ -92,6 +93,7 @@
     [super viewWillAppear:animated];
 
     
+    
     if(detailViewType==EditOnly)
     {
 
@@ -115,7 +117,7 @@
 
 -(void)fillView
 {
-    
+   
     noteHeaderLabel.text=note.title;
     noteTextview.text=note.note;
     
@@ -132,6 +134,7 @@
 -(void)updateNote
 {
     note.title=noteHeaderTextField.text;
+ //    self.navigationController.navigationBar.topItem.title=note.title;
     noteHeaderLabel.text=noteHeaderTextField.text;
     note.note=noteTextview.text;
     //   bowl.type=typeButton1.titleLabel.text;
@@ -190,6 +193,7 @@
         if(detailViewType==EditAndSave)
             deleteNoteButton.hidden=FALSE;
         
+        sharedButton.hidden=TRUE;
         noteHeaderImage.hidden=FALSE;
         noteTextImage.hidden=FALSE;
       
@@ -199,7 +203,7 @@
     {
         if(detailViewType==EditAndSave)
             deleteNoteButton.hidden=TRUE;
-        
+        sharedButton.hidden=FALSE;
         noteHeaderImage.hidden=TRUE;
         noteTextImage.hidden=TRUE;
 
@@ -281,6 +285,60 @@
     
 }
 
+- (IBAction)pressSharedButton:(id)sender {
+    
+    //
+    //    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+    //                                   @"Sharing Tutorial", @"name",
+    //                                   @"Build great social apps and get more installs.", @"caption",
+    //                                   @"Allow your users to share stories on Facebook from your app using the iOS SDK.", @"description",
+    //                                   @"https://developers.facebook.com/docs/ios/share/", @"link",
+    //                                   @"http://i.imgur.com/g3Qc1HN.png", @"picture",
+    //                                   nil];
+    //
+    
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenWidth = screenSize.width;
+    CGFloat screenHeight = screenSize.height;
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = CGPointMake(screenWidth/2, screenHeight/2);
+    spinner.hidesWhenStopped = YES;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+    
+    // Put together the dialog parameters
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   note.title, @"name",
+                                   @"----", @"caption",
+                                   note.note, @"description",
+                                   @"http://files.parse.com/ad1acf14-0d33-4694-abc5-071bb9781943/bee98806-54d8-467b-9a3f-6f47b2da9c85-bowlingball256.png", @"picture",
+                                   nil];
+    
+    // Make the request
+    [FBRequestConnection startWithGraphPath:@"/me/feed"
+                                 parameters:params
+                                 HTTPMethod:@"POST"
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              if (!error) {
+                                  [spinner stopAnimating];
+                                  // Link posted successfully to Facebook
+                                  NSLog(@"result: %@", result);
+                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                  [alert show];
+                                  
+                              } else {
+                                  [spinner stopAnimating];
+                                  // An error occurred, we need to handle the error
+                                  // See: https://developers.facebook.com/docs/ios/errors
+                                  NSLog(@"%@", error.description);
+                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                  [alert show];
+                              }
+                          }];
+}
+
+
 #pragma  -mark TextView delegate
 
 -(void)textViewDidChange:(UITextView *)textView
@@ -326,6 +384,7 @@
     }];
     
 }
+
 
 
 @end

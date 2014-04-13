@@ -44,6 +44,7 @@
     
     BOOL isInEditMode;
   
+    IBOutlet UIButton *sharedButton;
     
 }
 @property BOOL newMedia;
@@ -248,7 +249,7 @@
     
     if(editmode)
     {
-        
+        sharedButton.hidden=TRUE;
         image1.image=[UIImage imageNamed:@"Ballinbag_edit"];
         image2.image=[UIImage imageNamed:@"Ballinbag_edit"];
         image3.image=[UIImage imageNamed:@"Ballinbag_edit"];
@@ -262,6 +263,7 @@
     }
     else
     {
+        sharedButton.hidden=FALSE;
         image1.image=[UIImage imageNamed:@"Ballinbag_display"];
         image2.image=[UIImage imageNamed:@"Ballinbag_display"];
         image3.image=[UIImage imageNamed:@"Ballinbag_display"];
@@ -530,6 +532,81 @@
 }
 
 
+- (IBAction)pressSharedButton:(id)sender {
+    
+//  
+//    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+//                                   @"Sharing Tutorial", @"name",
+//                                   @"Build great social apps and get more installs.", @"caption",
+//                                   @"Allow your users to share stories on Facebook from your app using the iOS SDK.", @"description",
+//                                   @"https://developers.facebook.com/docs/ios/share/", @"link",
+//                                   @"http://i.imgur.com/g3Qc1HN.png", @"picture",
+//                                   nil];
+//
+    
+    NSMutableString* type=[NSMutableString string];
+    
+    if(bowl.bagtype & LEAGUE)
+    {
+        //       [image1 setImage:[UIImage imageNamed:@"item_checked.png"]];
+       // image1.hidden=FALSE;
+        [type appendString:@"LEAGUE,"];
+    }
+    
+    if(bowl.bagtype & TOURNAMENT)
+    {
+        //        [image2 setImage:[UIImage imageNamed:@"item_checked.png"]];
+      // image2.hidden=FALSE;
+        [type appendString:@"TOURNAMENT,"];
+    }
+    
+    if(bowl.bagtype & SPORT_SHOT)
+    {
+        //        [image3 setImage:[UIImage imageNamed:@"item_checked.png"]];
+       // image3.hidden=FALSE;
+        [type appendString:@"SPORTSHOT"];
+    }
+    
+    CGRect screenBound = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = screenBound.size;
+    CGFloat screenWidth = screenSize.width;
+    CGFloat screenHeight = screenSize.height;
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = CGPointMake(screenWidth/2, screenHeight/2);
+    spinner.hidesWhenStopped = YES;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+
+    // Put together the dialog parameters
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   bowl.name, @"name",
+                                   type, @"caption",
+                                   bowl.note, @"description",
+                                   bowl.image.url, @"picture",
+                                   nil];
+    
+    // Make the request
+    [FBRequestConnection startWithGraphPath:@"/me/feed"
+                                 parameters:params
+                                 HTTPMethod:@"POST"
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              if (!error) {
+                                  [spinner stopAnimating];
+                                  // Link posted successfully to Facebook
+                                  NSLog(@"result: %@", result);
+                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                  [alert show];
+
+                              } else {
+                                   [spinner stopAnimating];
+                                  // An error occurred, we need to handle the error
+                                  // See: https://developers.facebook.com/docs/ios/errors
+                                  NSLog(@"%@", error.description);
+                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                  [alert show];
+                              }
+                          }];
+}
 
 
 #pragma mark - Popover methods

@@ -17,19 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1L-l2-BFN">
-                                <rect key="frame" x="63" y="234" width="184" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1L-l2-BFN">
+                                <rect key="frame" x="66" y="375" width="188" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" image="loginButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="pressLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R8z-sX-QeB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sei-JK-hMh">
-                                <rect key="frame" x="97" y="371" width="127" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sei-JK-hMh">
+                                <rect key="frame" x="220" y="301" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="New User">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -37,27 +38,59 @@
                                     <segue destination="PZP-Ov-4NW" kind="modal" id="9om-5b-bjX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iT1-AH-R7F">
-                                <rect key="frame" x="63" y="121" width="196" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email Address" minimumFontSize="17" background="loginBox" translatesAutoresizingMaskIntoConstraints="NO" id="iT1-AH-R7F">
+                                <rect key="frame" x="20" y="214" width="287" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzv-0F-9MH">
-                                <rect key="frame" x="63" y="173" width="196" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Password" minimumFontSize="17" background="loginBox" translatesAutoresizingMaskIntoConstraints="NO" id="dzv-0F-9MH">
+                                <rect key="frame" x="20" y="256" width="287" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-0M-4oC">
-                                <rect key="frame" x="63" y="296" width="184" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-0M-4oC">
+                                <rect key="frame" x="185" y="336" width="117" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Forgot pasword">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Forgot pasword?"/>
                                 <connections>
                                     <action selector="pressForgotPassword:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fU0-Cc-eKv"/>
                                     <segue destination="53z-Kc-Ldb" kind="modal" id="g2D-Yl-vZC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyY-KH-4Z1">
+                                <rect key="frame" x="20" y="306" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="checkButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressStayLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vP9-nP-fx5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stay Logged In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7T-K1-9KL">
+                                <rect key="frame" x="47" y="308" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bowlingbaglogo_iphone" translatesAutoresizingMaskIntoConstraints="NO" id="OmM-bC-Rcm">
+                                <rect key="frame" x="37" y="56" width="246" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DT-DC-rDu">
+                                <rect key="frame" x="66" y="421" width="188" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="facebookButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressFacebookSignIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8wF-XT-2Pj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,6 +100,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="iT1-AH-R7F" id="h6d-DQ-Udd"/>
                         <outlet property="passwordTextField" destination="dzv-0F-9MH" id="ja9-O4-5QS"/>
+                        <outlet property="stayLoginButton" destination="MyY-KH-4Z1" id="c7L-n7-Yxg"/>
                         <segue destination="qgu-ru-6zI" kind="modal" identifier="HomeSegue" id="uov-hV-bUA"/>
                     </connections>
                 </viewController>
@@ -86,52 +120,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-ca-cV1">
-                                <rect key="frame" x="45" y="118" width="216" height="30"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bowlingbaglogo_iphone" translatesAutoresizingMaskIntoConstraints="NO" id="O5B-7h-MAP">
+                                <rect key="frame" x="37" y="56" width="246" height="122"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email Address" minimumFontSize="17" background="loginBox" translatesAutoresizingMaskIntoConstraints="NO" id="IvS-ca-cV1">
+                                <rect key="frame" x="17" y="118" width="287" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8N-jO-acH">
-                                <rect key="frame" x="45" y="167" width="216" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Password" minimumFontSize="17" background="loginBox" translatesAutoresizingMaskIntoConstraints="NO" id="Z8N-jO-acH">
+                                <rect key="frame" x="17" y="167" width="287" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm pasword" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2pA-XT-2IM">
-                                <rect key="frame" x="45" y="224" width="216" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Confirm Password" minimumFontSize="17" background="loginBox" translatesAutoresizingMaskIntoConstraints="NO" id="2pA-XT-2IM">
+                                <rect key="frame" x="17" y="217" width="287" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzv-sZ-zuI">
-                                <rect key="frame" x="56" y="301" width="201" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzv-sZ-zuI">
+                                <rect key="frame" x="58" y="305" width="188" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Register">
+                                <state key="normal" image="signButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="pressRegister:" destination="PZP-Ov-4NW" eventType="touchUpInside" id="BvS-29-KPk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkr-kf-iGt">
-                                <rect key="frame" x="69" y="373" width="175" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVn-dN-aoy">
+                                <rect key="frame" x="63" y="389" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Facebook Account">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pressFacebook:" destination="PZP-Ov-4NW" eventType="touchUpInside" id="dIM-WI-UF5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVn-dN-aoy">
-                                <rect key="frame" x="73" y="444" width="175" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="BACK">
+                                    <color key="titleColor" red="0.77254909279999995" green="0.0" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="pressBack:" destination="PZP-Ov-4NW" eventType="touchUpInside" id="yd7-r0-N63"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8x-dq-AR2">
+                                <rect key="frame" x="20" y="259" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="checkButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressStayLogin:" destination="PZP-Ov-4NW" eventType="touchUpInside" id="a1B-r0-woE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stay Logged In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujs-uf-iLI">
+                                <rect key="frame" x="47" y="260" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIa-ZN-n3f">
+                                <rect key="frame" x="58" y="345" width="188" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="facebookButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressFacebookSignIn:" destination="PZP-Ov-4NW" eventType="touchUpInside" id="grZ-Rn-OKM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -142,12 +202,13 @@
                         <outlet property="confirmPasswordTextField" destination="2pA-XT-2IM" id="eIT-YD-zvs"/>
                         <outlet property="emailTextField" destination="IvS-ca-cV1" id="Uqt-F4-ING"/>
                         <outlet property="passwordTextField" destination="Z8N-jO-acH" id="4fn-ay-hnC"/>
+                        <outlet property="stayLoginButton" destination="N8x-dq-AR2" id="FvW-32-bFx"/>
                         <segue destination="qgu-ru-6zI" kind="modal" identifier="HomeSegue" id="doz-0r-UQl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q37-Wf-0ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9" y="195"/>
+            <point key="canvasLocation" x="0.0" y="88"/>
         </scene>
         <!--Bag Table View Controller - League Bag-->
         <scene sceneID="TaP-tG-jyv">
@@ -384,12 +445,15 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pressSharedButton:" destination="n5f-KR-DkP" eventType="touchUpInside" id="t3A-M9-sHe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKR-U2-jxK">
-                                <rect key="frame" x="34" y="348" width="252" height="30"/>
+                                <rect key="frame" x="34" y="342" width="252" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="DELETE BALL">
@@ -400,37 +464,43 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6K-WY-GiL" userLabel="CameraPopup">
-                                <rect key="frame" x="-320" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.84999999999999987" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="BNm-dg-CzN" userLabel="BGMask">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAS-Mp-56Q">
-                                        <rect key="frame" x="72" y="113" width="186" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAS-Mp-56Q">
+                                        <rect key="frame" x="65" y="140" width="186" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                         <state key="normal" title="Camera">
+                                            <color key="titleColor" red="0.77254909279999995" green="0.0" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="PressCamera:" destination="n5f-KR-DkP" eventType="touchUpInside" id="d6v-Ue-PZn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bj-CP-gkJ">
-                                        <rect key="frame" x="72" y="173" width="186" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bj-CP-gkJ">
+                                        <rect key="frame" x="67" y="210" width="186" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                         <state key="normal" title="Camera roll">
+                                            <color key="titleColor" red="0.77254909279999995" green="0.0" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="pressCameraRoll:" destination="n5f-KR-DkP" eventType="touchUpInside" id="3zA-ZY-rMn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4N-Hg-9st">
-                                        <rect key="frame" x="96" y="237" width="149" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4N-Hg-9st">
+                                        <rect key="frame" x="86" y="281" width="149" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                         <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.77254909279999995" green="0.0" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -457,6 +527,7 @@
                         <outlet property="image3" destination="CSa-hq-0dm" id="Fhk-IY-NTH"/>
                         <outlet property="imageView" destination="gUF-Ho-b2o" id="hBZ-dx-wJu"/>
                         <outlet property="photoEdit" destination="rq0-iK-sbm" id="Mbx-hw-kb7"/>
+                        <outlet property="sharedButton" destination="ndp-aR-RF9" id="b2m-NI-RWK"/>
                         <outlet property="typeButton2" destination="6eA-0s-yrd" id="PGs-Hm-h36"/>
                         <outlet property="typeButton3" destination="iYK-Wh-asR" id="5Er-gH-MN4"/>
                         <outlet property="typeButton4" destination="l78-PV-FBl" id="S6J-mz-tct"/>
@@ -500,32 +571,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snu-IO-E7H">
-                                <rect key="frame" x="50" y="276" width="220" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snu-IO-E7H">
+                                <rect key="frame" x="66" y="273" width="188" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Send">
+                                <state key="normal" image="sendButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="pressSend:" destination="53z-Kc-Ldb" eventType="touchUpInside" id="iga-S8-i1q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyz-df-QRz">
-                                <rect key="frame" x="50" y="336" width="220" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyz-df-QRz">
+                                <rect key="frame" x="50" y="321" width="220" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.77254909279999995" green="0.0" blue="0.17254902420000001" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="pressBack:" destination="53z-Kc-Ldb" eventType="touchUpInside" id="sVM-2W-V0g"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-OJ-7Ga">
-                                <rect key="frame" x="37" y="220" width="255" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Email Address" minimumFontSize="17" background="loginBox" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-OJ-7Ga">
+                                <rect key="frame" x="17" y="220" width="287" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bowlingbaglogo_iphone" translatesAutoresizingMaskIntoConstraints="NO" id="lbN-eG-blq">
+                                <rect key="frame" x="37" y="56" width="246" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -549,10 +627,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSW-N8-y5i">
-                                <rect key="frame" x="57" y="269" width="196" height="30"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="azc-Xa-evX" userLabel="BGMask">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSW-N8-y5i">
+                                <rect key="frame" x="66" y="241" width="188" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Log Out" image="logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -561,6 +644,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="azc-Xa-evX" secondAttribute="trailing" id="0wv-99-GmR"/>
+                            <constraint firstItem="azc-Xa-evX" firstAttribute="leading" secondItem="fl9-LY-FaS" secondAttribute="leading" id="7NE-dY-CaI"/>
+                            <constraint firstItem="azc-Xa-evX" firstAttribute="top" secondItem="fl9-LY-FaS" secondAttribute="top" id="BQR-32-sYm"/>
+                            <constraint firstItem="X8A-tI-B18" firstAttribute="top" secondItem="azc-Xa-evX" secondAttribute="bottom" constant="1" id="ol2-K9-tOL"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings_off_tb" id="0Br-ea-EBl"/>
                     <connections>
@@ -569,7 +658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="San-mG-Flo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="754"/>
+            <point key="canvasLocation" x="822" y="718"/>
         </scene>
         <!--Note Table View Controller - Notes-->
         <scene sceneID="3qa-PL-IzN">
@@ -699,7 +788,7 @@
                                         </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNO-26-VNH">
-                                        <rect key="frame" x="15" y="284" width="274" height="30"/>
+                                        <rect key="frame" x="15" y="274" width="274" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="DELETE BALL">
@@ -717,6 +806,9 @@
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pressSharedButton:" destination="xu8-J1-wXi" eventType="touchUpInside" id="6eR-YI-xkj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -733,6 +825,7 @@
                         <outlet property="noteHeaderTextField" destination="Dxr-CK-rXw" id="b4d-kb-lKH"/>
                         <outlet property="noteTextImage" destination="paW-jh-nvf" id="lfW-jD-Osi"/>
                         <outlet property="noteTextview" destination="BqB-IF-scf" id="AEQ-y4-W2q"/>
+                        <outlet property="sharedButton" destination="QeU-po-0gE" id="Ebc-Kr-htx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gy5-T4-50L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -777,7 +870,7 @@
             </objects>
             <point key="canvasLocation" x="934" y="49"/>
         </scene>
-        <!--Feature Bag Table View Controller - Feature Bag-->
+        <!--Feature Bag Table View Controller - Featured Bag-->
         <scene sceneID="JKV-nB-wSG">
             <objects>
                 <viewController id="wqG-XV-aUc" customClass="BBFeatureBagTableViewController" sceneMemberID="viewController">
@@ -802,14 +895,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-VG-lon">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="9" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHi-rQ-lzJ">
-                                                    <rect key="frame" x="63" y="7" width="237" height="33"/>
+                                                    <rect key="frame" x="67" y="7" width="237" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -828,7 +921,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Feature Bag" id="WRP-oK-FMA"/>
+                    <navigationItem key="navigationItem" title="Featured Bag" id="WRP-oK-FMA"/>
                     <connections>
                         <outlet property="bagTableView" destination="n1K-6Q-8wC" id="oKE-4g-aLT"/>
                         <segue destination="vXZ-lx-hvc" kind="modal" identifier="BackHomeSegue" id="nTq-u8-mgc"/>
@@ -865,14 +958,22 @@
         <image name="add" width="28" height="28"/>
         <image name="bag_off_tb" width="28" height="28"/>
         <image name="black" width="1" height="1"/>
+        <image name="bowlingbaglogo_iphone" width="246" height="122"/>
+        <image name="checkButton" width="20" height="20"/>
         <image name="circle" width="28" height="28"/>
         <image name="descBox" width="288" height="113"/>
+        <image name="facebookButton" width="188" height="32"/>
         <image name="featured_off_tb" width="28" height="28"/>
+        <image name="loginBox" width="288" height="36"/>
+        <image name="loginButton" width="188" height="32"/>
+        <image name="logout" width="28" height="28"/>
         <image name="nameBox" width="214" height="52"/>
         <image name="note_list" width="31" height="40"/>
         <image name="note_off_tb" width="28" height="28"/>
+        <image name="sendButton" width="188" height="32"/>
         <image name="settings_off_tb" width="28" height="28"/>
         <image name="share" width="28" height="28"/>
+        <image name="signButton" width="188" height="32"/>
     </resources>
     <color key="tintColor" red="0.7725490927696228" green="0.0" blue="0.17254902422428131" alpha="1" colorSpace="deviceRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -881,9 +982,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uov-hV-bUA"/>
-        <segue reference="54O-u3-YCw"/>
-        <segue reference="ZfI-4e-1Au"/>
+        <segue reference="cez-6l-fUh"/>
+        <segue reference="doz-0r-UQl"/>
+        <segue reference="51g-Fh-PTO"/>
         <segue reference="4kZ-DC-ggZ"/>
     </inferredMetricsTieBreakers>
 </document>

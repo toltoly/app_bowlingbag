@@ -43,6 +43,9 @@
     [alertView setTag:0];
     [alertView show];
     
+    
+    
+    
 
     
 }
@@ -60,6 +63,7 @@
             }
             else {
                 [PFUser logOut];
+
                 [self performSegueWithIdentifier:@"BackHomeSegue" sender:nil];
 
             }

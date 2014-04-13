@@ -54,6 +54,7 @@
 {
     [super viewWillAppear:animated];
     
+   //  self.navigationController.navigationBar.topItem.title=@"Notes";
     [self retrieveData];
     
 }
@@ -98,6 +99,7 @@
     }
     else if([[segue identifier] isEqualToString:@"NoteDetailSegue"])
     {
+     //   self.navigationController.navigationBar.topItem.title=selNote.title;
         BBNoteDetailViewController *vc = [segue destinationViewController];
         
         [vc setDetailViewType:EditAndSave];
@@ -141,9 +143,12 @@
 {
     
     selNote=noteArray[indexPath.row];
+    
     [self performSegueWithIdentifier:@"NoteDetailSegue" sender:nil];
     
 }
+
+
 
 
 #pragma mark PARSE

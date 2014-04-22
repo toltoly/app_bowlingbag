@@ -75,7 +75,7 @@
     
     appState=[BBAppState getInstance];
     appState.user=[PFUser currentUser];
-    if (appState.user )
+    if (appState.user && [BBAppState getInstance].stayLogin)
     {
         [self performSegueWithIdentifier:@"HomeSegue_NoAnim"sender:self];
     }

@@ -337,10 +337,10 @@
 
         SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
-        NSString* desc=[NSString stringWithFormat:@"%@/n%@",note.title,note.note];
+        NSString* desc=[NSString stringWithFormat:@"%@\n%@",note.title,note.note];
         [mySLComposerSheet setInitialText:desc];
         
-        [mySLComposerSheet addURL:[NSURL URLWithString:@"http://files.parse.com/ad1acf14-0d33-4694-abc5-071bb9781943/bee98806-54d8-467b-9a3f-6f47b2da9c85-bowlingball256.png"]];
+       // [mySLComposerSheet addURL:[NSURL URLWithString:@"http://files.parse.com/ad1acf14-0d33-4694-abc5-071bb9781943/bee98806-54d8-467b-9a3f-6f47b2da9c85-bowlingball256.png"]];
         
         [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
             
@@ -359,6 +359,11 @@
         
         [self presentViewController:mySLComposerSheet animated:YES completion:nil];
     
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NO Facebook Account" message:@"There are no Facebook accounts configured. you can add or create a Facebook account in Settings." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
 }
 

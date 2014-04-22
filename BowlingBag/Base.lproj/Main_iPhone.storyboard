@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -102,11 +102,12 @@
                         <outlet property="passwordTextField" destination="dzv-0F-9MH" id="ja9-O4-5QS"/>
                         <outlet property="stayLoginButton" destination="MyY-KH-4Z1" id="c7L-n7-Yxg"/>
                         <segue destination="qgu-ru-6zI" kind="modal" identifier="HomeSegue" id="uov-hV-bUA"/>
+                        <segue destination="qgu-ru-6zI" kind="modal" identifier="HomeSegue_NoAnim" animates="NO" id="HTC-jw-mZd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="-479"/>
+            <point key="canvasLocation" x="-333" y="701"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="lUu-UO-Ahd">
@@ -208,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q37-Wf-0ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="88"/>
+            <point key="canvasLocation" x="708" y="908"/>
         </scene>
         <!--Bag Table View Controller - League Bag-->
         <scene sceneID="TaP-tG-jyv">
@@ -557,7 +558,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gqp-1B-fJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398" y="625"/>
+            <point key="canvasLocation" x="290" y="-79"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="Eiq-tI-VCL">
@@ -613,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPV-ir-Nzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-857" y="-187"/>
+            <point key="canvasLocation" x="-345" y="-247"/>
         </scene>
         <!--Setting View Controller - Settings-->
         <scene sceneID="5vx-iM-QkL">
@@ -658,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="San-mG-Flo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="822" y="718"/>
+            <point key="canvasLocation" x="530" y="1566"/>
         </scene>
         <!--Note Table View Controller - Notes-->
         <scene sceneID="3qa-PL-IzN">
@@ -982,9 +983,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cez-6l-fUh"/>
         <segue reference="doz-0r-UQl"/>
-        <segue reference="51g-Fh-PTO"/>
+        <segue reference="cez-6l-fUh"/>
         <segue reference="4kZ-DC-ggZ"/>
+        <segue reference="51g-Fh-PTO"/>
     </inferredMetricsTieBreakers>
 </document>

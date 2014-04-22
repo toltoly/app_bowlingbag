@@ -567,7 +567,9 @@
        // image3.hidden=FALSE;
         [type appendString:@"SPORTSHOT"];
     }
-    [self useFacebookAPI:type];
+  //  [self useFacebookAPI:type];
+    
+    [self useNativeFacebookAPI:type];
 //    
 //    FBRequest *request = [FBRequest requestForMe];
 //    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
@@ -690,11 +692,15 @@
         
         SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
-        NSString* disc=[NSString stringWithFormat:@"%@/n%@/n%@",bowl.name,typeString,bowl.note];
+        NSString* disc=[NSString stringWithFormat:@"%@\n%@\n%@",bowl.name,typeString,bowl.note];
         [mySLComposerSheet setInitialText:disc];
         
-        [mySLComposerSheet addURL:[NSURL URLWithString:@"http://files.parse.com/ad1acf14-0d33-4694-abc5-071bb9781943/bee98806-54d8-467b-9a3f-6f47b2da9c85-bowlingball256.png"]];
-        
+      
+        NSURL *imageURL = [NSURL URLWithString:bowl.image.url];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        UIImage *image = [UIImage imageWithData:imageData];
+        //[mySLComposerSheet addURL:[NSURL URLWithString:bowl.image.url]];
+        [mySLComposerSheet addImage:image];
         [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
             
             switch (result) {
@@ -715,7 +721,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NO Facebook Account" message:@"There are no Facebook accounts configured. you can add or create a Facebook account in Settings." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
 

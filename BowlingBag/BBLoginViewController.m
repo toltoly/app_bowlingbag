@@ -67,7 +67,7 @@
     
     
     [BBAppState getInstance].stayLogin= [[NSUserDefaults standardUserDefaults] boolForKey:@"kStayLogin"];
-    
+    NSLog(@"pressStayLogin %d", [BBAppState getInstance].stayLogin);
     [self changeStayLoginButton];
     
                                          
@@ -75,9 +75,9 @@
     
     appState=[BBAppState getInstance];
     appState.user=[PFUser currentUser];
-    if (appState.user)
+    if (appState.user )
     {
-        [self performSegueWithIdentifier:@"HomeSegue"sender:self];
+        [self performSegueWithIdentifier:@"HomeSegue_NoAnim"sender:self];
     }
     else
     {
@@ -224,7 +224,8 @@
     
     [BBAppState getInstance].stayLogin=![BBAppState getInstance].stayLogin;
     [[NSUserDefaults standardUserDefaults] setBool:[BBAppState getInstance].stayLogin forKey:@"kStayLogin"];
-    
+
+    NSLog(@"pressStayLogin %d", [BBAppState getInstance].stayLogin);
     [self changeStayLoginButton];
 }
 

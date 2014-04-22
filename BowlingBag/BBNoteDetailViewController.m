@@ -7,6 +7,7 @@
 //
 
 #import "BBNoteDetailViewController.h"
+#import <Social/Social.h>
 
 #define  kViewDetailMoveDistance 40
 
@@ -287,55 +288,78 @@
 
 - (IBAction)pressSharedButton:(id)sender {
     
-    //
-    //    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-    //                                   @"Sharing Tutorial", @"name",
-    //                                   @"Build great social apps and get more installs.", @"caption",
-    //                                   @"Allow your users to share stories on Facebook from your app using the iOS SDK.", @"description",
-    //                                   @"https://developers.facebook.com/docs/ios/share/", @"link",
-    //                                   @"http://i.imgur.com/g3Qc1HN.png", @"picture",
-    //                                   nil];
-    //
+
     
-    CGRect screenBound = [[UIScreen mainScreen] bounds];
-    CGSize screenSize = screenBound.size;
-    CGFloat screenWidth = screenSize.width;
-    CGFloat screenHeight = screenSize.height;
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.center = CGPointMake(screenWidth/2, screenHeight/2);
-    spinner.hidesWhenStopped = YES;
-    [self.view addSubview:spinner];
-    [spinner startAnimating];
+//    CGRect screenBound = [[UIScreen mainScreen] bounds];
+//    CGSize screenSize = screenBound.size;
+//    CGFloat screenWidth = screenSize.width;
+//    CGFloat screenHeight = screenSize.height;
+//    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    spinner.center = CGPointMake(screenWidth/2, screenHeight/2);
+//    spinner.hidesWhenStopped = YES;
+//    [self.view addSubview:spinner];
+//    [spinner startAnimating];
+//    
+//    // Put together the dialog parameters
+//    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+//                                   note.title, @"name",
+//                                   @"----", @"caption",
+//                                   note.note, @"description",
+//                                   @"http://files.parse.com/ad1acf14-0d33-4694-abc5-071bb9781943/bee98806-54d8-467b-9a3f-6f47b2da9c85-bowlingball256.png", @"picture",
+//                                   nil];
+//    
+//    // Make the request
+//    [FBRequestConnection startWithGraphPath:@"/me/feed"
+//                                 parameters:params
+//                                 HTTPMethod:@"POST"
+//                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+//                              if (!error) {
+//                                  [spinner stopAnimating];
+//                                  // Link posted successfully to Facebook
+//                                  NSLog(@"result: %@", result);
+//                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                                  [alert show];
+//                                  
+//                              } else {
+//                                  [spinner stopAnimating];
+//                                  // An error occurred, we need to handle the error
+//                                  // See: https://developers.facebook.com/docs/ios/errors
+//                                  NSLog(@"%@", error.description);
+//                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                                  [alert show];
+//                              }
+//                          }];
     
-    // Put together the dialog parameters
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   note.title, @"name",
-                                   @"----", @"caption",
-                                   note.note, @"description",
-                                   @"http://files.parse.com/ad1acf14-0d33-4694-abc5-071bb9781943/bee98806-54d8-467b-9a3f-6f47b2da9c85-bowlingball256.png", @"picture",
-                                   nil];
     
-    // Make the request
-    [FBRequestConnection startWithGraphPath:@"/me/feed"
-                                 parameters:params
-                                 HTTPMethod:@"POST"
-                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                              if (!error) {
-                                  [spinner stopAnimating];
-                                  // Link posted successfully to Facebook
-                                  NSLog(@"result: %@", result);
-                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                  [alert show];
-                                  
-                              } else {
-                                  [spinner stopAnimating];
-                                  // An error occurred, we need to handle the error
-                                  // See: https://developers.facebook.com/docs/ios/errors
-                                  NSLog(@"%@", error.description);
-                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                  [alert show];
-                              }
-                          }];
+    
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        
+
+        SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        NSString* desc=[NSString stringWithFormat:@"%@/n%@",note.title,note.note];
+        [mySLComposerSheet setInitialText:desc];
+        
+        [mySLComposerSheet addURL:[NSURL URLWithString:@"http://files.parse.com/ad1acf14-0d33-4694-abc5-071bb9781943/bee98806-54d8-467b-9a3f-6f47b2da9c85-bowlingball256.png"]];
+        
+        [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    NSLog(@"Post Canceled");
+                    break;
+                case SLComposeViewControllerResultDone:
+                    NSLog(@"Post Sucessful");
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+        
+        [self presentViewController:mySLComposerSheet animated:YES completion:nil];
+    
+    }
 }
 
 

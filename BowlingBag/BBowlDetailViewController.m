@@ -10,6 +10,7 @@
 #import "UIImage+ResizeAdditions.h"
 #import "UIImageView+WebCache.h"
 #import <Parse/Parse.h>
+#import <Social/Social.h>
 #define  kViewDetailMoveDistance 170
 
 @interface BBowlDetailViewController ()
@@ -566,7 +567,27 @@
        // image3.hidden=FALSE;
         [type appendString:@"SPORTSHOT"];
     }
-    
+    [self useFacebookAPI:type];
+//    
+//    FBRequest *request = [FBRequest requestForMe];
+//    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+//        if (!error) {
+//            [self useFacebookAPI:type];
+//            // handle successful response
+//        } else if ([error.userInfo[FBErrorParsedJSONResponseKey][@"body"][@"error"][@"type"] isEqualToString:@"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
+//            NSLog(@"The facebook session was invalidated");
+//            [self useNativeFacebookAPI:type];
+//        } else {
+//            NSLog(@"Some other error: %@", error);
+//             [self useNativeFacebookAPI:type];
+//        }
+//    }];
+  
+}
+
+
+-(void)useFacebookAPI:(NSString*)typeString
+{
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
     CGFloat screenWidth = screenSize.width;
@@ -576,39 +597,129 @@
     spinner.hidesWhenStopped = YES;
     [self.view addSubview:spinner];
     [spinner startAnimating];
+    
+    
+    [FBDialogs presentShareDialogWithLink:nil
+                                     name:bowl.name
+                                  caption:typeString
+                              description:bowl.note
+                                  picture: [NSURL URLWithString:bowl.image.url]
+                              clientState:nil
+                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                      if(error) {
+                                          [spinner stopAnimating];
+                                          // An error occurred, we need to handle the error
+                                          // See: https://developers.facebook.com/docs/ios/errors
+                                          NSLog(@"%@", error.description);
+                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                          [alert show];
 
-    // Put together the dialog parameters
+                                      } else {
+                                          // Success
+                                          [spinner stopAnimating];
+                                          // Link posted successfully to Facebook
+                                      
+                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                          [alert show];
+                                      }
+                                  }];
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    bowl.name, @"name",
-                                   type, @"caption",
+                                   typeString, @"caption",
                                    bowl.note, @"description",
+                              //     @"https://developers.facebook.com/docs/ios/share/", @"link",
                                    bowl.image.url, @"picture",
                                    nil];
     
-    // Make the request
-    [FBRequestConnection startWithGraphPath:@"/me/feed"
-                                 parameters:params
-                                 HTTPMethod:@"POST"
-                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                              if (!error) {
-                                  [spinner stopAnimating];
-                                  // Link posted successfully to Facebook
-                                  NSLog(@"result: %@", result);
-                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                  [alert show];
-
-                              } else {
-                                   [spinner stopAnimating];
-                                  // An error occurred, we need to handle the error
-                                  // See: https://developers.facebook.com/docs/ios/errors
-                                  NSLog(@"%@", error.description);
-                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                                  [alert show];
-                              }
-                          }];
+    // Show the feed dialog
+    [FBWebDialogs presentFeedDialogModallyWithSession:nil
+                                           parameters:params
+                                              handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+                                                  if (error) {
+                                                      // An error occurred, we need to handle the error
+                                                      // See: https://developers.facebook.com/docs/ios/errors
+                                                      [spinner stopAnimating];
+                                                      NSLog(@"%@", error.description);
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                                      [alert show];
+                                                  } else {
+                                                      if (result == FBWebDialogResultDialogNotCompleted) {
+                                                          // User cancelled.
+                                                          NSLog(@"User cancelled.");
+                                                      } else {
+                                                          // Handle the publish feed callback
+                                                          NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                                                          
+                                                          if (![urlParams valueForKey:@"post_id"]) {
+                                                              // User cancelled.
+                                                              NSLog(@"User cancelled.");
+                                                              
+                                                          } else {
+                                                              // User clicked the Share button
+                                                              NSString *result = [NSString stringWithFormat: @"Posted story, id: %@", [urlParams valueForKey:@"post_id"]];
+                                                              [spinner stopAnimating];
+                                                              // Link posted successfully to Facebook
+                                                              
+                                                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:result delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                                              [alert show];
+                                                          }
+                                                      }
+                                                  }
+                                              }];
+  
 }
 
+// A function for parsing URL parameters returned by the Feed Dialog.
+- (NSDictionary*)parseURLParams:(NSString *)query {
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val =
+        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        params[kv[0]] = val;
+    }
+    return params;
+}
+-(void)useNativeFacebookAPI:(NSString*)typeString
+{
+    
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        
+        
+        SLComposeViewController *mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        NSString* disc=[NSString stringWithFormat:@"%@/n%@/n%@",bowl.name,typeString,bowl.note];
+        [mySLComposerSheet setInitialText:disc];
+        
+        [mySLComposerSheet addURL:[NSURL URLWithString:@"http://files.parse.com/ad1acf14-0d33-4694-abc5-071bb9781943/bee98806-54d8-467b-9a3f-6f47b2da9c85-bowlingball256.png"]];
+        
+        [mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+            
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    NSLog(@"Post Canceled");
+                    break;
+                case SLComposeViewControllerResultDone:
+                    NSLog(@"Post Sucessful");
+                    break;
+                    
+                default:
+                    break;
+            }
+        }];
+        
+        [self presentViewController:mySLComposerSheet animated:YES completion:nil];
+        
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Result" message:@"Success!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 
+}
 #pragma mark - Popover methods
 -(void)menuItemSelected:(int)menuItem   {
     

@@ -57,6 +57,7 @@
 		873A26E318E5E3AA0025F626 /* BBTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873A26E218E5E3A90025F626 /* BBTabBarController.m */; };
 		873A26E618E5E7E80025F626 /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873A26E518E5E7E80025F626 /* BBNavigationController.m */; };
 		874B46FE18FAC8610061FABF /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874B46FD18FAC8610061FABF /* FacebookSDK.framework */; };
+		874B470018FB2EE10061FABF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874B46FF18FB2EE10061FABF /* Social.framework */; };
 		87FCE151188E179000947E78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE150188E179000947E78 /* Foundation.framework */; };
 		87FCE153188E179000947E78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE152188E179000947E78 /* CoreGraphics.framework */; };
 		87FCE155188E179000947E78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FCE154188E179000947E78 /* UIKit.framework */; };
@@ -176,6 +177,7 @@
 		873A26E418E5E7E80025F626 /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
 		873A26E518E5E7E80025F626 /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
 		874B46FD18FAC8610061FABF /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		874B46FF18FB2EE10061FABF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		87FCE14D188E179000947E78 /* BowlingBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BowlingBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FCE150188E179000947E78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		87FCE152188E179000947E78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -213,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				874B470018FB2EE10061FABF /* Social.framework in Frameworks */,
 				711B27ED1892FFA700AF96D6 /* SystemConfiguration.framework in Frameworks */,
 				711B27EB1892FF9700AF96D6 /* StoreKit.framework in Frameworks */,
 				711B27E91892FF8D00AF96D6 /* Security.framework in Frameworks */,
@@ -423,6 +426,7 @@
 		87FCE14F188E179000947E78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				874B46FF18FB2EE10061FABF /* Social.framework */,
 				874B46FD18FAC8610061FABF /* FacebookSDK.framework */,
 				8711A297189605AD009BCF15 /* Parse.framework */,
 				711B27EC1892FFA700AF96D6 /* SystemConfiguration.framework */,

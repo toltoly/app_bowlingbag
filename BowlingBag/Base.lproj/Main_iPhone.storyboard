@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -558,7 +558,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gqp-1B-fJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="290" y="-79"/>
+            <point key="canvasLocation" x="169" y="-369"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="Eiq-tI-VCL">
@@ -983,9 +983,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="doz-0r-UQl"/>
-        <segue reference="cez-6l-fUh"/>
-        <segue reference="4kZ-DC-ggZ"/>
-        <segue reference="51g-Fh-PTO"/>
+        <segue reference="nTq-u8-mgc"/>
+        <segue reference="uov-hV-bUA"/>
+        <segue reference="VFm-lR-2t8"/>
+        <segue reference="ZfI-4e-1Au"/>
     </inferredMetricsTieBreakers>
 </document>

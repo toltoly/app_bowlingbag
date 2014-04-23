@@ -404,6 +404,13 @@
 			name = Note;
 			sourceTree = "<group>";
 		};
+		878CB8F819075EDA004B26A3 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		87FCE144188E179000947E78 = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +456,7 @@
 		87FCE156188E179000947E78 /* BowlingBag */ = {
 			isa = PBXGroup;
 			children = (
+				878CB8F819075EDA004B26A3 /* iPad */,
 				71AADF0618A01BEA00E5AF31 /* Parse */,
 				7128BE7418901AFD00B1B26B /* Common */,
 				712D504E188F07A900EDD566 /* TempImage */,
@@ -809,10 +817,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BowlingBag/BowlingBag-Prefix.pch";
 				INFOPLIST_FILE = "BowlingBag/BowlingBag-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "625A348C-EC77-4B82-98E1-48FAE89FD394";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -835,10 +843,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BowlingBag/BowlingBag-Prefix.pch";
 				INFOPLIST_FILE = "BowlingBag/BowlingBag-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "640CA67F-F66B-42A8-8F88-6334EBF54409";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
